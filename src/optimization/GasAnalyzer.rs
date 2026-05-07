@@ -715,7 +715,7 @@ mod tests {
         "#;
         
         // Create a temporary file for testing
-        let temp_path = "temp_contract.sol";
+        let temp_path = "temp_contract.wasm";
         tokio::fs::write(temp_path, contract_code).await.unwrap();
         
         let result = analyzer.analyze_contract(temp_path).await.unwrap();
