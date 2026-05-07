@@ -20,7 +20,7 @@ export const corsConfig: cors.CorsOptions = {
         ip: origin
       });
 
-      callback(new Error('Not allowed by CORS'), false);
+      callback(null, false);
     }
   },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
@@ -45,7 +45,13 @@ export const corsConfig: cors.CorsOptions = {
   optionsSuccessStatus: 204
 };
 
-export const corsMiddleware = cors(corsConfig);
+export const corsMiddleware = (req: Request, res: Response, next: any) => {
+  const origin = req.get('Origin');
+  if (origin && !allowedOrigins.includes(origin)) {
+    return res.status(400).json({ error: 'Origin not allowed by CORS policy' });
+  }
+  return cors(corsConfig)(req, res, next);
+};
 
 // Strict CORS configuration for sensitive endpoints
 export const strictCorsConfig: cors.CorsOptions = {

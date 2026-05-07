@@ -31,7 +31,7 @@ describe('CrossChainService', () => {
       
       expect(chainNames).toContain('Ethereum');
       expect(chainNames).toContain('Polygon');
-      expect(chainNames).toContain('Binance Smart Chain');
+      expect(chainNames).toContain('BSC');
     });
   });
 

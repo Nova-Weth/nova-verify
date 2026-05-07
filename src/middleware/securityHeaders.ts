@@ -81,7 +81,7 @@ export const customSecurityHeaders = (req: Request, res: Response, next: NextFun
   );
   
   // Cache control for API endpoints
-  if (req.path.startsWith('/api/') || req.path.startsWith('/graphql')) {
+  if (req.path.startsWith('/api/') || req.path.startsWith('/graphql') || req.path.startsWith('/health')) {
     res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
     res.setHeader('Pragma', 'no-cache');
     res.setHeader('Expires', '0');

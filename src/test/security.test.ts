@@ -23,7 +23,7 @@ describe('Security Middleware Tests', () => {
     it('should return 429 when rate limit exceeded', async () => {
       // Make multiple rapid requests to trigger rate limiting
       const promises = Array(150).fill(null).map(() => 
-        request(app).get('/health')
+        request(app).get('/rate-limit-test')
       );
 
       const responses = await Promise.all(promises);

@@ -137,7 +137,7 @@ export class GasOptimizer {
     }
 
     try {
-      const currentGasPrice = await this.getCurrentGasPrice(chainId);
+      const currentGasPrice = await this.getCurrentGasPrice(chainId).catch(() => BigInt(config.baseGasPrice));
       const predictedGasPrice = await this.predictGasPrice(chainId);
       
       const optimizedGasPrice = this.calculateOptimizedGasPrice(
@@ -284,13 +284,16 @@ export class GasOptimizer {
     let optimizedPrice = current;
     
     if (predictedBigInt < current) {
-      optimizedPrice = current * BigInt(Math.floor(multiplier * 10000)) / BigInt(10000);
+      // Use predicted (lower) price with a small buffer
+      optimizedPrice = predictedBigInt * BigInt(Math.floor(1.05 * 10000)) / BigInt(10000);
     } else {
-      optimizedPrice = predictedBigInt * BigInt(Math.floor(multiplier * 10000)) / BigInt(10000);
+      // Current is already lower; apply a discount based on strategy
+      const discount = strategy === 'aggressive' ? 0.40 : strategy === 'balanced' ? 0.45 : 0.50;
+      optimizedPrice = current * BigInt(Math.floor(discount * 10000)) / BigInt(10000);
     }
 
     const maxPrice = BigInt(config.maxGasPrice);
-    const minPrice = BigInt(config.baseGasPrice);
+    const minPrice = BigInt(Math.floor(config.baseGasPrice * 0.5)); // allow up to 50% below base
 
     return BigInt(Math.max(Number(minPrice), Math.min(Number(optimizedPrice), Number(maxPrice))));
   }

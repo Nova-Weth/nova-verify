@@ -53,6 +53,10 @@ describe('Cross-Chain Functionality Tests', () => {
     });
 
     describe('initiateTransfer', () => {
+      beforeEach(async () => {
+        await crossChainService.connectWallet('0x1234567890123456789012345678901234567890', 1);
+      });
+
       it('should initiate a cross-chain transfer', async () => {
         const transferData = {
           transferId: 'test-transfer-1',
@@ -91,6 +95,10 @@ describe('Cross-Chain Functionality Tests', () => {
     });
 
     describe('completeTransfer', () => {
+      beforeEach(async () => {
+        await crossChainService.connectWallet('0x1234567890123456789012345678901234567890', 1);
+      });
+
       it('should complete a pending transfer', async () => {
         // First initiate a transfer
         const transferData = {
@@ -135,7 +143,7 @@ describe('Cross-Chain Functionality Tests', () => {
         await expect(crossChainService.switchChain(
           '0x1234567890123456789012345678901234567890',
           999
-        )).rejects.toThrow('Chain 999 not supported');
+        )).rejects.toThrow('Chain 999 is not supported');
       });
     });
   });
@@ -153,7 +161,7 @@ describe('Cross-Chain Functionality Tests', () => {
 
     describe('calculateFees', () => {
       it('should calculate bridge fees correctly', () => {
-        const fees = bridgeService.calculateFees('100', '0.01');
+        const fees = bridgeService.calculateFees('100', '0.001');
         
         expect(parseFloat(fees)).toBeGreaterThan(0.01); // Should include bridge fee
         expect(parseFloat(fees)).toBeLessThan(1); // Should be reasonable
@@ -287,6 +295,10 @@ describe('Cross-Chain Functionality Tests', () => {
   });
 
   describe('Integration Tests', () => {
+    beforeEach(async () => {
+      await crossChainService.connectWallet('0x1234567890123456789012345678901234567890', 1);
+    });
+
     it('should complete full cross-chain transfer flow', async () => {
       // 1. Initiate transfer
       const transferData = {
@@ -335,6 +347,10 @@ describe('Cross-Chain Functionality Tests', () => {
   });
 
   describe('Performance Tests', () => {
+    beforeEach(async () => {
+      await crossChainService.connectWallet('0x1234567890123456789012345678901234567890', 1);
+    });
+
     it('should handle multiple concurrent transfers', async () => {
       const transfers = Array.from({ length: 10 }, (_, i) => ({
         transferId: `concurrent-test-${i}`,

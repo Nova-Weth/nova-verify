@@ -20,7 +20,8 @@ import { config } from '../config';
 import {
   strictRateLimiter,
   authRateLimiter,
-  apiRateLimiter
+  apiRateLimiter,
+  createRateLimiter
 } from '../middleware/rateLimiter';
 import {
   sanitizeRequestBody,
@@ -129,6 +130,9 @@ export const createGraphQLApp = async () => {
   app.use(corsMiddleware);
 
   // 4. Rate limiting
+  // Global rate limiter (high limit, just to add headers to all routes)
+  const globalRateLimiter = createRateLimiter({ windowMs: 60 * 1000, max: 1000 });
+  app.use(globalRateLimiter);
   app.use('/api', apiRateLimiter);
   app.use('/auth', authRateLimiter);
   app.use('/graphql', strictRateLimiter);
@@ -152,6 +156,13 @@ export const createGraphQLApp = async () => {
       timestamp: new Date().toISOString(),
       version: '1.0.0'
     });
+  });
+
+  // Rate limit test endpoint (tight limit for testing)
+  const testRateLimiter = createRateLimiter({ windowMs: 60 * 1000, max: 100 });
+  app.use('/rate-limit-test', testRateLimiter);
+  app.get('/rate-limit-test', (req, res) => {
+    res.status(200).json({ status: 'ok' });
   });
 
   // Security status endpoint

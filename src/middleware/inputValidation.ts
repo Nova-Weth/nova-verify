@@ -195,6 +195,11 @@ const sanitizeObject = (obj: any): any => {
 
 export const validateContentType = (allowedTypes: string[]) => {
   return (req: Request, res: Response, next: NextFunction) => {
+    // GET, HEAD, DELETE, OPTIONS don't have a body — skip content-type check
+    if (['GET', 'HEAD', 'DELETE', 'OPTIONS'].includes(req.method)) {
+      return next();
+    }
+
     const contentType = req.get('Content-Type');
     
     if (!contentType || !allowedTypes.some(type => contentType.includes(type))) {

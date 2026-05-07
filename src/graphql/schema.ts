@@ -295,6 +295,12 @@ export const typeDefs = gql`
     decimals: Int!
   }
 
+  input AssetInfoInput {
+    tokenAddress: String!
+    amount: String!
+    decimals: Int!
+  }
+
   type GasOptimization {
     gasLimit: String!
     gasPrice: String!
@@ -404,7 +410,7 @@ export const typeDefs = gql`
     initiateAtomicSwap(
       swapId: String!
       participantChain: Int!
-      participantAsset: AssetInfo!
+      participantAsset: AssetInfoInput!
       secretHash: String!
       timelock: Int!
     ): AtomicSwap!
