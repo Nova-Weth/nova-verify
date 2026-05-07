@@ -72,7 +72,7 @@ export const proofResolvers = {
       };
     },
 
-    myProofs: (_: any, { status, first = 10, after }: { status?: ProofStatus; first?: number; after?: string }, { user }: { user?: any }) => {
+    myProofs: async (_: any, { status, first = 10, after }: { status?: ProofStatus; first?: number; after?: string }, { user }: { user?: any }) => {
       if (!user) {
         throw new Error('Not authenticated');
       }
@@ -105,7 +105,7 @@ export const proofResolvers = {
   },
 
   Mutation: {
-    createProof: (_: any, { title, description, metadata }: { title: string; description: string; metadata?: any }, { user }: { user?: any }) => {
+    createProof: async (_: any, { title, description, metadata }: { title: string; description: string; metadata?: any }, { user }: { user?: any }) => {
       if (!user) {
         throw new Error('Not authenticated');
       }
@@ -129,7 +129,7 @@ export const proofResolvers = {
       return newProof;
     },
 
-    updateProof: (_: any, { id, title, description, status }: { id: string; title?: string; description?: string; status?: ProofStatus }, { user }: { user?: any }) => {
+    updateProof: async (_: any, { id, title, description, status }: { id: string; title?: string; description?: string; status?: ProofStatus }, { user }: { user?: any }) => {
       if (!user) {
         throw new Error('Not authenticated');
       }
@@ -159,7 +159,7 @@ export const proofResolvers = {
       return proof;
     },
 
-    deleteProof: (_: any, { id }: { id: string }, { user }: { user?: any }) => {
+    deleteProof: async (_: any, { id }: { id: string }, { user }: { user?: any }) => {
       if (!user) {
         throw new Error('Not authenticated');
       }

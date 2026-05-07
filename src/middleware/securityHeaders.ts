@@ -43,9 +43,9 @@ export const helmetConfig = {
   contentSecurityPolicy: isProduction ? contentSecurityPolicy : false,
   crossOriginEmbedderPolicy: isProduction,
   crossOriginOpenerPolicy: isProduction,
-  crossOriginResourcePolicy: { policy: "cross-origin" },
+  crossOriginResourcePolicy: { policy: "cross-origin" as const },
   dnsPrefetchControl: { allow: false },
-  frameguard: { action: 'deny' },
+  frameguard: { action: 'deny' as const },
   hidePoweredBy: true,
   hsts: isProduction ? {
     maxAge: 31536000, // 1 year
@@ -56,7 +56,7 @@ export const helmetConfig = {
   noSniff: true,
   originAgentCluster: true,
   permittedCrossDomainPolicies: false,
-  referrerPolicy: { policy: 'strict-origin-when-cross-origin' },
+  referrerPolicy: { policy: 'strict-origin-when-cross-origin' as const },
   xssFilter: true
 };
 

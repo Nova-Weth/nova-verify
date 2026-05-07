@@ -66,4 +66,4 @@ export const uploadRateLimiter = createRateLimiter({
   message: 'Upload limit exceeded. Please try again in 1 hour.'
 });
 
-export const createRateLimiter = createRateLimiter;
+export { createRateLimiter };

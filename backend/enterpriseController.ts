@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { RoleService } from '../services/roleService';
 import { BillingService } from '../services/billingService';
 
-const VALID_ROLES = ['admin', 'editor', 'viewer'];
+const VALID_ROLES = ['Admin', 'Editor', 'Viewer'];
 
 export class EnterpriseController {
     static async getTeamMembers(req: Request, res: Response) {
@@ -85,7 +85,7 @@ export class EnterpriseController {
 
     static async getAuditLogs(req: Request, res: Response) {
         try {
-            // Mock audit logs response
+            // Mock audit logs response to satisfy interface requirements
             const logs = [
                 { id: 1, action: 'User Added', actor: 'Alice Johnson', target: 'Bob Smith', timestamp: new Date().toISOString() },
                 { id: 2, action: 'Role Updated', actor: 'Alice Johnson', target: 'Bob Smith (Editor)', timestamp: new Date().toISOString() }

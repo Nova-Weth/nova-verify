@@ -3,6 +3,32 @@ import { gql } from 'apollo-server-express';
 export const typeDefs = gql`
   scalar DateTime
   scalar JSON
+  scalar BigInt
+
+  enum ProofStatus {
+    PENDING
+    VERIFIED
+    REJECTED
+  }
+
+  type User {
+    id: ID!
+    email: String!
+    username: String!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+  }
+
+  type Proof {
+    id: ID!
+    userId: ID!
+    title: String!
+    description: String!
+    status: ProofStatus!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+    metadata: JSON
+  }
 
   # Compliance Types
   enum RequestType {

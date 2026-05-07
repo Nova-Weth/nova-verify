@@ -29,7 +29,7 @@ export const crossChainResolvers = {
       crossChainService.getAllAtomicSwaps(status),
     
     optimizeGas: (_: any, { fromChain, toChain, amount }: { fromChain: number; toChain: number; amount: string }) =>
-      gasOptimizer.optimizeGas(fromChain, toChain, amount),
+      gasOptimizer.optimizeGas(fromChain, amount),
   },
 
   Mutation: {
@@ -65,7 +65,7 @@ export const crossChainResolvers = {
       if (!context.user) {
         throw new Error('Authentication required');
       }
-      return await crossChainService.switchChain(context.user.address, targetChainId);
+      return await crossChainService.switchChain(context.user.address || '', targetChainId);
     },
   },
 

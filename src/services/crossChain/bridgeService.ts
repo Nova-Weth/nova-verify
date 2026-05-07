@@ -503,4 +503,14 @@ export class BridgeService {
       errors
     };
   }
+
+  public async estimateGasCost(fromChain: number, toChain: number, amount: string): Promise<string> {
+    return this.estimateBridgeFee(amount, fromChain, toChain);
+  }
+
+  public calculateFees(amount: string, feeRate: string): string {
+    const amountNum = parseFloat(amount);
+    const feeRateNum = parseFloat(feeRate);
+    return (amountNum * feeRateNum).toFixed(6);
+  }
 }

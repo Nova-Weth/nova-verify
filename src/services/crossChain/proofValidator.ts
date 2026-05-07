@@ -1,6 +1,15 @@
 import { ethers } from 'ethers';
 import { createHash, createHmac } from 'crypto';
-import { CrossChainProof, VerificationResult } from './crossChainService';
+import { CrossChainProof } from './crossChainService';
+
+export enum VerificationResult {
+  VALID = 'valid',
+  INVALID = 'invalid',
+  PENDING = 'pending',
+  EXPIRED = 'expired',
+  INSUFFICIENT_CONFIRMATIONS = 'insufficient_confirmations',
+  MALFORMED_PROOF = 'malformed_proof',
+}
 
 export interface ProofValidationConfig {
   chainId: number;
@@ -29,7 +38,7 @@ export interface MerkleProof {
 
 export class CrossChainProofValidator {
   private validationConfigs: Map<number, ProofValidationConfig> = new Map();
-  private providers: Map<number, ethers.JsonRpcProvider> = new Map();
+  private providers: Map<number, ethers.providers.JsonRpcProvider> = new Map();
   private proofCache: Map<string, ValidationResult> = new Map();
   private readonly CACHE_DURATION = 300000; // 5 minutes
 
@@ -85,7 +94,7 @@ export class CrossChainProofValidator {
     };
 
     if (rpcUrls[chainId]) {
-      this.providers.set(chainId, new ethers.JsonRpcProvider(rpcUrls[chainId]));
+      this.providers.set(chainId, new ethers.providers.JsonRpcProvider(rpcUrls[chainId]));
     }
   }
 
@@ -367,12 +376,14 @@ export class CrossChainProofValidator {
     try {
       // Create message hash for signature verification
       const message = this.createVerificationMessage(proof);
-      const messageHash = ethers.keccak256(ethers.toUtf8Bytes(message));
+      const messageHash = ethers.utils.keccak256(ethers.utils.toUtf8Bytes(message));
 
       // Check if any verifier address signed the proof
       for (const verifierAddress of config.verifierAddresses) {
         try {
-          const recoveredAddress = ethers.recoverAddress(messageHash, proof.verifierSignature);
+          const verifierSignature = (proof as any).verifierSignature;
+          if (!verifierSignature) continue;
+          const recoveredAddress = ethers.utils.recoverAddress(messageHash, verifierSignature);
           if (recoveredAddress.toLowerCase() === verifierAddress.toLowerCase()) {
             return {
               isValid: true,

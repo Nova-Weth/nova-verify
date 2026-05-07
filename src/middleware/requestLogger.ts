@@ -49,8 +49,8 @@ class RequestLogger {
     const requestId = randomUUID();
     
     // Store original res.end to capture response data
-    const originalEnd = res.end;
-    res.end = function(chunk?: any, encoding?: any) {
+    const originalEnd = res.end.bind(res) as typeof res.end;
+    (res as any).end = function(chunk?: any, encoding?: any) {
       const endTime = Date.now();
       const responseTime = endTime - startTime;
       
@@ -58,7 +58,7 @@ class RequestLogger {
       logger.logCompletedRequest(req, res, requestId, responseTime, chunk);
       
       // Call original end
-      originalEnd.call(this, chunk, encoding);
+      return originalEnd(chunk, encoding);
     };
 
     // Add request ID to response headers

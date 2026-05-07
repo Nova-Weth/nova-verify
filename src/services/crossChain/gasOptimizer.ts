@@ -110,9 +110,20 @@ export class GasOptimizer {
 
   public async optimizeGas(
     chainId: number,
-    amount: string,
+    toChainOrAmount: number | string,
+    amountOrStrategy?: string,
     strategy: 'conservative' | 'balanced' | 'aggressive' = 'balanced'
   ): Promise<GasOptimizationResult> {
+    // Support both (chainId, amount) and (fromChain, toChain, amount) signatures
+    let amount: string;
+    if (typeof toChainOrAmount === 'number') {
+      amount = amountOrStrategy || '0';
+    } else {
+      amount = toChainOrAmount;
+      if (amountOrStrategy && ['conservative', 'balanced', 'aggressive'].includes(amountOrStrategy)) {
+        strategy = amountOrStrategy as 'conservative' | 'balanced' | 'aggressive';
+      }
+    }
     const cacheKey = `${chainId}_${amount}_${strategy}`;
     const cached = this.optimizationCache.get(cacheKey);
 
@@ -144,13 +155,13 @@ export class GasOptimizer {
         gasLimit: gasLimit.toString(),
         gasPrice: optimizedGasPrice.toString(),
         maxFeePerGas: config.eip1559Enabled ? 
-          (optimizedGasPrice + config.priorityFee).toString() : undefined,
+          (optimizedGasPrice + BigInt(config.priorityFee)).toString() : undefined,
         maxPriorityFeePerGas: config.eip1559Enabled ? 
           config.priorityFee.toString() : undefined,
-        estimatedCost: ethers.utils.formatEther(estimatedCost),
-        optimizedCost: ethers.utils.formatEther(optimizedCost),
-        savings: ethers.utils.formatEther(estimatedCost.sub(optimizedCost)),
-        savingsPercentage: Number(((estimatedCost.sub(optimizedCost)).mul(10000).div(estimatedCost)) / 100),
+        estimatedCost: ethers.utils.formatEther(estimatedCost.toString()),
+        optimizedCost: ethers.utils.formatEther(optimizedCost.toString()),
+        savings: ethers.utils.formatEther((estimatedCost - optimizedCost).toString()),
+        savingsPercentage: estimatedCost > 0n ? Number((estimatedCost - optimizedCost) * 10000n / estimatedCost) / 100 : 0,
         optimizationStrategy: strategy,
         confidence: this.calculateConfidence(currentGasPrice, predictedGasPrice)
       };
@@ -355,7 +366,7 @@ export class GasOptimizer {
     const predictedPrice = await this.predictGasPrice(chainId);
     const currentPrice = await this.getCurrentGasPrice(chainId);
     
-    const priceDifference = Number(predictedPrice - currentPrice) / Number(currentPrice);
+    const priceDifference = (Number(predictedPrice) - Number(currentPrice)) / Number(currentPrice);
     const confidence = this.calculateConfidence(currentPrice, predictedPrice);
 
     let recommendation: 'wait' | 'proceed' | 'urgent';
@@ -481,5 +492,10 @@ export class GasOptimizer {
     }
 
     return averages;
+  }
+
+  public getOptimalGasPrice(chainId: number): number {
+    const config = this.chainConfigs.get(chainId);
+    return config ? config.baseGasPrice : 20e9;
   }
 }

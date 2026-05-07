@@ -1,11 +1,13 @@
 import { ProofVersion } from '../models/ProofVersion';
 
+// Mock storage for versions
 let versions: ProofVersion[] = [];
 
 export class VersioningService {
     static async createVersion(proofId: number, data: any, author: string, message: string, branch: string = 'main', previousVersionId?: number): Promise<ProofVersion> {
         const currentVersions = versions.filter(v => v.proofId === proofId);
         
+        // Conflict Detection: Ensure we are building on the latest version of the branch
         if (previousVersionId) {
             const branchVersions = currentVersions.filter(v => v.branch === branch);
             const latestInBranch = branchVersions.sort((a, b) => b.versionNumber - a.versionNumber)[0];
@@ -46,12 +48,13 @@ export class VersioningService {
         const target = await this.getVersion(proofId, targetVersion);
         if (!target) throw new Error('Version not found');
         
+        // Create a new version that is a copy of the target
         return this.createVersion(
             proofId, 
             { eventData: target.eventData, hash: target.hash }, 
             author, 
             `Rollback to version ${targetVersion}`,
-            target.branch
+            target.branch // Maintain the branch of the target version
         );
     }
 }

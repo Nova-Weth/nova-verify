@@ -11,13 +11,17 @@ jest.mock('graphql-subscriptions', () => ({
 }));
 
 describe('Proof Subscriptions', () => {
-  let mockPubSub: jest.Mocked<PubSub>;
+  let mockPubSub: any;
   let mockAsyncIterator: jest.Mock;
 
   beforeEach(() => {
-    mockPubSub = new (PubSub as jest.MockedClass<typeof PubSub>)();
+    // Get the PubSub instance created by proofSubscription.ts (first instance)
+    const PubSubMock = PubSub as jest.Mock;
+    mockPubSub = PubSubMock.mock.instances[0] || new (PubSub as any)();
     mockAsyncIterator = mockPubSub.asyncIterator as jest.Mock;
-    mockAsyncIterator.mockReturnValue(Symbol('iterator'));
+    if (mockAsyncIterator) {
+      mockAsyncIterator.mockReturnValue(Symbol('iterator'));
+    }
   });
 
   describe('proofUpdated subscription', () => {
@@ -69,7 +73,7 @@ describe('Proof Subscriptions', () => {
 
   describe('proofCreated subscription', () => {
     it('should subscribe to proof creation', async () => {
-      const result = proofSubscriptions.proofCreated.subscribe(null, {});
+      const result = proofSubscriptions.proofCreated.subscribe();
       
       expect(mockAsyncIterator).toHaveBeenCalledWith([PROOF_CREATED]);
       expect(result).toBeDefined();

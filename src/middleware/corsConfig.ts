@@ -2,22 +2,11 @@ import cors from 'cors';
 import { Request, Response } from 'express';
 import { config } from '../config';
 
-interface CorsOptions {
-  origin: string | string[] | boolean;
-  methods?: string[];
-  allowedHeaders?: string[];
-  exposedHeaders?: string[];
-  credentials?: boolean;
-  maxAge?: number;
-  preflightContinue?: boolean;
-  optionsSuccessStatus?: number;
-}
-
 const isProduction = config.server.nodeEnv === 'production';
 
 const allowedOrigins = config.server.allowedOrigins;
 
-export const corsConfig: CorsOptions = {
+export const corsConfig: cors.CorsOptions = {
   origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
     // Allow requests with no origin (like mobile apps or curl requests)
     if (!origin) return callback(null, true);
@@ -59,7 +48,7 @@ export const corsConfig: CorsOptions = {
 export const corsMiddleware = cors(corsConfig);
 
 // Strict CORS configuration for sensitive endpoints
-export const strictCorsConfig: CorsOptions = {
+export const strictCorsConfig: cors.CorsOptions = {
   ...corsConfig,
   origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
     if (!origin) return callback(new Error('Origin required'), false);
@@ -88,10 +77,9 @@ export const strictCorsConfig: CorsOptions = {
 export const strictCorsMiddleware = cors(strictCorsConfig);
 
 // Development-only CORS configuration
-export const devCorsConfig: CorsOptions = {
+export const devCorsConfig: cors.CorsOptions = {
   origin: true, // Allow all origins in development
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-  allowedHeaders: '*',
   credentials: true
 };
 

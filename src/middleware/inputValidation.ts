@@ -1,6 +1,15 @@
 import { Request, Response, NextFunction } from 'express';
 import { sanitizeInput } from '../utils/inputSanitization';
 
+// Extend Express Request to include validator
+declare global {
+  namespace Express {
+    interface Request {
+      validator?: Validator;
+    }
+  }
+}
+
 export interface ValidationError {
   field: string;
   message: string;

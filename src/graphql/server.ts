@@ -85,12 +85,10 @@ export const createApolloServer = () => {
           return {
             didResolveOperation(requestContext) {
               // Log GraphQL operations for security monitoring
-              const operation = requestContext.request.operation;
               const operationName = requestContext.request.operationName;
 
               if (config.server.nodeEnv === 'production') {
                 console.log('GraphQL Operation:', {
-                  operation: operation?.operation,
                   operationName,
                   timestamp: new Date().toISOString()
                 });
@@ -101,7 +99,6 @@ export const createApolloServer = () => {
               // Log GraphQL errors for security monitoring
               console.error('GraphQL Error:', {
                 errors: requestContext.errors,
-                operation: requestContext.request.operation?.operation,
                 operationName: requestContext.request.operationName,
                 timestamp: new Date().toISOString()
               });
@@ -191,7 +188,7 @@ export const createGraphQLApp = async () => {
       {
         execute,
         subscribe,
-        schema: apolloServer.schema,
+        schema: (apolloServer as any).schema,
         onConnect: async (connectionParams: any, webSocket: any, context: any) => {
           // Enhanced WebSocket authentication for subscriptions
           const token = connectionParams?.authorization || connectionParams?.Authorization;

@@ -20,7 +20,7 @@ const mockUsers: User[] = [
 
 export const userResolvers = {
   Query: {
-    me: (_: any, __: any, { user }: { user?: User }) => {
+    me: async (_: any, __: any, { user }: { user?: User }) => {
       if (!user) {
         throw new Error('Not authenticated');
       }

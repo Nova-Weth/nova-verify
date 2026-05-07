@@ -1,5 +1,5 @@
 import request from 'supertest';
-import { createGraphQLApp } from '../src/graphql/server';
+import { createGraphQLApp } from '../graphql/server';
 
 describe('Security Middleware Tests', () => {
   let app: any;
@@ -27,7 +27,7 @@ describe('Security Middleware Tests', () => {
       );
 
       const responses = await Promise.all(promises);
-      const rateLimitedResponses = responses.filter(res => res.status === 429);
+      const rateLimitedResponses = responses.filter((res: any) => res.status === 429);
 
       expect(rateLimitedResponses.length).toBeGreaterThan(0);
       
