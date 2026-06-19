@@ -1,12 +1,12 @@
 """
-Exception classes for Verinode SDK.
+Exception classes for Nova Verify SDK.
 """
 
 from typing import Optional, Dict, Any
 
 
-class VerinodeError(Exception):
-    """Base exception class for all Verinode SDK errors."""
+class NovaVerifyError(Exception):
+    """Base exception class for all Nova Verify SDK errors."""
     
     def __init__(
         self,
@@ -25,7 +25,7 @@ class VerinodeError(Exception):
         return self.message
 
 
-class VerinodeAPIError(VerinodeError):
+class NovaVerifyAPIError(NovaVerifyError):
     """Exception raised for API-related errors."""
     
     def __init__(
@@ -46,7 +46,7 @@ class VerinodeAPIError(VerinodeError):
         return base_msg
 
 
-class VerinodeAuthError(VerinodeError):
+class NovaVerifyAuthError(NovaVerifyError):
     """Exception raised for authentication-related errors."""
     
     def __init__(
@@ -57,7 +57,7 @@ class VerinodeAuthError(VerinodeError):
         super().__init__(message, error_code)
 
 
-class VerinodeValidationError(VerinodeError):
+class NovaVerifyValidationError(NovaVerifyError):
     """Exception raised for validation errors."""
     
     def __init__(
@@ -76,7 +76,7 @@ class VerinodeValidationError(VerinodeError):
         return base_msg
 
 
-class VerinodeNetworkError(VerinodeError):
+class NovaVerifyNetworkError(NovaVerifyError):
     """Exception raised for network-related errors."""
     
     def __init__(
@@ -89,7 +89,7 @@ class VerinodeNetworkError(VerinodeError):
         self.retry_after = retry_after
 
 
-class VerinodeWalletError(VerinodeError):
+class NovaVerifyWalletError(NovaVerifyError):
     """Exception raised for wallet-related errors."""
     
     def __init__(
@@ -102,7 +102,7 @@ class VerinodeWalletError(VerinodeError):
         self.wallet_type = wallet_type
 
 
-class VerinodeProofError(VerinodeError):
+class NovaVerifyProofError(NovaVerifyError):
     """Exception raised for proof-related errors."""
     
     def __init__(
@@ -115,7 +115,7 @@ class VerinodeProofError(VerinodeError):
         self.proof_id = proof_id
 
 
-class VerinodeSubscriptionError(VerinodeError):
+class NovaVerifySubscriptionError(NovaVerifyError):
     """Exception raised for subscription-related errors."""
     
     def __init__(

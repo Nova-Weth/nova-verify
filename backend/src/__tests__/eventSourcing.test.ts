@@ -10,7 +10,7 @@ describe('Event Sourcing Implementation', () => {
 
   beforeAll(async () => {
     // Connect to test database
-    await mongoose.connect(process.env.MONGODB_TEST_URI || 'mongodb://localhost:27017/verinode-test');
+    await mongoose.connect(process.env.MONGODB_TEST_URI || 'mongodb://localhost:27017/nova-verify-test');
     
     // Initialize event sourcing service
     eventSourcingService = new EventSourcingService({

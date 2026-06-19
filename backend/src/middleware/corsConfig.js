@@ -10,9 +10,9 @@ class CorsConfigMiddleware {
     const allowedOrigins = [
       'http://localhost:3000',
       'http://localhost:3001',
-      'https://verinode.app',
-      'https://www.verinode.app',
-      'https://app.verinode.com'
+      'https://nova-verify.app',
+      'https://www.nova-verify.app',
+      'https://app.nova-verify.com'
     ];
 
     // Add environment-specific origins

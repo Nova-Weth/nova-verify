@@ -627,7 +627,7 @@ export class GatewayService {
 
     const documentation = {
       info: {
-        title: 'Verinode Gateway API',
+        title: 'Nova Verify Gateway API',
         version: this.registry.version,
         description: 'Enterprise-grade API Gateway with advanced features',
       },

@@ -3,7 +3,7 @@ echo 🔥 Pushing Gas Optimization Suite v2 to Repository
 echo ================================================
 
 REM Navigate to project directory
-cd /d "C:\Users\Hp\CascadeProjects\Verinode"
+cd /d "C:\Users\Hp\CascadeProjects\Nova Verify"
 
 echo 📋 Step 1: Checking Git status...
 git status
@@ -56,7 +56,7 @@ Co-authored-by: Cascade AI <cascade@example.com>"
 
 echo.
 echo 📋 Step 4: Adding remote repository...
-git remote add fork https://github.com/olaleyeolajide81-sketch/Verinode.git
+git remote add fork https://github.com/olaleyeolajide81-sketch/Nova Verify.git
 
 echo.
 echo 📋 Step 5: Creating feature branch...
@@ -70,7 +70,7 @@ echo.
 echo ✅ Push completed!
 echo.
 echo 📋 Next Steps:
-echo 1. Go to: https://github.com/olaleyeolajide81-sketch/Verinode
+echo 1. Go to: https://github.com/olaleyeolajide81-sketch/Nova Verify
 echo 2. Click "Compare & pull request"
 echo 3. Select base: "Contracts]Gas-Optimization-Suite-v2"
 echo 4. Select compare: "gas-optimization-suite-v2"

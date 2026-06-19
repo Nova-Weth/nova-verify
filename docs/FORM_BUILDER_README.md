@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes the implementation of the Advanced Form Builder feature for the Verinode project. This feature allows users to create dynamic, custom proof templates with various field types, validation rules, and conditional logic.
+This document describes the implementation of the Advanced Form Builder feature for the Nova Verify project. This feature allows users to create dynamic, custom proof templates with various field types, validation rules, and conditional logic.
 
 ## Features Implemented
 
@@ -268,4 +268,4 @@ When contributing to the form builder:
 
 ## License
 
-This feature is part of the Verinode project and follows the same MIT license.
+This feature is part of the Nova Verify project and follows the same MIT license.

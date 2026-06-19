@@ -5,7 +5,7 @@ Write-Host "🔥 Pushing Gas Optimization Suite v2 to Repository" -ForegroundCol
 Write-Host "=================================================" -ForegroundColor Yellow
 
 # Navigate to project directory
-Set-Location "C:\Users\Hp\CascadeProjects\Verinode"
+Set-Location "C:\Users\Hp\CascadeProjects\Nova Verify"
 
 # Step 1: Check Git status
 Write-Host "`n📋 Step 1: Checking Git status..." -ForegroundColor Cyan
@@ -59,7 +59,7 @@ Co-authored-by: Cascade AI <cascade@example.com>"
 
 # Step 4: Add remote repository
 Write-Host "`n📋 Step 4: Adding remote repository..." -ForegroundColor Cyan
-git remote add fork https://github.com/olaleyeolajide81-sketch/Verinode.git
+git remote add fork https://github.com/olaleyeolajide81-sketch/Nova Verify.git
 
 # Step 5: Create feature branch
 Write-Host "`n📋 Step 5: Creating feature branch..." -ForegroundColor Cyan
@@ -72,7 +72,7 @@ git push fork gas-optimization-suite-v2
 # Step 7: Display next steps
 Write-Host "`n✅ Push completed successfully!" -ForegroundColor Green
 Write-Host "`n📋 Next Steps:" -ForegroundColor Yellow
-Write-Host "1. Go to: https://github.com/olaleyeolajide81-sketch/Verinode" -ForegroundColor White
+Write-Host "1. Go to: https://github.com/olaleyeolajide81-sketch/Nova Verify" -ForegroundColor White
 Write-Host "2. Click 'Compare & pull request'" -ForegroundColor White
 Write-Host "3. Select base: 'Contracts-Gas-Optimization-Suite-v2'" -ForegroundColor White
 Write-Host "4. Select compare: 'gas-optimization-suite-v2'" -ForegroundColor White

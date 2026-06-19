@@ -6,7 +6,7 @@ export const eventBusConfig: EventBusConfig = {
     port: parseInt(process.env.REDIS_PORT || '6379'),
     password: process.env.REDIS_PASSWORD,
     db: parseInt(process.env.REDIS_DB || '0'),
-    keyPrefix: process.env.REDIS_KEY_PREFIX || 'verinode:events:'
+    keyPrefix: process.env.REDIS_KEY_PREFIX || 'nova-verify:events:'
   },
   deadLetterQueue: {
     maxSize: parseInt(process.env.EVENT_DLQ_MAX_SIZE || '10000'),
@@ -24,7 +24,7 @@ export const eventStoreConfig = {
     port: parseInt(process.env.REDIS_PORT || '6379'),
     password: process.env.REDIS_PASSWORD,
     db: parseInt(process.env.REDIS_EVENT_STORE_DB || '1'),
-    keyPrefix: process.env.REDIS_EVENT_STORE_KEY_PREFIX || 'verinode:event_store:'
+    keyPrefix: process.env.REDIS_EVENT_STORE_KEY_PREFIX || 'nova-verify:event_store:'
   },
   retention: {
     defaultDays: parseInt(process.env.EVENT_RETENTION_DAYS || '90'),
@@ -206,10 +206,10 @@ export const eventSecurityConfig = {
   maxEventSize: parseInt(process.env.EVENT_MAX_SIZE || '1048576'), // 1MB
   maxPayloadSize: parseInt(process.env.EVENT_MAX_PAYLOAD_SIZE || '524288'), // 512KB
   allowedSources: process.env.EVENT_ALLOWED_SOURCES?.split(',') || [
-    'verinode-backend',
-    'verinode-frontend',
-    'verinode-api',
-    'verinode-worker'
+    'nova-verify-backend',
+    'nova-verify-frontend',
+    'nova-verify-api',
+    'nova-verify-worker'
   ],
   blockedSources: process.env.EVENT_BLOCKED_SOURCES?.split(',') || [],
   rateLimiting: {
@@ -236,7 +236,7 @@ export const eventMonitoringConfig = {
   tracing: {
     enabled: process.env.EVENT_TRACING_ENABLED !== 'false',
     sampleRate: parseFloat(process.env.EVENT_TRACING_SAMPLE_RATE || '0.1'), // 10%
-    serviceName: process.env.EVENT_TRACING_SERVICE_NAME || 'verinode-events',
+    serviceName: process.env.EVENT_TRACING_SERVICE_NAME || 'nova-verify-events',
     jaegerEndpoint: process.env.EVENT_JAEGER_ENDPOINT
   },
   

@@ -10,7 +10,7 @@ use async_trait::async_trait;
 use serde::{Deserialize, Serialize};
 use std::sync::Arc;
 
-/// Service for managing wallets in the Verinode system
+/// Service for managing wallets in the Nova Verify system
 pub struct WalletService {
     http_client: Arc<dyn HttpClient>,
     ws_client: Arc<dyn WebSocketClient>,

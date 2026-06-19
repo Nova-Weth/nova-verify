@@ -220,7 +220,7 @@ async function main() {
       case 'help':
       default:
         console.log(`
-Verinode Search Indexing Tool
+Nova Verify Search Indexing Tool
 
 Usage: node searchIndexing.js [command]
 

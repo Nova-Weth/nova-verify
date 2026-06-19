@@ -13,16 +13,16 @@ export interface VersionInfo {
 }
 
 export class VersionManager {
-  private currentVerinodeVersion = '0.1.0';
+  private currentNova VerifyVersion = '0.1.0';
   private versionCache = new Map<string, VersionInfo>();
 
   async checkCompatibility(metadata: PluginMetadata): Promise<boolean> {
-    if (!metadata.verinodeVersion) {
+    if (!metadata.novaVerifyVersion) {
       return true;
     }
 
-    const constraint = this.parseVersionConstraint(metadata.verinodeVersion);
-    return this.satisfiesVersion(this.currentVerinodeVersion, constraint);
+    const constraint = this.parseVersionConstraint(metadata.novaVerifyVersion);
+    return this.satisfiesVersion(this.currentNova VerifyVersion, constraint);
   }
 
   async canUpdate(currentMetadata: PluginMetadata, newMetadata: PluginMetadata): Promise<boolean> {
@@ -121,15 +121,15 @@ export class VersionManager {
     return versionRegex.test(version);
   }
 
-  getVerinodeVersion(): string {
-    return this.currentVerinodeVersion;
+  getNova VerifyVersion(): string {
+    return this.currentNova VerifyVersion;
   }
 
-  setVerinodeVersion(version: string): void {
+  setNova VerifyVersion(version: string): void {
     if (!this.isValidVersion(version)) {
-      throw new Error(`Invalid Verinode version: ${version}`);
+      throw new Error(`Invalid Nova Verify version: ${version}`);
     }
-    this.currentVerinodeVersion = version;
+    this.currentNova VerifyVersion = version;
   }
 
   clearVersionCache(): void {

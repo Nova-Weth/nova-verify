@@ -144,7 +144,7 @@ export class AlertService {
         name: 'Email Notifications',
         type: 'email',
         config: {
-          recipients: ['admin@verinode.com', 'security@verinode.com'],
+          recipients: ['admin@nova-verify.com', 'security@nova-verify.com'],
           template: 'security_alert'
         },
         enabled: true

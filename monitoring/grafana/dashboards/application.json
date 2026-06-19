@@ -1,12 +1,12 @@
 {
   "dashboard": {
     "id": null,
-    "title": "Verinode - Application Metrics",
+    "title": "Nova Verify - Application Metrics",
     "timezone": "browser",
     "schemaVersion": 39,
     "version": 1,
     "refresh": "30s",
-    "tags": ["application", "performance", "verinode"],
+    "tags": ["application", "performance", "nova-verify"],
     "panels": [
       {
         "type": "stat",

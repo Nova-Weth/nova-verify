@@ -62,7 +62,7 @@ echo 🛡️ Security audit framework - IMPLEMENTED
 
 echo.
 echo === Ready for Deployment ===
-echo Repository: https://github.com/olaleyeolajide81-sketch/Verinode/tree/Gas-Optimization-Suite-v2
+echo Repository: https://github.com/olaleyeolajide81-sketch/Nova Verify/tree/Gas-Optimization-Suite-v2
 echo Branch: Gas-Optimization-Suite-v2
 echo Status: READY FOR PR CREATION
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// Smart Contract Monitoring Script for Verinode
+// Smart Contract Monitoring Script for Nova Verify
 // Monitors Stellar/Soroban contract events and metrics
 
 const { Server, AxiosClient, Contract } = require('@stellar/stellar-sdk');

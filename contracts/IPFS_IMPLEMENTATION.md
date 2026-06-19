@@ -1,7 +1,7 @@
 # IPFS Integration Implementation Summary
 
 ## Overview
-This implementation adds complete IPFS (InterPlanetary File System) integration to the Verinode project, enabling decentralized storage, pinning, gateway access, and content verification for cryptographic proofs.
+This implementation adds complete IPFS (InterPlanetary File System) integration to the Nova Verify project, enabling decentralized storage, pinning, gateway access, and content verification for cryptographic proofs.
 
 ## 🎯 Features Implemented
 
@@ -87,10 +87,10 @@ This implementation adds complete IPFS (InterPlanetary File System) integration 
 ### Services Added
 - **IPFS Node**: Core IPFS daemon with API and Gateway
 - **IPFS Cluster**: Advanced pinning and replication
-- **Enhanced Backend**: IPFS-enabled Verinode backend
+- **Enhanced Backend**: IPFS-enabled Nova Verify backend
 
 ### Network Configuration
-- Dedicated `verinode-network` for IPFS services
+- Dedicated `nova-verify-network` for IPFS services
 - Proper service discovery and communication
 - Volume persistence for IPFS data
 
@@ -145,7 +145,7 @@ curl http://localhost:5001/api/v0/version
 # Check IPFS Gateway
 curl http://localhost:8080/ipfs/QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG/readme
 
-# Check Verinode API
+# Check Nova Verify API
 curl http://localhost:3001/api/ipfs/health
 ```
 

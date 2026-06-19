@@ -1,8 +1,8 @@
-# Elasticsearch Configuration for Verinode Search
+# Elasticsearch Configuration for Nova Verify Search
 
 # Cluster settings
-cluster.name: verinode-search
-node.name: verinode-node-1
+cluster.name: nova-verify-search
+node.name: nova-verify-node-1
 
 # Network settings
 network.host: 0.0.0.0
@@ -23,17 +23,17 @@ index:
 # Analysis settings for text search
 analysis:
   analyzer:
-    verinode_analyzer:
+    nova-verify_analyzer:
       type: custom
       tokenizer: standard
-      filter: [lowercase, verinode_stop, verinode_stemmer]
+      filter: [lowercase, nova-verify_stop, nova-verify_stemmer]
     
   filter:
-    verinode_stop:
+    nova-verify_stop:
       type: stop
       stopwords: _english_
     
-    verinode_stemmer:
+    nova-verify_stemmer:
       type: stemmer
       language: english
 

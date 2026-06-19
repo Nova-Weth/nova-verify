@@ -313,9 +313,9 @@ export class SocialSharingService {
   }
 
   private generateShareUrl(proofId: string, platform: string, customMessage?: string): string {
-    const baseUrl = process.env.FRONTEND_URL || 'https://verinode.app';
+    const baseUrl = process.env.FRONTEND_URL || 'https://nova-verify.app';
     const proofUrl = `${baseUrl}/proof/${proofId}`;
-    const message = customMessage || `Check out this verified proof on Verinode`;
+    const message = customMessage || `Check out this verified proof on Nova Verify`;
     const encodedMessage = encodeURIComponent(message);
     const encodedUrl = encodeURIComponent(proofUrl);
 
@@ -327,7 +327,7 @@ export class SocialSharingService {
       case 'facebook':
         return `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedMessage}`;
       case 'reddit':
-        return `https://reddit.com/submit?url=${encodedUrl}&title=Verinode%20Proof`;
+        return `https://reddit.com/submit?url=${encodedUrl}&title=Nova Verify%20Proof`;
       default:
         return proofUrl;
     }
@@ -423,7 +423,7 @@ export class SocialSharingService {
 
   private getBadgeDescription(badgeType: string): string {
     const descriptions = {
-      'early_adopter': 'Joined Verinode in the first month',
+      'early_adopter': 'Joined Nova Verify in the first month',
       'power_user': 'Created more than 100 verified proofs',
       'verified_creator': 'Verified identity with advanced proof types',
       'community_leader': 'Top contributor in community engagement'

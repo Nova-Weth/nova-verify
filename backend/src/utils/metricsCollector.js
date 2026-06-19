@@ -4,7 +4,7 @@ class MetricsCollector {
   constructor() {
     this.register = new client.Registry();
     this.register.setDefaultLabels({
-      app: 'verinode-backend'
+      app: 'nova-verify-backend'
     });
     client.collectDefaultMetrics({ register: this.register });
   }

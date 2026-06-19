@@ -116,8 +116,8 @@ The Gas Optimization Suite v2 provides intelligent gas optimization capabilities
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/olaleyeolajide81-sketch/Verinode.git
-cd Verinode
+git clone https://github.com/olaleyeolajide81-sketch/Nova Verify.git
+cd Nova Verify
 ```
 
 2. Install Rust dependencies:
@@ -143,7 +143,7 @@ cargo build --release
 ### Basic Optimization Analysis
 
 ```rust
-use verinode_contracts::optimization::{AIOptimizer, GasAnalyzer};
+use nova-verify_contracts::optimization::{AIOptimizer, GasAnalyzer};
 
 let env = Env::default();
 let optimizer = AIOptimizer::new();
@@ -235,7 +235,7 @@ cargo run --release --bin optimization_suggester -- --contract your_contract.rs 
 
 ```bash
 # Run Rust tests
-cargo test --package verinode-contracts --lib optimization
+cargo test --package nova-verify-contracts --lib optimization
 
 # Run Python tests
 cd ai && python -m pytest
@@ -367,8 +367,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Support
 
 - **Documentation**: [docs/](docs/)
-- **Issues**: [GitHub Issues](https://github.com/olaleyeolajide81-sketch/Verinode/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/olaleyeolajide81-sketch/Verinode/discussions)
+- **Issues**: [GitHub Issues](https://github.com/olaleyeolajide81-sketch/Nova Verify/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/olaleyeolajide81-sketch/Nova Verify/discussions)
 
 ## Changelog
 

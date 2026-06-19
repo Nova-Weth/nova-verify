@@ -20,9 +20,9 @@ if [ "$STRATEGY" == "k8s" ]; then
   
   # Update image tag in deployment manifest (assuming standard kustomize or sed)
   if [ -f "kubernetes/overlays/$ENV/deployment.yaml" ]; then
-    sed -i "s|image: .*/verinode:.*|image: ${DOCKERHUB_USERNAME}/verinode:${TAG}|" kubernetes/overlays/$ENV/deployment.yaml
+    sed -i "s|image: .*/nova-verify:.*|image: ${DOCKERHUB_USERNAME}/nova-verify:${TAG}|" kubernetes/overlays/$ENV/deployment.yaml
     kubectl apply -k kubernetes/overlays/$ENV/
-    kubectl rollout status deployment/verinode -n $ENV --timeout=300s
+    kubectl rollout status deployment/nova-verify -n $ENV --timeout=300s
   else
     echo "Kubernetes configuration not found for $ENV"
     exit 1
@@ -31,7 +31,7 @@ if [ "$STRATEGY" == "k8s" ]; then
 else
   # Docker Compose Deployment (Default)
   # Tag current running image as backup (if exists)
-  docker tag ${DOCKERHUB_USERNAME}/verinode:$ENV ${DOCKERHUB_USERNAME}/verinode:$ENV-backup || echo "No existing image to backup"
+  docker tag ${DOCKERHUB_USERNAME}/nova-verify:$ENV ${DOCKERHUB_USERNAME}/nova-verify:$ENV-backup || echo "No existing image to backup"
 
   # Export tag for compose to use
   export VERINODE_IMAGE_TAG=$TAG

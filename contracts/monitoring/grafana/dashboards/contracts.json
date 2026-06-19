@@ -1,12 +1,12 @@
 {
   "dashboard": {
     "id": null,
-    "title": "Verinode - Smart Contract Monitoring",
+    "title": "Nova Verify - Smart Contract Monitoring",
     "timezone": "browser",
     "schemaVersion": 39,
     "version": 1,
     "refresh": "30s",
-    "tags": ["blockchain", "smart-contracts", "stellar", "verinode"],
+    "tags": ["blockchain", "smart-contracts", "stellar", "nova-verify"],
     "panels": [
       {
         "type": "stat",

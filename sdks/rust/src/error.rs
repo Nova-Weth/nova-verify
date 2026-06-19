@@ -1,4 +1,4 @@
-//! Error types for the Verinode SDK.
+//! Error types for the Nova Verify SDK.
 
 use reqwest::StatusCode;
 use serde::{Deserialize, Serialize};

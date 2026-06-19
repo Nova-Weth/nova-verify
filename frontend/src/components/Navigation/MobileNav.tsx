@@ -127,7 +127,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ items, onNavigate, current
               {/* Footer */}
               <div className="p-4 border-t border-gray-200">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-500">Verinode Mobile</span>
+                  <span className="text-xs text-gray-500">Nova Verify Mobile</span>
                   <button
                     className="text-xs text-blue-600 hover:text-blue-800 font-medium"
                     onClick={() => handleItemClick('/settings')}

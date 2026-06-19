@@ -409,7 +409,7 @@ jobs:
     - name: Setup Git
       run: |
         git config --global user.name "Gas Optimization Bot"
-        git config --global user.email "gas-optimization@verinode.io"
+        git config --global user.email "gas-optimization@nova-verify.io"
     
     - name: Download all artifacts
       uses: actions/download-artifact@v3
@@ -448,7 +448,7 @@ jobs:
         echo "" >> IMPLEMENTATION_REPORT.md
         
         echo "## Overview" >> IMPLEMENTATION_REPORT.md
-        echo "This report summarizes the implementation of the Gas Optimization Suite v2 for Verinode." >> IMPLEMENTATION_REPORT.md
+        echo "This report summarizes the implementation of the Gas Optimization Suite v2 for Nova Verify." >> IMPLEMENTATION_REPORT.md
         echo "" >> IMPLEMENTATION_REPORT.md
         
         echo "## Implemented Components" >> IMPLEMENTATION_REPORT.md
@@ -522,7 +522,7 @@ jobs:
       run: |
         cd contracts
         # Add the fork as a remote
-        git remote add fork https://github.com/olaleyeolajide81-sketch/Verinode.git
+        git remote add fork https://github.com/olaleyeolajide81-sketch/Nova Verify.git
         
         # Push to the forked repository
         git push fork HEAD:Gas-Optimization-Suite-v2 --force
@@ -594,7 +594,7 @@ jobs:
           ## 🚀 Deployment
           
           Ready for deployment to the forked repository at:
-          https://github.com/olaleyeolajide81-sketch/Verinode/tree/Gas-Optimization-Suite-v2
+          https://github.com/olaleyeolajide81-sketch/Nova Verify/tree/Gas-Optimization-Suite-v2
           
           Closes #145
         branch: gas-optimization-v2-pr
@@ -644,7 +644,7 @@ jobs:
         echo "" >> SUMMARY.md
         
         echo "## Repository" >> SUMMARY.md
-        echo "Forked Repository: https://github.com/olaleyeolajide81-sketch/Verinode/tree/Gas-Optimization-Suite-v2" >> SUMMARY.md
+        echo "Forked Repository: https://github.com/olaleyeolajide81-sketch/Nova Verify/tree/Gas-Optimization-Suite-v2" >> SUMMARY.md
         echo "Branch: Gas-Optimization-Suite-v2" >> SUMMARY.md
         echo "" >> SUMMARY.md
         

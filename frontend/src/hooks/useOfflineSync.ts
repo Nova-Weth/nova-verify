@@ -27,7 +27,7 @@ interface UseOfflineSyncReturn extends SyncStatus {
   retryFailedActions: () => Promise<void>;
 }
 
-const DB_NAME = 'verinode-offline';
+const DB_NAME = 'nova-verify-offline';
 const DB_VERSION = 1;
 const STORE_NAME = 'offline-actions';
 

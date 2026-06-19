@@ -1,6 +1,6 @@
 # Fix #139: Decentralized Storage Integration
 
-This PR implements comprehensive decentralized storage integration for the Verinode project, supporting both IPFS and Arweave networks with advanced features like redundancy, content addressing, and permanent storage options.
+This PR implements comprehensive decentralized storage integration for the Nova Verify project, supporting both IPFS and Arweave networks with advanced features like redundancy, content addressing, and permanent storage options.
 
 ## 🎯 Overview
 
@@ -117,4 +117,4 @@ Comprehensive test suite covering:
 
 ---
 
-**Note**: This is a comprehensive implementation that provides enterprise-grade decentralized storage capabilities for the Verinode project.
+**Note**: This is a comprehensive implementation that provides enterprise-grade decentralized storage capabilities for the Nova Verify project.

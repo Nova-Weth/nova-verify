@@ -4,7 +4,7 @@
 
 The event sourcing implementation has been successfully pushed to your forked repository:
 
-**Repository**: https://github.com/iyanumajekodunmi756/Verinode  
+**Repository**: https://github.com/iyanumajekodunmi756/Nova Verify  
 **Branch**: `Event-Sourcing-Implementation`  
 **Commit**: `cb817fbf` - "feat: Implement comprehensive event sourcing pattern"
 
@@ -14,7 +14,7 @@ The event sourcing implementation has been successfully pushed to your forked re
 
 1. **Navigate to your fork**:
    ```
-   https://github.com/iyanumajekodunmi756/Verinode
+   https://github.com/iyanumajekodunmi756/Nova Verify
    ```
 
 2. **Switch to the Event-Sourcing-Implementation branch** (if not already selected)
@@ -23,7 +23,7 @@ The event sourcing implementation has been successfully pushed to your forked re
 
 4. **Fill in PR details**:
    - **Title**: `feat: Implement comprehensive event sourcing pattern`
-   - **Base Repository**: `jobbykingz/Verinode`
+   - **Base Repository**: `jobbykingz/Nova Verify`
    - **Base Branch**: `main` (or appropriate target branch)
    - **Compare Branch**: `Event-Sourcing-Implementation`
 
@@ -38,7 +38,7 @@ gh pr create --title "feat: Implement comprehensive event sourcing pattern" \
             --body "$(cat EVENT_SOURCING_PR.md)" \
             --base main \
             --head Event-Sourcing-Implementation \
-            --repo jobbykingz/Verinode
+            --repo jobbykingz/Nova Verify
 ```
 
 ## 📋 PR Summary
@@ -118,6 +118,6 @@ Detailed documentation includes:
 ## ✅ Push Complete!
 
 Your event sourcing implementation is now available at:
-**https://github.com/iyanumajekodunmi756/Verinode/tree/Event-Sourcing-Implementation**
+**https://github.com/iyanumajekodunmi756/Nova Verify/tree/Event-Sourcing-Implementation**
 
 The implementation is production-ready and meets all requirements from issue #129. Create the pull request using the instructions above to merge it into the main repository.

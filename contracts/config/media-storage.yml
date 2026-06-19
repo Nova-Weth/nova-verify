@@ -1,4 +1,4 @@
-# Verinode Media Storage Configuration
+# Nova Verify Media Storage Configuration
 # Configuration for multimedia proof storage, compression, and optimization
 
 storage:
@@ -20,7 +20,7 @@ storage:
     
   # AWS S3 settings
   s3:
-    bucket: ${S3_BUCKET_NAME:-verinode-media}
+    bucket: ${S3_BUCKET_NAME:-nova-verify-media}
     region: ${AWS_REGION:-us-east-1}
     accessKeyId: ${AWS_ACCESS_KEY_ID}
     secretAccessKey: ${AWS_SECRET_ACCESS_KEY}
@@ -103,7 +103,7 @@ watermark:
   # Visible watermark
   visible:
     enabled: true
-    text: ${WATERMARK_TEXT:-Verified by Verinode}
+    text: ${WATERMARK_TEXT:-Verified by Nova Verify}
     position: bottom-right
     offset:
       x: 20
@@ -140,7 +140,7 @@ authenticity:
   # Certificate settings
   certificate:
     validityDays: 365
-    issuer: Verinode Media Authority
+    issuer: Nova Verify Media Authority
 
 # Media processing
 processing:

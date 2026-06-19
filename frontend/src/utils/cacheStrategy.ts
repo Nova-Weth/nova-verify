@@ -244,14 +244,14 @@ export class CacheStrategy {
 export const cacheStrategies = {
   // Static assets (CSS, JS, images) - Cache First
   staticAssets: new CacheStrategy({
-    cacheName: 'verinode-static-v1',
+    cacheName: 'nova-verify-static-v1',
     maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     maxEntries: 50
   }),
 
   // API responses - Network First with short cache
   apiResponses: new CacheStrategy({
-    cacheName: 'verinode-api-v1',
+    cacheName: 'nova-verify-api-v1',
     maxAge: 5 * 60 * 1000, // 5 minutes
     maxEntries: 100,
     networkTimeout: 5000
@@ -259,21 +259,21 @@ export const cacheStrategies = {
 
   // Proof data - Stale While Revalidate
   proofData: new CacheStrategy({
-    cacheName: 'verinode-proofs-v1',
+    cacheName: 'nova-verify-proofs-v1',
     maxAge: 30 * 60 * 1000, // 30 minutes
     maxEntries: 200
   }),
 
   // User data - Network First
   userData: new CacheStrategy({
-    cacheName: 'verinode-user-v1',
+    cacheName: 'nova-verify-user-v1',
     maxAge: 15 * 60 * 1000, // 15 minutes
     maxEntries: 50
   }),
 
   // Images - Cache First with long expiration
   images: new CacheStrategy({
-    cacheName: 'verinode-images-v1',
+    cacheName: 'nova-verify-images-v1',
     maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
     maxEntries: 100
   })

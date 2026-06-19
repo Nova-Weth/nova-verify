@@ -1,7 +1,7 @@
-package com.verinode.sdk.exception;
+package com.nova-verify.sdk.exception;
 
 /**
- * Enumeration of error codes for the Verinode SDK.
+ * Enumeration of error codes for the Nova Verify SDK.
  */
 public enum ErrorCode {
     /**

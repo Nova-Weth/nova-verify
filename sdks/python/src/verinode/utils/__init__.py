@@ -1,5 +1,5 @@
 """
-Utilities module for Verinode SDK.
+Utilities module for Nova Verify SDK.
 """
 
 from .http import HTTPClient

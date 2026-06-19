@@ -1,7 +1,7 @@
-package verinode
+package nova-verify
 
 import (
-	"github.com/Great-2025/verinode-go/pkg/verinode/internal"
+	"github.com/Great-2025/nova-verify-go/pkg/nova-verify/internal"
 )
 
 // HTTPClient constructor

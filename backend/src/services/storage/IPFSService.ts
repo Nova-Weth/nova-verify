@@ -79,7 +79,7 @@ export class IPFSService extends EventEmitter {
       // Initialize core node for advanced features
       try {
         this.coreNode = await ipfsCore({
-          repo: 'verinode-ipfs',
+          repo: 'nova-verify-ipfs',
           config: {
             Addresses: {
               Swarm: ['/ip4/0.0.0.0/tcp/4001'],
@@ -457,7 +457,7 @@ export class IPFSService extends EventEmitter {
     }
 
     try {
-      this.room = createRoom(this.coreNode, 'verinode-storage');
+      this.room = createRoom(this.coreNode, 'nova-verify-storage');
       
       this.room.on('message', (message) => {
         this.emit('pubsubMessage', {

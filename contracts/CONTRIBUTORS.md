@@ -1,6 +1,6 @@
 # Contributors
 
-We'd like to thank all the contributors who have helped make Verinode better! 🚀
+We'd like to thank all the contributors who have helped make Nova Verify better! 🚀
 
 ## Core Team
 
@@ -13,7 +13,7 @@ We'd like to thank all the contributors who have helped make Verinode better! �
 
 ## All Contributors
 
-Thanks to everyone who has contributed to Verinode:
+Thanks to everyone who has contributed to Nova Verify:
 
 <!-- This will be automatically updated with GitHub contributor tools -->
 

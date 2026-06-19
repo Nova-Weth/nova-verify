@@ -1,7 +1,7 @@
 {
-    "name": "verinode",
+    "name": "nova-verify",
     "version": "0.1.0",
-    "description": "Verinode - Web3 infrastructure for issuing and verifying cryptographic proofs on Stellar",
+    "description": "Nova Verify - Web3 infrastructure for issuing and verifying cryptographic proofs on Stellar",
     "scripts": {
         "install:all": "npm install && cd contracts && cargo build && cd ../backend && npm install && cd ../frontend && npm install",
         "build": "npm run build:contracts && npm run build:backend && npm run build:frontend",
@@ -41,16 +41,16 @@
         "proofs",
         "cryptographic"
     ],
-    "author": "Verinode Team",
+    "author": "Nova Verify Team",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/jobbykingz/Verinode.git"
+        "url": "https://github.com/jobbykingz/nova-verify.git"
     },
     "bugs": {
-        "url": "https://github.com/jobbykingz/Verinode/issues"
+        "url": "https://github.com/jobbykingz/nova-verify/issues"
     },
-    "homepage": "https://github.com/jobbykingz/Verinode#readme",
+    "homepage": "https://github.com/jobbykingz/nova-verify#readme",
     "dependencies": {
         "apollo-server-express": "^3.13.0",
         "cors": "^2.8.6",

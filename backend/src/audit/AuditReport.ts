@@ -158,7 +158,7 @@ export class AuditReport {
       includeComplianceChecks: true,
       format: 'pdf',
       branding: {
-        companyName: 'Verinode',
+        companyName: 'Nova Verify',
         colors: {
           primary: '#2563eb',
           secondary: '#64748b'

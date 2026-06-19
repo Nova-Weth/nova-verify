@@ -2,7 +2,7 @@
 
 ## 🎯 Overview
 
-This PR implements a comprehensive advanced rate limiting system for the Verinode backend API, providing enterprise-grade rate limiting capabilities with user-based limits, tiered access, dynamic adjustments, and comprehensive monitoring.
+This PR implements a comprehensive advanced rate limiting system for the Nova Verify backend API, providing enterprise-grade rate limiting capabilities with user-based limits, tiered access, dynamic adjustments, and comprehensive monitoring.
 
 ## ✨ Features Implemented
 

@@ -43,7 +43,7 @@ export const AnalyticsPage: React.FC = () => {
             <div>
               <h1 className="text-3xl font-bold text-gray-900">Analytics</h1>
               <p className="mt-2 text-sm text-gray-600">
-                Advanced analytics and business insights for Verinode
+                Advanced analytics and business insights for Nova Verify
               </p>
             </div>
             

@@ -1,14 +1,14 @@
 version: '3.8'
 
 services:
-  verinode:
+  nova-verify:
     build: .
     ports:
       - "4000:4000"
     environment:
       - NODE_ENV=development
       - PORT=4000
-      - DATABASE_URL=mongodb://mongo:27017/verinode
+      - DATABASE_URL=mongodb://mongo:27017/nova-verify
       - JWT_SECRET=dev_secret_key
     depends_on:
       - mongo

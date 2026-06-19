@@ -1,7 +1,7 @@
 # 🎉 Pull Request Successfully Created!
 
 ## Repository Information
-- **Forked Repository**: https://github.com/iyanumajekodunmi756/Verinode
+- **Forked Repository**: https://github.com/iyanumajekodunmi756/Nova Verify
 - **Branch**: `API-Rate-Limiting-Enhancement`
 - **Target Branch**: Ready for PR creation against main/upstream
 - **Commit Hash**: `9a555a3f`
@@ -160,7 +160,7 @@ DEFAULT_REQUESTS_PER_MINUTE=100
 
 ## 🎯 Next Steps for PR Creation
 
-1. **Navigate to**: https://github.com/iyanumajekodunmi756/Verinode
+1. **Navigate to**: https://github.com/iyanumajekodunmi756/Nova Verify
 2. **Select Branch**: `API-Rate-Limiting-Enhancement`
 3. **Click "Create Pull Request"**
 4. **Target**: `main` branch of upstream repository
@@ -182,7 +182,7 @@ The branch `API-Rate-Limiting-Enhancement` is now **successfully pushed** to the
 
 ---
 
-**🔗 Branch URL**: https://github.com/iyanumajekodunmi756/Verinode/tree/API-Rate-Limiting-Enhancement
+**🔗 Branch URL**: https://github.com/iyanumajekodunmi756/Nova Verify/tree/API-Rate-Limiting-Enhancement
 **📝 PR Template**: Ready for submission using `PR_DESCRIPTION_RATE_LIMITING.md`
 
 **🎉 Implementation Status**: ✅ COMPLETE AND PUSHED

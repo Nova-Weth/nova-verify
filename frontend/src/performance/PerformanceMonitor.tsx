@@ -10,7 +10,7 @@ interface Metric {
 }
 
 /**
- * Performance Monitoring Dashboard component for Verinode developers
+ * Performance Monitoring Dashboard component for Nova Verify developers
  */
 const PerformanceMonitor: React.FC = () => {
   const [metrics, setMetrics] = useState<Metric[]>([]);

@@ -1,8 +1,8 @@
-import com.verinode.sdk.Verinode;
-import com.verinode.sdk.config.VerinodeConfig;
-import com.verinode.sdk.config.NetworkType;
-import com.verinode.sdk.types.*;
-import com.verinode.sdk.exception.VerinodeException;
+import com.nova-verify.sdk.Nova Verify;
+import com.nova-verify.sdk.config.Nova VerifyConfig;
+import com.nova-verify.sdk.config.NetworkType;
+import com.nova-verify.sdk.types.*;
+import com.nova-verify.sdk.exception.Nova VerifyException;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -10,18 +10,18 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Basic example demonstrating Verinode Java SDK usage.
+ * Basic example demonstrating Nova Verify Java SDK usage.
  */
 public class JavaBasicExample {
     
     public static void main(String[] args) {
-        System.out.println("🚀 Starting Verinode Java SDK Example");
+        System.out.println("🚀 Starting Nova Verify Java SDK Example");
         System.out.println("=".repeat(50));
         
         try {
             // Initialize SDK with configuration
-            VerinodeConfig config = VerinodeConfig.builder()
-                .apiEndpoint("https://api.verinode.com")
+            Nova VerifyConfig config = Nova VerifyConfig.builder()
+                .apiEndpoint("https://api.nova-verify.com")
                 .network(NetworkType.TESTNET)
                 .timeout(Duration.ofSeconds(10))
                 .maxRetries(3)
@@ -31,7 +31,7 @@ public class JavaBasicExample {
                 .logLevel("INFO")
                 .build();
             
-            Verinode client = new Verinode(config);
+            Nova Verify client = new Nova Verify(config);
             
             // Check if SDK is ready
             if (!client.isReady()) {
@@ -77,20 +77,20 @@ public class JavaBasicExample {
         }
     }
     
-    private static void authenticateExample(Verinode client) {
+    private static void authenticateExample(Nova Verify client) {
         try {
             client.authenticate("demo@example.com", "demo-password");
             
             if (client.getCurrentUser() != null) {
                 System.out.println("✅ Authenticated as: " + client.getCurrentUser().getEmail());
             }
-        } catch (VerinodeException e) {
+        } catch (Nova VerifyException e) {
             System.out.println("⚠️  Authentication failed (expected in demo): " + e.getMessage());
             System.out.println("Continuing with unauthenticated operations...");
         }
     }
     
-    private static String createProofExample(Verinode client) {
+    private static String createProofExample(Nova Verify client) {
         try {
             ProofCreateRequest request = new ProofCreateRequest.Builder("Example Document Verification")
                 .description("This is an example proof created with the Java SDK")
@@ -109,13 +109,13 @@ public class JavaBasicExample {
             
             return proof.getId();
             
-        } catch (VerinodeException e) {
+        } catch (Nova VerifyException e) {
             System.out.println("⚠️  Proof creation failed: " + e.getMessage());
             return "demo-proof-id";
         }
     }
     
-    private static void listProofsExample(Verinode client) {
+    private static void listProofsExample(Nova Verify client) {
         try {
             PaginatedResponse<Proof> proofs = client.proof().list(
                 ProofStatus.PENDING,
@@ -129,24 +129,24 @@ public class JavaBasicExample {
                 System.out.println("   - " + proof.getTitle() + " (" + proof.getStatus() + ")");
             }
             
-        } catch (VerinodeException e) {
+        } catch (Nova VerifyException e) {
             System.out.println("⚠️  Proof listing failed: " + e.getMessage());
         }
     }
     
-    private static void searchProofsExample(Verinode client) {
+    private static void searchProofsExample(Nova Verify client) {
         try {
             PaginatedResponse<Proof> results = client.proof().search("example", 
                 new QueryOptions(1, 10, true));
             
             System.out.println("✅ Found " + results.getItems().size() + " matching proofs");
             
-        } catch (VerinodeException e) {
+        } catch (Nova VerifyException e) {
             System.out.println("⚠️  Search failed: " + e.getMessage());
         }
     }
     
-    private static void walletExample(Verinode client) {
+    private static void walletExample(Nova Verify client) {
         try {
             // Connect a demo wallet
             WalletConnectRequest request = new WalletConnectRequest.Builder(
@@ -164,16 +164,16 @@ public class JavaBasicExample {
             try {
                 String balance = client.wallet().getBalance(wallet.getId());
                 System.out.println("   Balance: " + balance);
-            } catch (VerinodeException e) {
+            } catch (Nova VerifyException e) {
                 System.out.println("   Balance: Unable to fetch (" + e.getMessage() + ")");
             }
             
-        } catch (VerinodeException e) {
+        } catch (Nova VerifyException e) {
             System.out.println("⚠️  Wallet operations failed: " + e.getMessage());
         }
     }
     
-    private static void verificationExample(Verinode client, String proofId) {
+    private static void verificationExample(Nova Verify client, String proofId) {
         if ("demo-proof-id".equals(proofId)) {
             System.out.println("⚠️  Skipping verification - no valid proof ID");
             return;
@@ -199,12 +199,12 @@ public class JavaBasicExample {
             Map<String, Object> stats = client.verification().getStatistics(null, null);
             System.out.println("   Total verifications: " + stats.get("total"));
             
-        } catch (VerinodeException e) {
+        } catch (Nova VerifyException e) {
             System.out.println("⚠️  Verification operations failed: " + e.getMessage());
         }
     }
     
-    private static void subscriptionExample(Verinode client) {
+    private static void subscriptionExample(Nova Verify client) {
         try {
             // Subscribe to updates
             Map<String, Object> filters = Map.of(

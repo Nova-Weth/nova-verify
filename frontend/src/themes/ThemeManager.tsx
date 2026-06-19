@@ -197,7 +197,7 @@ const initialState: ThemeState = {
   customThemes: {},
   brandSettings: {
     logo: '',
-    brandName: 'Verinode',
+    brandName: 'Nova Verify',
     brandColors: {},
   },
 };
@@ -283,7 +283,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [state, dispatch] = useReducer(themeReducer, initialState);
 
   useEffect(() => {
-    const savedState = localStorage.getItem('verinode-theme-state');
+    const savedState = localStorage.getItem('nova-verify-theme-state');
     if (savedState) {
       try {
         const parsedState = JSON.parse(savedState);
@@ -295,7 +295,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('verinode-theme-state', JSON.stringify(state));
+    localStorage.setItem('nova-verify-theme-state', JSON.stringify(state));
   }, [state]);
 
   useEffect(() => {

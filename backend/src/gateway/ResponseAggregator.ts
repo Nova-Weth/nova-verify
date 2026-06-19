@@ -437,7 +437,7 @@ export class ResponseAggregator {
       timeout: endpoint.timeout || this.config.timeout,
       headers: {
         'Content-Type': 'application/json',
-        'User-Agent': 'Verinode-Gateway/1.0',
+        'User-Agent': 'Nova Verify-Gateway/1.0',
         ...endpoint.headers,
       },
     };

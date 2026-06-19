@@ -556,7 +556,7 @@ const StreamingInterface: React.FC<StreamingInterfaceProps> = ({
               <label className="block text-sm text-gray-400 mb-2">RTMP URL</label>
               <input
                 type="text"
-                value={rtmpUrl || 'rtmp://stream.verinode.io/live'}
+                value={rtmpUrl || 'rtmp://stream.nova-verify.io/live'}
                 readOnly
                 className="w-full px-3 py-2 bg-gray-700 text-white rounded-lg text-sm"
               />

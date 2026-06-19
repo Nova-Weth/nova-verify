@@ -32,7 +32,7 @@ class CacheManager {
   private initializeCacheConfigs(): void {
     // API cache configuration
     this.cacheConfigs.set('api', {
-      name: 'verinode-api-cache',
+      name: 'nova-verify-api-cache',
       version: 'v1',
       maxAge: 5 * 60 * 1000, // 5 minutes
       maxEntries: 100,
@@ -41,7 +41,7 @@ class CacheManager {
 
     // Static assets cache configuration
     this.cacheConfigs.set('static', {
-      name: 'verinode-static-cache',
+      name: 'nova-verify-static-cache',
       version: 'v1',
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
       maxEntries: 200,
@@ -50,7 +50,7 @@ class CacheManager {
 
     // Images cache configuration
     this.cacheConfigs.set('images', {
-      name: 'verinode-images-cache',
+      name: 'nova-verify-images-cache',
       version: 'v1',
       maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
       maxEntries: 100,
@@ -59,7 +59,7 @@ class CacheManager {
 
     // Documents cache configuration
     this.cacheConfigs.set('documents', {
-      name: 'verinode-documents-cache',
+      name: 'nova-verify-documents-cache',
       version: 'v1',
       maxAge: 24 * 60 * 60 * 1000, // 24 hours
       maxEntries: 50,

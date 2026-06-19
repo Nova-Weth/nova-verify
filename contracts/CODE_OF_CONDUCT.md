@@ -31,7 +31,7 @@ We are committed to providing a welcoming and inclusive environment for all cont
 
 If you experience or witness unacceptable behavior, please report it to:
 
-- **Email**: conduct@verinode.org
+- **Email**: conduct@nova-verify.org
 - **GitHub**: @jobbykingz (project maintainer)
 - **Discord**: Private message to moderators
 
@@ -48,7 +48,7 @@ Unacceptable behavior will result in:
 ### Appeal Process
 
 If you believe you've been unfairly sanctioned, you may appeal to:
-- **Email**: appeal@verinode.org
+- **Email**: appeal@nova-verify.org
 - **GitHub**: Create a private issue with the maintainers
 
 ## Community Guidelines
@@ -91,8 +91,8 @@ This Code of Conduct is adapted from the [Contributor Covenant](https://www.cont
 
 ## Questions
 
-If you have any questions about this Code of Conduct, please contact us at conduct@verinode.org.
+If you have any questions about this Code of Conduct, please contact us at conduct@nova-verify.org.
 
 ---
 
-Thank you for helping us create a welcoming and inclusive community for Verinode! 🚀
+Thank you for helping us create a welcoming and inclusive community for Nova Verify! 🚀

@@ -216,13 +216,13 @@ export class APIDocumentationGenerator {
       requestExamples: true,
       customTemplates: false,
       branding: {
-        title: 'Verinode Gateway API',
+        title: 'Nova Verify Gateway API',
         description: 'Enterprise-grade API Gateway with advanced features',
         version: '1.0.0',
         contact: {
           name: 'API Team',
-          email: 'api@verinode.com',
-          url: 'https://verinode.com/support',
+          email: 'api@nova-verify.com',
+          url: 'https://nova-verify.com/support',
         },
         license: {
           name: 'MIT',
@@ -318,11 +318,11 @@ export class APIDocumentationGenerator {
       },
       servers: [
         {
-          url: 'https://api.verinode.com/v1',
+          url: 'https://api.nova-verify.com/v1',
           description: 'Production server',
         },
         {
-          url: 'https://staging-api.verinode.com/v1',
+          url: 'https://staging-api.nova-verify.com/v1',
           description: 'Staging server',
         },
       ],
@@ -349,7 +349,7 @@ export class APIDocumentationGenerator {
         contact: this.config.branding.contact,
         license: this.config.branding.license,
       },
-      host: 'api.verinode.com',
+      host: 'api.nova-verify.com',
       basePath: '/v1',
       schemes: ['https', 'http'],
       consumes: ['application/json'],
@@ -374,7 +374,7 @@ export class APIDocumentationGenerator {
       variable: [
         {
           key: 'baseUrl',
-          value: 'https://api.verinode.com/v1',
+          value: 'https://api.nova-verify.com/v1',
           type: 'string',
         },
         {
@@ -408,7 +408,7 @@ export class APIDocumentationGenerator {
       _type: 'export',
       __export_format: 4,
       __export_date: new Date().toISOString(),
-      __export_source: 'verinode-gateway',
+      __export_source: 'nova-verify-gateway',
       resources: this.generateInsomniaResources(),
     };
 
@@ -420,7 +420,7 @@ export class APIDocumentationGenerator {
 title: ${this.config.branding.title}
 description: ${this.config.branding.description}
 version: ${this.config.branding.version}
-baseUri: https://api.verinode.com/{version}
+baseUri: https://api.nova-verify.com/{version}
 `;
 
     // Add security schemes
@@ -489,7 +489,7 @@ baseUri: https://api.verinode.com/{version}
 
   private async generateAPIBlueprint(): Promise<string> {
     let blueprint = `FORMAT: 1A
-HOST: https://api.verinode.com
+HOST: https://api.nova-verify.com
 
 # ${this.config.branding.title}
 
@@ -875,7 +875,7 @@ ${JSON.stringify(response.example || {}, null, 2)}
         _type: 'request',
         parentId: 'wrk_' + this.generateId(),
         name: endpoint.summary,
-        url: 'https://api.verinode.com/v1' + endpoint.path,
+        url: 'https://api.nova-verify.com/v1' + endpoint.path,
         method: endpoint.method.toUpperCase(),
         headers: this.generateInsomniaHeaders(endpoint),
         body: this.generateInsomniaBody(endpoint),
@@ -965,7 +965,7 @@ ${JSON.stringify(response.example || {}, null, 2)}
       name: `${response.code} ${response.description}`,
       originalRequest: {
         method: endpoint.method.toUpperCase(),
-        url: 'https://api.verinode.com/v1' + endpoint.path,
+        url: 'https://api.nova-verify.com/v1' + endpoint.path,
       },
       status: response.code,
       code: parseInt(response.code),
@@ -1041,9 +1041,9 @@ ${JSON.stringify(response.example || {}, null, 2)}
  * Version: ${this.config.branding.version}
  */
 
-class VerinodeGateway {
+class NovaVerifyGateway {
   constructor(options = {}) {
-    this.baseURL = options.baseURL || 'https://api.verinode.com/v1';
+    this.baseURL = options.baseURL || 'https://api.nova-verify.com/v1';
     this.apiKey = options.apiKey || '';
     this.timeout = options.timeout || 30000;
   }
@@ -1119,7 +1119,7 @@ class VerinodeGateway {
     sdk += `
 }
 
-module.exports = VerinodeGateway;
+module.exports = NovaVerifyGateway;
 `;
 
     return sdk;
@@ -1135,8 +1135,8 @@ import requests
 import json
 from typing import Dict, Any, Optional
 
-class VerinodeGateway:
-    def __init__(self, base_url: str = "https://api.verinode.com/v1", 
+class NovaVerifyGateway:
+    def __init__(self, base_url: str = "https://api.nova-verify.com/v1", 
                  api_key: str = "", timeout: int = 30):
         self.base_url = base_url
         self.api_key = api_key
@@ -1216,11 +1216,11 @@ class VerinodeGateway:
 
 // Java SDK implementation would go here
 // This is a placeholder for demonstration
-public class VerinodeGateway {
+public class NovaVerifyGateway {
     private String baseURL;
     private String apiKey;
     
-    public VerinodeGateway(String baseURL, String apiKey) {
+    public NovaVerifyGateway(String baseURL, String apiKey) {
         this.baseURL = baseURL;
         this.apiKey = apiKey;
     }
@@ -1236,18 +1236,18 @@ public class VerinodeGateway {
 using System.Net.Http;
 using System.Text.Json;
 
-namespace VerinodeGateway
+namespace NovaVerifyGateway
 {
     /// <summary>
     /// ${this.config.branding.title} C# SDK
     /// Version: ${this.config.branding.version}
     /// </summary>
-    public class VerinodeGateway
+    public class NovaVerifyGateway
     {
         private readonly HttpClient _httpClient;
         private readonly string _baseURL;
         
-        public VerinodeGateway(string baseURL, string apiKey)
+        public NovaVerifyGateway(string baseURL, string apiKey)
         {
             _baseURL = baseURL;
             _httpClient = new HttpClient();
@@ -1262,7 +1262,7 @@ namespace VerinodeGateway
 
   private generateGoSDK(): string {
     // Simplified Go SDK generation
-    return `package verinode
+    return `package nova-verify
 
 /*
 ${this.config.branding.title} Go SDK
@@ -1275,14 +1275,14 @@ import (
     "encoding/json"
 )
 
-type VerinodeGateway struct {
+type NovaVerifyGateway struct {
     BaseURL string
     APIKey  string
     Client  *http.Client
 }
 
-func NewVerinodeGateway(baseURL, apiKey string) *VerinodeGateway {
-    return &VerinodeGateway{
+func NewNovaVerifyGateway(baseURL, apiKey string) *NovaVerifyGateway {
+    return &NovaVerifyGateway{
         BaseURL: baseURL,
         APIKey:  apiKey,
         Client:  &http.Client{},
@@ -1301,13 +1301,13 @@ func NewVerinodeGateway(baseURL, apiKey string) *VerinodeGateway {
  * Version: ${this.config.branding.version}
  */
 
-class VerinodeGateway {
+class NovaVerifyGateway {
     private $baseURL;
     private $apiKey;
     private $timeout;
     
     public function __construct($options = []) {
-        $this->baseURL = $options['baseURL'] ?? 'https://api.verinode.com/v1';
+        $this->baseURL = $options['baseURL'] ?? 'https://api.nova-verify.com/v1';
         $this->apiKey = $options['apiKey'] ?? '';
         $this->timeout = $options['timeout'] ?? 30;
     }

@@ -9,7 +9,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/Great-2025/verinode-go/pkg/verinode"
+	"github.com/Great-2025/nova-verify-go/pkg/nova-verify"
 )
 
 // HTTPClient implements the HTTPClient interface
@@ -23,7 +23,7 @@ type HTTPClient struct {
 }
 
 // NewHTTPClient creates a new HTTP client
-func NewHTTPClient(config verinode.ConfigProvider) verinode.HTTPClient {
+func NewHTTPClient(config nova-verify.ConfigProvider) nova-verify.HTTPClient {
 	return &HTTPClient{
 		baseURL: config.GetAPIEndpoint(),
 		httpClient: &http.Client{
@@ -166,7 +166,7 @@ func (c *HTTPClient) doRequestWithRetry(req *http.Request, response interface{})
 		lastErr = err
 		
 		// Don't retry on client errors (4xx)
-		if httpErr, ok := err.(*verinode.Error); ok && httpErr.StatusCode >= 400 && httpErr.StatusCode < 500 {
+		if httpErr, ok := err.(*nova-verify.Error); ok && httpErr.StatusCode >= 400 && httpErr.StatusCode < 500 {
 			break
 		}
 	}
@@ -177,26 +177,26 @@ func (c *HTTPClient) doRequestWithRetry(req *http.Request, response interface{})
 // doRequest performs a single HTTP request
 func (c *HTTPClient) doRequest(req *http.Request, response interface{}) error {
 	// Set headers
-	req.Header.Set("User-Agent", "verinode-sdk-go/1.0.0")
+	req.Header.Set("User-Agent", "nova-verify-sdk-go/1.0.0")
 	if c.authToken != "" {
 		req.Header.Set("Authorization", "Bearer "+c.authToken)
 	}
 	
 	resp, err := c.httpClient.Do(req)
 	if err != nil {
-		return verinode.NewNetworkError(fmt.Sprintf("request failed: %v", err))
+		return nova-verify.NewNetworkError(fmt.Sprintf("request failed: %v", err))
 	}
 	defer resp.Body.Close()
 	
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
-		return verinode.NewNetworkError(fmt.Sprintf("failed to read response body: %v", err))
+		return nova-verify.NewNetworkError(fmt.Sprintf("failed to read response body: %v", err))
 	}
 	
 	// Try to parse as JSON
 	var apiResponse map[string]interface{}
 	if err := json.Unmarshal(body, &apiResponse); err != nil {
-		return verinode.NewAPIError(fmt.Sprintf("invalid JSON response: %v", err), resp.StatusCode, string(body))
+		return nova-verify.NewAPIError(fmt.Sprintf("invalid JSON response: %v", err), resp.StatusCode, string(body))
 	}
 	
 	// Check for API error
@@ -205,13 +205,13 @@ func (c *HTTPClient) doRequest(req *http.Request, response interface{}) error {
 		if errMsg, ok := apiResponse["error"].(string); ok {
 			errorMsg = errMsg
 		}
-		return verinode.NewAPIError(errorMsg, resp.StatusCode, apiResponse)
+		return nova-verify.NewAPIError(errorMsg, resp.StatusCode, apiResponse)
 	}
 	
 	// Parse response if provided
 	if response != nil {
 		if err := json.Unmarshal(body, response); err != nil {
-			return verinode.NewAPIError(fmt.Sprintf("failed to parse response: %v", err), resp.StatusCode, string(body))
+			return nova-verify.NewAPIError(fmt.Sprintf("failed to parse response: %v", err), resp.StatusCode, string(body))
 		}
 	}
 	

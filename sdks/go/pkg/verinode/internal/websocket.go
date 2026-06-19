@@ -10,15 +10,15 @@ import (
 	"time"
 
 	"github.com/gorilla/websocket"
-	"github.com/Great-2025/verinode-go/pkg/verinode"
-	"github.com/Great-2025/verinode-go/pkg/verinode/types"
+	"github.com/Great-2025/nova-verify-go/pkg/nova-verify"
+	"github.com/Great-2025/nova-verify-go/pkg/nova-verify/types"
 )
 
 // WebSocketClient implements the WebSocketClient interface
 type WebSocketClient struct {
-	config          verinode.ConfigProvider
+	config          nova-verify.ConfigProvider
 	conn            *websocket.Conn
-	subscriptions   map[string]*verinode.WebSocketSubscription
+	subscriptions   map[string]*nova-verify.WebSocketSubscription
 	mu              sync.RWMutex
 	isConnected     bool
 	shouldReconnect bool
@@ -27,10 +27,10 @@ type WebSocketClient struct {
 }
 
 // NewWebSocketClient creates a new WebSocket client
-func NewWebSocketClient(config verinode.ConfigProvider) verinode.WebSocketClient {
+func NewWebSocketClient(config nova-verify.ConfigProvider) nova-verify.WebSocketClient {
 	return &WebSocketClient{
 		config:          config,
-		subscriptions:   make(map[string]*verinode.WebSocketSubscription),
+		subscriptions:   make(map[string]*nova-verify.WebSocketSubscription),
 		shouldReconnect: true,
 		reconnectDelay:  5 * time.Second,
 		done:            make(chan struct{}),
@@ -66,12 +66,12 @@ func (c *WebSocketClient) Connect(ctx context.Context) error {
 	if headers == nil {
 		headers = make(http.Header)
 	}
-	headers.Set("User-Agent", "verinode-sdk-go/1.0.0")
+	headers.Set("User-Agent", "nova-verify-sdk-go/1.0.0")
 	
 	// Connect
 	conn, _, err := websocket.DefaultDialer.DialContext(ctx, wsURL.String(), headers)
 	if err != nil {
-		return verinode.NewNetworkError(fmt.Sprintf("WebSocket connection failed: %v", err))
+		return nova-verify.NewNetworkError(fmt.Sprintf("WebSocket connection failed: %v", err))
 	}
 	
 	c.conn = conn
@@ -113,7 +113,7 @@ func (c *WebSocketClient) Disconnect(ctx context.Context) error {
 }
 
 // Subscribe subscribes to real-time updates
-func (c *WebSocketClient) Subscribe(ctx context.Context, filters map[string]interface{}) (*verinode.WebSocketSubscription, error) {
+func (c *WebSocketClient) Subscribe(ctx context.Context, filters map[string]interface{}) (*nova-verify.WebSocketSubscription, error) {
 	if !c.isConnected {
 		if err := c.Connect(ctx); err != nil {
 			return nil, err
@@ -122,7 +122,7 @@ func (c *WebSocketClient) Subscribe(ctx context.Context, filters map[string]inte
 	
 	subscriptionID := fmt.Sprintf("sub_%d", time.Now().UnixNano())
 	
-	subscription := &verinode.WebSocketSubscription{
+	subscription := &nova-verify.WebSocketSubscription{
 		ID:       subscriptionID,
 		Filters:  filters,
 		Messages: make(chan types.WebSocketMessage, 100),
@@ -189,11 +189,11 @@ func (c *WebSocketClient) SendMessage(message interface{}) error {
 	defer c.mu.RUnlock()
 	
 	if !c.isConnected || c.conn == nil {
-		return verinode.NewNetworkError("WebSocket not connected")
+		return nova-verify.NewNetworkError("WebSocket not connected")
 	}
 	
 	if err := c.conn.WriteJSON(message); err != nil {
-		return verinode.NewNetworkError(fmt.Sprintf("failed to send message: %v", err))
+		return nova-verify.NewNetworkError(fmt.Sprintf("failed to send message: %v", err))
 	}
 	
 	return nil
@@ -343,7 +343,7 @@ func (c *WebSocketClient) reconnect() {
 // resubscribeAll resubscribes to all active subscriptions
 func (c *WebSocketClient) resubscribeAll() {
 	c.mu.RLock()
-	subscriptions := make([]*verinode.WebSocketSubscription, 0, len(c.subscriptions))
+	subscriptions := make([]*nova-verify.WebSocketSubscription, 0, len(c.subscriptions))
 	for _, sub := range c.subscriptions {
 		subscriptions = append(subscriptions, sub)
 	}

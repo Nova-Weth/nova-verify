@@ -7,8 +7,8 @@ import json
 import logging
 from typing import Optional, Dict, Any, Callable, Set
 import websockets
-from ..config import VerinodeConfig
-from ..exceptions import VerinodeSubscriptionError, VerinodeNetworkError
+from ..config import NovaVerifyConfig
+from ..exceptions import NovaVerifySubscriptionError, NovaVerifyNetworkError
 
 
 class WebSocketClient:
@@ -16,7 +16,7 @@ class WebSocketClient:
     WebSocket client for real-time updates and subscriptions.
     """
     
-    def __init__(self, config: VerinodeConfig):
+    def __init__(self, config: NovaVerifyConfig):
         """
         Initialize WebSocket client.
         
@@ -37,7 +37,7 @@ class WebSocketClient:
         Connect to WebSocket server.
         
         Raises:
-            VerinodeNetworkError: If connection fails
+            NovaVerifyNetworkError: If connection fails
         """
         if self._is_connected:
             return
@@ -47,7 +47,7 @@ class WebSocketClient:
             
             # Prepare connection parameters
             extra_headers = {
-                "User-Agent": "verinode-sdk-python/1.0.0"
+                "User-Agent": "nova-verify-sdk-python/1.0.0"
             }
             
             if hasattr(self.config, 'api_key') and self.config.api_key:
@@ -68,7 +68,7 @@ class WebSocketClient:
             
         except Exception as e:
             self.logger.error(f"WebSocket connection failed: {str(e)}")
-            raise VerinodeNetworkError(f"WebSocket connection failed: {str(e)}")
+            raise NovaVerifyNetworkError(f"WebSocket connection failed: {str(e)}")
     
     async def disconnect(self):
         """Disconnect from WebSocket server."""
@@ -104,7 +104,7 @@ class WebSocketClient:
             Subscription ID
             
         Raises:
-            VerinodeSubscriptionError: If subscription fails
+            NovaVerifySubscriptionError: If subscription fails
         """
         if not self._is_connected:
             await self.connect()
@@ -133,7 +133,7 @@ class WebSocketClient:
             
         except Exception as e:
             self.logger.error(f"Subscription failed: {str(e)}")
-            raise VerinodeSubscriptionError(f"Subscription failed: {str(e)}")
+            raise NovaVerifySubscriptionError(f"Subscription failed: {str(e)}")
     
     async def unsubscribe(self, subscription_id: str) -> bool:
         """
@@ -177,16 +177,16 @@ class WebSocketClient:
             message: Message to send
             
         Raises:
-            VerinodeNetworkError: If send fails
+            NovaVerifyNetworkError: If send fails
         """
         if not self._is_connected or not self._websocket:
-            raise VerinodeNetworkError("WebSocket not connected")
+            raise NovaVerifyNetworkError("WebSocket not connected")
         
         try:
             await self._websocket.send(json.dumps(message))
         except Exception as e:
             self.logger.error(f"Failed to send message: {str(e)}")
-            raise VerinodeNetworkError(f"Failed to send message: {str(e)}")
+            raise NovaVerifyNetworkError(f"Failed to send message: {str(e)}")
     
     async def _message_handler(self):
         """Handle incoming WebSocket messages."""

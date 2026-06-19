@@ -1,6 +1,6 @@
 # Plugin Development Guide
 
-Welcome to the Verinode Plugin Development Guide! This comprehensive guide will help you create, test, and publish plugins that extend Verinode's functionality.
+Welcome to the Nova Verify Plugin Development Guide! This comprehensive guide will help you create, test, and publish plugins that extend Nova Verify's functionality.
 
 ## Table of Contents
 
@@ -28,7 +28,7 @@ Welcome to the Verinode Plugin Development Guide! This comprehensive guide will 
 
 ```bash
 # Create a new plugin
-npx create-verinode-plugin my-plugin
+npx create-nova-verify-plugin my-plugin
 
 # Navigate to plugin directory
 cd my-plugin
@@ -42,7 +42,7 @@ npm run dev
 
 ## Plugin Structure
 
-A typical Verinode plugin has the following structure:
+A typical Nova Verify plugin has the following structure:
 
 ```
 my-plugin/
@@ -55,17 +55,17 @@ my-plugin/
 ├── docs/               # Documentation
 ├── tests/              # Test files
 ├── package.json        # Plugin metadata
-├── verinode.json       # Plugin manifest
+├── nova-verify.json       # Plugin manifest
 └── README.md          # Plugin description
 ```
 
-### Plugin Manifest (verinode.json)
+### Plugin Manifest (nova-verify.json)
 
 ```json
 {
   "name": "my-plugin",
   "version": "1.0.0",
-  "description": "A sample Verinode plugin",
+  "description": "A sample Nova Verify plugin",
   "author": "Your Name",
   "main": "dist/index.js",
   "permissions": [
@@ -81,7 +81,7 @@ my-plugin/
     }
   ],
   "dependencies": [],
-  "verinodeVersion": ">=0.1.0"
+  "nova-verifyVersion": ">=0.1.0"
 }
 ```
 
@@ -240,7 +240,7 @@ Each permission type has specific scopes:
 
 ### Requesting Permissions
 
-Declare permissions in your `verinode.json`:
+Declare permissions in your `nova-verify.json`:
 
 ```json
 {
@@ -263,7 +263,7 @@ Declare permissions in your `verinode.json`:
 
 ### Isolation Model
 
-Verinode plugins run in a secure sandbox environment that:
+Nova Verify plugins run in a secure sandbox environment that:
 
 - Isolates plugin code from the main application
 - Restricts access to system resources
@@ -293,8 +293,8 @@ localStorage: plugin_{pluginId}_{key}
 ### 1. Create Plugin Structure
 
 ```bash
-mkdir my-verinode-plugin
-cd my-verinode-plugin
+mkdir my-nova-verify-plugin
+cd my-nova-verify-plugin
 npm init -y
 ```
 
@@ -309,14 +309,14 @@ npx tsc --init
 
 ```typescript
 // src/index.ts
-import { Plugin, PluginContext } from '@verinode/plugin-api';
+import { Plugin, PluginContext } from '@nova-verify/plugin-api';
 
 export default class MyPlugin implements Plugin {
   metadata = {
     id: 'my-plugin',
     name: 'My Plugin',
     version: '1.0.0',
-    description: 'A sample Verinode plugin',
+    description: 'A sample Nova Verify plugin',
     author: 'Your Name',
     permissions: [
       {
@@ -366,7 +366,7 @@ npm run test
 ```typescript
 // tests/plugin.test.ts
 import { MyPlugin } from '../src/index';
-import { MockPluginContext } from '@verinode/test-utils';
+import { MockPluginContext } from '@nova-verify/test-utils';
 
 describe('MyPlugin', () => {
   let plugin: MyPlugin;
@@ -391,7 +391,7 @@ describe('MyPlugin', () => {
 
 ```typescript
 // tests/integration.test.ts
-import { PluginTestRunner } from '@verinode/test-utils';
+import { PluginTestRunner } from '@nova-verify/test-utils';
 
 describe('Plugin Integration', () => {
   let testRunner: PluginTestRunner;
@@ -400,7 +400,7 @@ describe('Plugin Integration', () => {
     testRunner = new PluginTestRunner();
   });
 
-  it('should work in Verinode environment', async () => {
+  it('should work in Nova Verify environment', async () => {
     const result = await testRunner.runPlugin('./dist/index.js');
     expect(result.success).toBe(true);
   });
@@ -424,7 +424,7 @@ npm pack
 
 ### 2. Submit to Marketplace
 
-1. Go to [Verinode Plugin Marketplace](https://marketplace.verinode.io)
+1. Go to [Nova Verify Plugin Marketplace](https://marketplace.nova-verify.io)
 2. Click "Submit Plugin"
 3. Upload your plugin package
 4. Fill in plugin details
@@ -479,7 +479,7 @@ export class NotificationPlugin implements Plugin {
     name: 'Notification Plugin',
     version: '1.0.0',
     description: 'Shows periodic notifications',
-    author: 'Verinode Team',
+    author: 'Nova Verify Team',
     permissions: [
       {
         type: 'ui',
@@ -518,7 +518,7 @@ export class BalanceCheckerPlugin implements Plugin {
     name: 'Balance Checker',
     version: '1.0.0',
     description: 'Check Stellar account balance',
-    author: 'Verinode Team',
+    author: 'Nova Verify Team',
     permissions: [
       {
         type: 'stellar',
@@ -574,14 +574,14 @@ console.log('Debug: Plugin initializing');
 
 ### Getting Help
 
-- [Verinode Discord](https://discord.gg/verinode)
-- [GitHub Issues](https://github.com/jobbykingz/Verinode/issues)
-- [Documentation](https://docs.verinode.io)
+- [Nova Verify Discord](https://discord.gg/nova-verify)
+- [GitHub Issues](https://github.com/jobbykingz/Nova Verify/issues)
+- [Documentation](https://docs.nova-verify.io)
 
 ## API Reference
 
 ### Complete API documentation is available at:
-https://docs.verinode.io/plugin-api
+https://docs.nova-verify.io/plugin-api
 
 ### Changelog
 

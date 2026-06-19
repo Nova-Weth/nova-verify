@@ -1,7 +1,7 @@
 {
-  "name": "verinode-frontend",
+  "name": "nova-verify-frontend",
   "version": "1.0.0",
-  "description": "Verinode frontend for cryptographic proof verification",
+  "description": "Nova Verify frontend for cryptographic proof verification",
   "private": true,
   "dependencies": {
     "react": "^18.2.0",
@@ -55,6 +55,6 @@
     "verification",
     "proofs"
   ],
-  "author": "Verinode Team",
+  "author": "Nova Verify Team",
   "license": "MIT"
 }

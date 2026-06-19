@@ -2,7 +2,7 @@
  * Advanced caching strategies for frontend assets and data
  */
 export class CacheManager {
-  private static STORAGE_KEY = 'verinode_cache_v1';
+  private static STORAGE_KEY = 'nova-verify_cache_v1';
   private static TTL = 24 * 60 * 60 * 1000; // 24 hours
 
   /**

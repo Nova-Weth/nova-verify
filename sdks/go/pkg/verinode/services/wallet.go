@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/Great-2025/verinode-go/pkg/verinode/types"
+	"github.com/Great-2025/nova-verify-go/pkg/nova-verify/types"
 )
 
 // WalletService handles wallet-related operations

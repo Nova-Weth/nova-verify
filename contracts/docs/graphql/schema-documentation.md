@@ -1,6 +1,6 @@
 # GraphQL Schema Documentation
 
-This document provides detailed information about the Verinode GraphQL schema, including all types, queries, mutations, and subscriptions.
+This document provides detailed information about the Nova Verify GraphQL schema, including all types, queries, mutations, and subscriptions.
 
 ## Schema Overview
 

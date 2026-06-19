@@ -1,27 +1,27 @@
-package com.verinode.sdk;
+package com.nova-verify.sdk;
 
-import com.verinode.sdk.config.VerinodeConfig;
-import com.verinode.sdk.services.ProofService;
-import com.verinode.sdk.services.VerificationService;
-import com.verinode.sdk.services.WalletService;
-import com.verinode.sdk.types.AuthToken;
-import com.verinode.sdk.types.User;
-import com.verinode.sdk.exception.VerinodeException;
+import com.nova-verify.sdk.config.NovaVerifyConfig;
+import com.nova-verify.sdk.services.ProofService;
+import com.nova-verify.sdk.services.VerificationService;
+import com.nova-verify.sdk.services.WalletService;
+import com.nova-verify.sdk.types.AuthToken;
+import com.nova-verify.sdk.types.User;
+import com.nova-verify.sdk.exception.Nova VerifyException;
 
 /**
- * Main client class for the Verinode Java SDK.
+ * Main client class for the Nova Verify Java SDK.
  * 
- * <p>This is the primary entry point for interacting with the Verinode API.
+ * <p>This is the primary entry point for interacting with the Nova Verify API.
  * It provides access to all services including proofs, verifications, and wallets.</p>
  * 
  * <p>Example usage:</p>
  * <pre>{@code
- * VerinodeConfig config = VerinodeConfig.builder()
- *     .apiEndpoint("https://api.verinode.com")
+ * NovaVerifyConfig config = NovaVerifyConfig.builder()
+ *     .apiEndpoint("https://api.nova-verify.com")
  *     .network(NetworkType.TESTNET)
  *     .build();
  * 
- * Verinode client = new Verinode(config);
+ * Nova Verify client = new Nova Verify(config);
  * client.authenticate("user@example.com", "password");
  * 
  * Proof proof = client.proof().create(new ProofCreateRequest.Builder()
@@ -30,9 +30,9 @@ import com.verinode.sdk.exception.VerinodeException;
  *     .build());
  * }</pre>
  */
-public class Verinode {
+public class Nova Verify {
     
-    private final VerinodeConfig config;
+    private final NovaVerifyConfig config;
     private final HttpClient httpClient;
     private final WebSocketClient webSocketClient;
     
@@ -46,11 +46,11 @@ public class Verinode {
     private User currentUser;
     
     /**
-     * Creates a new Verinode client with the specified configuration.
+     * Creates a new Nova Verify client with the specified configuration.
      * 
      * @param config the configuration to use
      */
-    public Verinode(VerinodeConfig config) {
+    public Nova Verify(NovaVerifyConfig config) {
         this.config = config;
         this.httpClient = new OkHttpClient(config);
         this.webSocketClient = new OkWebSocketClient(config);
@@ -62,23 +62,23 @@ public class Verinode {
     }
     
     /**
-     * Creates a new Verinode client with default configuration.
+     * Creates a new Nova Verify client with default configuration.
      * 
-     * @return a new Verinode client
+     * @return a new Nova Verify client
      */
-    public static Verinode withDefaults() {
-        return new Verinode(VerinodeConfig.defaultConfig());
+    public static Nova Verify withDefaults() {
+        return new Nova Verify(NovaVerifyConfig.defaultConfig());
     }
     
     /**
-     * Creates a new Verinode client from environment variables.
+     * Creates a new Nova Verify client from environment variables.
      * 
-     * @return a new Verinode client
-     * @throws VerinodeException if configuration is invalid
+     * @return a new Nova Verify client
+     * @throws Nova VerifyException if configuration is invalid
      */
-    public static Verinode fromEnv() throws VerinodeException {
-        VerinodeConfig config = VerinodeConfig.fromEnv();
-        return new Verinode(config);
+    public static Nova Verify fromEnv() throws Nova VerifyException {
+        NovaVerifyConfig config = NovaVerifyConfig.fromEnv();
+        return new Nova Verify(config);
     }
     
     /**
@@ -86,7 +86,7 @@ public class Verinode {
      * 
      * @return the configuration
      */
-    public VerinodeConfig getConfig() {
+    public NovaVerifyConfig getConfig() {
         return config;
     }
     
@@ -159,9 +159,9 @@ public class Verinode {
      * @param email the user email
      * @param password the user password
      * @return the authentication token
-     * @throws VerinodeException if authentication fails
+     * @throws Nova VerifyException if authentication fails
      */
-    public AuthToken authenticate(String email, String password) throws VerinodeException {
+    public AuthToken authenticate(String email, String password) throws Nova VerifyException {
         LoginRequest request = new LoginRequest(email, password);
         AuthResponse response = httpClient.post("/auth/login", request, AuthResponse.class);
         
@@ -186,9 +186,9 @@ public class Verinode {
      * @param password the user password
      * @param username the optional username
      * @return the authentication token
-     * @throws VerinodeException if registration fails
+     * @throws Nova VerifyException if registration fails
      */
-    public AuthToken register(String email, String password, String username) throws VerinodeException {
+    public AuthToken register(String email, String password, String username) throws Nova VerifyException {
         RegisterRequest request = new RegisterRequest(email, password, username);
         AuthResponse response = httpClient.post("/auth/register", request, AuthResponse.class);
         
@@ -209,9 +209,9 @@ public class Verinode {
     /**
      * Logs out the current user.
      * 
-     * @throws VerinodeException if logout fails
+     * @throws Nova VerifyException if logout fails
      */
-    public void logout() throws VerinodeException {
+    public void logout() throws Nova VerifyException {
         if (authToken != null) {
             try {
                 httpClient.post("/auth/logout", null, Object.class);
@@ -235,11 +235,11 @@ public class Verinode {
      * Refreshes the authentication token.
      * 
      * @return the new authentication token
-     * @throws VerinodeException if refresh fails
+     * @throws Nova VerifyException if refresh fails
      */
-    public AuthToken refreshToken() throws VerinodeException {
+    public AuthToken refreshToken() throws Nova VerifyException {
         if (authToken == null || authToken.getRefreshToken() == null) {
-            throw new VerinodeException("No refresh token available");
+            throw new Nova VerifyException("No refresh token available");
         }
         
         RefreshTokenRequest request = new RefreshTokenRequest(authToken.getRefreshToken());
@@ -261,11 +261,11 @@ public class Verinode {
      * 
      * @param filters the subscription filters
      * @return the subscription
-     * @throws VerinodeException if subscription fails
+     * @throws Nova VerifyException if subscription fails
      */
-    public Subscription subscribeToUpdates(Map<String, Object> filters) throws VerinodeException {
+    public Subscription subscribeToUpdates(Map<String, Object> filters) throws Nova VerifyException {
         if (!isAuthenticated()) {
-            throw new VerinodeException("Must be authenticated to subscribe to updates");
+            throw new Nova VerifyException("Must be authenticated to subscribe to updates");
         }
         
         return webSocketClient.subscribe(filters);
@@ -274,9 +274,9 @@ public class Verinode {
     /**
      * Gets current user information.
      * 
-     * @throws VerinodeException if getting user info fails
+     * @throws Nova VerifyException if getting user info fails
      */
-    private void getCurrentUser() throws VerinodeException {
+    private void getCurrentUser() throws Nova VerifyException {
         UserResponse response = httpClient.get("/auth/me", UserResponse.class);
         this.currentUser = response.getData();
     }

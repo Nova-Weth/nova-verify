@@ -1,4 +1,4 @@
-package com.verinode.sdk.types;
+package com.nova-verify.sdk.types;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;

@@ -52,7 +52,7 @@ const config = {
 
   // ── Database ──────────────────────────────────────────────────────────────
   database: {
-    uri:              str('MONGODB_URI', 'mongodb://localhost:27017/verinode'),
+    uri:              str('MONGODB_URI', 'mongodb://localhost:27017/nova-verify'),
     maxPoolSize:      num('DB_MAX_POOL_SIZE', 10),
     connectTimeout:   num('DB_CONNECT_TIMEOUT_MS', 30000),
     socketTimeout:    num('DB_SOCKET_TIMEOUT_MS', 45000),
@@ -62,8 +62,8 @@ const config = {
   auth: {
     jwtSecret:    str('JWT_SECRET', ''),
     jwtExpiresIn: str('JWT_EXPIRES_IN', '24h'),
-    jwtIssuer:    str('JWT_ISSUER', 'verinode'),
-    jwtAudience:  str('JWT_AUDIENCE', 'verinode-users'),
+    jwtIssuer:    str('JWT_ISSUER', 'nova-verify'),
+    jwtAudience:  str('JWT_AUDIENCE', 'nova-verify-users'),
     bcryptRounds: num('BCRYPT_ROUNDS', 12),
     sessionSecret: str('SESSION_SECRET', ''),
   },
@@ -138,7 +138,7 @@ const config = {
     filebase: {
       accessKey: str('FILEBASE_ACCESS_KEY', ''),
       secretKey: str('FILEBASE_SECRET_KEY', ''),
-      bucket:    str('FILEBASE_BUCKET', 'verinode-backup'),
+      bucket:    str('FILEBASE_BUCKET', 'nova-verify-backup'),
       endpoint:  str('FILEBASE_ENDPOINT', 'https://s3.filebase.com'),
       timeout:   num('FILEBASE_TIMEOUT', 30000),
       get enabled() { return !!(config.pinning.filebase.accessKey && config.pinning.filebase.secretKey); },

@@ -1,12 +1,12 @@
 {
   "dashboard": {
     "id": null,
-    "title": "Verinode - System Overview",
+    "title": "Nova Verify - System Overview",
     "timezone": "browser",
     "schemaVersion": 39,
     "version": 1,
     "refresh": "30s",
-    "tags": ["system", "infrastructure", "verinode"],
+    "tags": ["system", "infrastructure", "nova-verify"],
     "panels": [
       {
         "type": "stat",

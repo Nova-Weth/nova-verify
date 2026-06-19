@@ -115,7 +115,7 @@ const PluginMarketplace: React.FC = () => {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Plugin Marketplace</h1>
-          <p className="text-gray-600 mt-1">Discover and install plugins to extend Verinode functionality</p>
+          <p className="text-gray-600 mt-1">Discover and install plugins to extend Nova Verify functionality</p>
         </div>
       </div>
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, FileText, CheckCircle, BarChart3, ShoppingBag, Search } from 'lucide-react';
 import { trackEvent } from '../analytics/ga';
+import { FreighterConnect } from '../components/Wallet';
 
 const Navbar = () => {
   const handleNavClick = (label: string) => {
@@ -18,10 +19,10 @@ const Navbar = () => {
         <div className="flex justify-between items-center py-4">
           <Link to="/" onClick={() => handleNavClick('brand_home')} className="flex items-center space-x-2">
             <Shield className="h-8 w-8 text-blue-600" />
-            <span className="text-xl font-bold text-gray-800">Verinode</span>
+            <span className="text-xl font-bold text-gray-800">Nova Verify</span>
           </Link>
           
-          <div className="flex space-x-6">
+          <div className="flex items-center space-x-6">
             <Link
               to="/"
               onClick={() => handleNavClick('home')}
@@ -70,6 +71,11 @@ const Navbar = () => {
               <Search className="h-4 w-4" />
               <span>Search</span>
             </Link>
+
+            {/* Freighter Wallet Connect Button */}
+            <div className="border-l border-gray-200 pl-4">
+              <FreighterConnect compact showStatus={false} />
+            </div>
           </div>
         </div>
       </div>

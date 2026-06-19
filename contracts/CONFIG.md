@@ -1,10 +1,10 @@
-# Verinode Configuration Guide
+# Nova Verify Configuration Guide
 
-This document explains how to configure the Verinode backend and GraphQL server.
+This document explains how to configure the Nova Verify backend and GraphQL server.
 
 ## Overview
 
-Verinode uses a centralized configuration system built with `dotenv` for environment variable loading and `zod` for type-safe validation. All configurations are located in `src/config/`.
+Nova Verify uses a centralized configuration system built with `dotenv` for environment variable loading and `zod` for type-safe validation. All configurations are located in `src/config/`.
 
 ## Setup
 

@@ -28,7 +28,7 @@ If applicable, add screenshots to help explain your problem.
 - **Browser**: [e.g. Chrome, Firefox, Safari]
 - **Node.js Version**: [e.g. 18.17.0]
 - **Stellar CLI Version**: [e.g. 1.0.0]
-- **Verinode Version**: [e.g. 0.1.0]
+- **Nova Verify Version**: [e.g. 0.1.0]
 
 ## 📋 Additional Context
 Add any other context about the problem here.

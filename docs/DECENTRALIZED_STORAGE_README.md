@@ -1,6 +1,6 @@
-# Decentralized Storage Integration for Verinode
+# Decentralized Storage Integration for Nova Verify
 
-This implementation provides comprehensive decentralized storage integration for the Verinode project, supporting both IPFS and Arweave networks with advanced features like redundancy, content addressing, and permanent storage options.
+This implementation provides comprehensive decentralized storage integration for the Nova Verify project, supporting both IPFS and Arweave networks with advanced features like redundancy, content addressing, and permanent storage options.
 
 ## Overview
 
@@ -163,7 +163,7 @@ cargo build --release --target wasm32-unknown-unknown
 
 2. Deploy to Soroban network:
 ```bash
-soroban contract deploy --wasm target/wasm32-unknown-unknown/release/verinode_contracts.wasm
+soroban contract deploy --wasm target/wasm32-unknown-unknown/release/nova-verify_contracts.wasm
 ```
 
 ## Configuration
@@ -457,8 +457,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 For support and questions:
 - Create an issue in the GitHub repository
 - Join our Discord community
-- Check the documentation at docs.verinode.io
+- Check the documentation at docs.nova-verify.io
 
 ---
 
-**Note**: This implementation is part of the Verinode project's Issue #139 for decentralized storage integration. It provides a comprehensive solution for storing proof data and other files on decentralized networks with redundancy, content addressing, and permanent storage options.
+**Note**: This implementation is part of the Nova Verify project's Issue #139 for decentralized storage integration. It provides a comprehensive solution for storing proof data and other files on decentralized networks with redundancy, content addressing, and permanent storage options.

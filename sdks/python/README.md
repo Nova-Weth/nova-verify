@@ -1,23 +1,23 @@
-# Verinode Python SDK
+# Nova Verify Python SDK
 
-Official Python SDK for Verinode - Web3 infrastructure for cryptographic proofs on Stellar.
+Official Python SDK for Nova Verify - Web3 infrastructure for cryptographic proofs on Stellar.
 
 ## Installation
 
 ```bash
-pip install verinode-sdk
+pip install nova-verify-sdk
 ```
 
 ## Quick Start
 
 ```python
 import asyncio
-from verinode import Verinode
+from nova-verify import Nova Verify
 
 async def main():
     # Initialize the SDK
-    client = Verinode.init(
-        api_endpoint="https://api.verinode.com",
+    client = Nova Verify.init(
+        api_endpoint="https://api.nova-verify.com",
         network="testnet"
     )
     
@@ -47,26 +47,26 @@ The SDK can be configured using environment variables or configuration object:
 ### Environment Variables
 
 ```bash
-export VERINODE_API_ENDPOINT="https://api.verinode.com"
-export VERINODE_NETWORK="mainnet"
-export VERINODE_API_KEY="your-api-key"
-export VERINODE_TIMEOUT=10000
+export NOVA_VERIFY_API_ENDPOINT="https://api.nova-verify.com"
+export NOVA_VERIFY_NETWORK="mainnet"
+export NOVA_VERIFY_API_KEY="your-api-key"
+export NOVA_VERIFY_TIMEOUT=10000
 ```
 
 ### Configuration Object
 
 ```python
-from verinode import Verinode, VerinodeConfig
+from nova-verify import Nova Verify, NovaVerifyConfig
 
-config = VerinodeConfig(
-    api_endpoint="https://api.verinode.com",
+config = NovaVerifyConfig(
+    api_endpoint="https://api.nova-verify.com",
     network="mainnet",
     api_key="your-api-key",
     timeout=15000,
     max_retries=5
 )
 
-client = Verinode(config)
+client = Nova Verify(config)
 ```
 
 ## Features
@@ -218,15 +218,15 @@ client.wallet.add_listener("balance_changed", handle_balance_change)
 The SDK provides comprehensive error handling:
 
 ```python
-from verinode import VerinodeError, VerinodeAPIError, VerinodeAuthError
+from nova-verify import NovaVerifyError, NovaVerifyAPIError, NovaVerifyAuthError
 
 try:
     proof = await client.proof.get("invalid-id")
-except VerinodeAuthError as e:
+except NovaVerifyAuthError as e:
     print(f"Authentication failed: {e}")
-except VerinodeAPIError as e:
+except NovaVerifyAPIError as e:
     print(f"API error: {e} (Status: {e.status_code})")
-except VerinodeError as e:
+except NovaVerifyError as e:
     print(f"SDK error: {e}")
 ```
 
@@ -236,11 +236,11 @@ except VerinodeError as e:
 
 ```python
 import aiohttp
-from verinode import Verinode
+from nova-verify import Nova Verify
 
 # Use custom session
 async with aiohttp.ClientSession() as session:
-    client = Verinode()
+    client = Nova Verify()
     client.http_client._session = session
     # Use client...
 ```
@@ -250,7 +250,7 @@ async with aiohttp.ClientSession() as session:
 The SDK includes automatic retry logic with exponential backoff:
 
 ```python
-from verinode.utils import retry
+from nova-verify.utils import retry
 
 @retry(max_attempts=5, delay=1.0, backoff=2.0)
 async def custom_operation():
@@ -263,7 +263,7 @@ async def custom_operation():
 Built-in rate limiting to prevent API abuse:
 
 ```python
-from verinode.utils import rate_limit
+from nova-verify.utils import rate_limit
 
 @rate_limit(calls_per_second=10)
 async def limited_operation():
@@ -277,8 +277,8 @@ async def limited_operation():
 
 ```bash
 # Clone repository
-git clone https://github.com/Great-2025/Verinode.git
-cd Verinode/sdks/python
+git clone https://github.com/Great-2025/Nova Verify.git
+cd Nova Verify/sdks/python
 
 # Install development dependencies
 pip install -e ".[dev]"
@@ -287,7 +287,7 @@ pip install -e ".[dev]"
 pytest
 
 # Run tests with coverage
-pytest --cov=verinode
+pytest --cov=nova-verify
 
 # Lint code
 flake8 src/
@@ -298,7 +298,7 @@ mypy src/
 ### Project Structure
 
 ```
-src/verinode/
+src/nova-verify/
 ├── __init__.py          # Main exports
 ├── client.py            # Main client class
 ├── config.py            # Configuration management
@@ -322,6 +322,6 @@ This project is licensed under the MIT License - see the [LICENSE](../../LICENSE
 
 ## Support
 
-- Documentation: [Verinode Documentation](https://docs.verinode.com)
-- Issues: [GitHub Issues](https://github.com/Great-2025/Verinode/issues)
-- Community: [Discord](https://discord.gg/verinode)
+- Documentation: [Nova Verify Documentation](https://docs.nova-verify.com)
+- Issues: [GitHub Issues](https://github.com/Great-2025/Nova Verify/issues)
+- Community: [Discord](https://discord.gg/nova-verify)

@@ -1,21 +1,21 @@
-package com.verinode.sdk.exception;
+package com.nova-verify.sdk.exception;
 
 /**
- * Base exception class for all Verinode SDK errors.
+ * Base exception class for all Nova Verify SDK errors.
  */
-public class VerinodeException extends Exception {
+public class Nova VerifyException extends Exception {
     
     private final ErrorCode code;
     private final Object details;
     private final Integer statusCode;
     
     /**
-     * Creates a new VerinodeException.
+     * Creates a new Nova VerifyException.
      * 
      * @param code the error code
      * @param message the error message
      */
-    public VerinodeException(ErrorCode code, String message) {
+    public Nova VerifyException(ErrorCode code, String message) {
         super(message);
         this.code = code;
         this.details = null;
@@ -23,13 +23,13 @@ public class VerinodeException extends Exception {
     }
     
     /**
-     * Creates a new VerinodeException with details.
+     * Creates a new Nova VerifyException with details.
      * 
      * @param code the error code
      * @param message the error message
      * @param details additional error details
      */
-    public VerinodeException(ErrorCode code, String message, Object details) {
+    public Nova VerifyException(ErrorCode code, String message, Object details) {
         super(message);
         this.code = code;
         this.details = details;
@@ -37,13 +37,13 @@ public class VerinodeException extends Exception {
     }
     
     /**
-     * Creates a new VerinodeException with status code.
+     * Creates a new Nova VerifyException with status code.
      * 
      * @param code the error code
      * @param message the error message
      * @param statusCode the HTTP status code
      */
-    public VerinodeException(ErrorCode code, String message, Integer statusCode) {
+    public Nova VerifyException(ErrorCode code, String message, Integer statusCode) {
         super(message);
         this.code = code;
         this.details = null;
@@ -51,13 +51,13 @@ public class VerinodeException extends Exception {
     }
     
     /**
-     * Creates a new VerinodeException with cause.
+     * Creates a new Nova VerifyException with cause.
      * 
      * @param code the error code
      * @param message the error message
      * @param cause the cause of the exception
      */
-    public VerinodeException(ErrorCode code, String message, Throwable cause) {
+    public Nova VerifyException(ErrorCode code, String message, Throwable cause) {
         super(message, cause);
         this.code = code;
         this.details = null;
@@ -65,7 +65,7 @@ public class VerinodeException extends Exception {
     }
     
     /**
-     * Creates a new VerinodeException with all fields.
+     * Creates a new Nova VerifyException with all fields.
      * 
      * @param code the error code
      * @param message the error message
@@ -73,7 +73,7 @@ public class VerinodeException extends Exception {
      * @param statusCode the HTTP status code
      * @param cause the cause of the exception
      */
-    public VerinodeException(ErrorCode code, String message, Object details, Integer statusCode, Throwable cause) {
+    public Nova VerifyException(ErrorCode code, String message, Object details, Integer statusCode, Throwable cause) {
         super(message, cause);
         this.code = code;
         this.details = details;
@@ -87,8 +87,8 @@ public class VerinodeException extends Exception {
      * @param statusCode the HTTP status code
      * @return the exception
      */
-    public static VerinodeException apiError(String message, int statusCode) {
-        return new VerinodeException(ErrorCode.API_ERROR, message, statusCode);
+    public static Nova VerifyException apiError(String message, int statusCode) {
+        return new Nova VerifyException(ErrorCode.API_ERROR, message, statusCode);
     }
     
     /**
@@ -97,8 +97,8 @@ public class VerinodeException extends Exception {
      * @param message the error message
      * @return the exception
      */
-    public static VerinodeException authError(String message) {
-        return new VerinodeException(ErrorCode.AUTH_ERROR, message);
+    public static Nova VerifyException authError(String message) {
+        return new Nova VerifyException(ErrorCode.AUTH_ERROR, message);
     }
     
     /**
@@ -108,8 +108,8 @@ public class VerinodeException extends Exception {
      * @param field the field that failed validation
      * @return the exception
      */
-    public static VerinodeException validationError(String message, String field) {
-        return new VerinodeException(ErrorCode.VALIDATION_ERROR, message, field);
+    public static Nova VerifyException validationError(String message, String field) {
+        return new Nova VerifyException(ErrorCode.VALIDATION_ERROR, message, field);
     }
     
     /**
@@ -118,8 +118,8 @@ public class VerinodeException extends Exception {
      * @param message the error message
      * @return the exception
      */
-    public static VerinodeException networkError(String message) {
-        return new VerinodeException(ErrorCode.NETWORK_ERROR, message);
+    public static Nova VerifyException networkError(String message) {
+        return new Nova VerifyException(ErrorCode.NETWORK_ERROR, message);
     }
     
     /**
@@ -129,8 +129,8 @@ public class VerinodeException extends Exception {
      * @param walletType the wallet type
      * @return the exception
      */
-    public static VerinodeException walletError(String message, String walletType) {
-        return new VerinodeException(ErrorCode.WALLET_ERROR, message, walletType);
+    public static Nova VerifyException walletError(String message, String walletType) {
+        return new Nova VerifyException(ErrorCode.WALLET_ERROR, message, walletType);
     }
     
     /**
@@ -140,8 +140,8 @@ public class VerinodeException extends Exception {
      * @param proofId the proof ID
      * @return the exception
      */
-    public static VerinodeException proofError(String message, String proofId) {
-        return new VerinodeException(ErrorCode.PROOF_ERROR, message, proofId);
+    public static Nova VerifyException proofError(String message, String proofId) {
+        return new Nova VerifyException(ErrorCode.PROOF_ERROR, message, proofId);
     }
     
     /**
@@ -151,8 +151,8 @@ public class VerinodeException extends Exception {
      * @param verificationId the verification ID
      * @return the exception
      */
-    public static VerinodeException verificationError(String message, String verificationId) {
-        return new VerinodeException(ErrorCode.VERIFICATION_ERROR, message, verificationId);
+    public static Nova VerifyException verificationError(String message, String verificationId) {
+        return new Nova VerifyException(ErrorCode.VERIFICATION_ERROR, message, verificationId);
     }
     
     /**
@@ -162,8 +162,8 @@ public class VerinodeException extends Exception {
      * @param subscriptionId the subscription ID
      * @return the exception
      */
-    public static VerinodeException subscriptionError(String message, String subscriptionId) {
-        return new VerinodeException(ErrorCode.SUBSCRIPTION_ERROR, message, subscriptionId);
+    public static Nova VerifyException subscriptionError(String message, String subscriptionId) {
+        return new Nova VerifyException(ErrorCode.SUBSCRIPTION_ERROR, message, subscriptionId);
     }
     
     /**

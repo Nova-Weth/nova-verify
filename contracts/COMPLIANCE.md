@@ -1,8 +1,8 @@
-# Verinode Compliance and Audit Framework
+# Nova Verify Compliance and Audit Framework
 
 ## Overview
 
-The Verinode Compliance and Audit Framework provides enterprise-grade compliance monitoring, audit trail management, and regulatory reporting capabilities. This framework ensures adherence to various regulatory standards while maintaining the privacy and security features of the platform.
+The Nova Verify Compliance and Audit Framework provides enterprise-grade compliance monitoring, audit trail management, and regulatory reporting capabilities. This framework ensures adherence to various regulatory standards while maintaining the privacy and security features of the platform.
 
 ## Key Features
 

@@ -1,6 +1,6 @@
 {
-  "name": "Verinode - Cryptographic Proof Verification",
-  "short_name": "Verinode",
+  "name": "Nova Verify - Cryptographic Proof Verification",
+  "short_name": "Nova Verify",
   "description": "Verify and manage cryptographic proofs on the Stellar network",
   "start_url": "/",
   "display": "standalone",

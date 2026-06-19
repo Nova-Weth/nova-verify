@@ -217,8 +217,8 @@ export class WebhookManager {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'User-Agent': 'Verinode-Webhooks/1.0',
-        'X-Webhook-Source': 'verinode'
+        'User-Agent': 'Nova Verify-Webhooks/1.0',
+        'X-Webhook-Source': 'nova-verify'
       },
       body: JSON.stringify(payload),
       timeout: 30000

@@ -260,7 +260,7 @@ app.use((err, req, res, next) => {
 // ============================================================================
 
 const server = app.listen(PORT, () => {
-  console.log(`Verinode backend running on port ${PORT} [${config.server.env}]`);
+  console.log(`Nova Verify backend running on port ${PORT} [${config.server.env}]`);
   console.log(`Metrics at http://localhost:${PORT}/metrics`);
   console.log(`Health  at http://localhost:${PORT}/health`);
 });

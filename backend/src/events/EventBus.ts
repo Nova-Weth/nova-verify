@@ -39,7 +39,7 @@ export class EventBus {
       port: config.redis.port,
       password: config.redis.password,
       db: config.redis.db || 0,
-      keyPrefix: config.redis.keyPrefix || 'verinode:events:',
+      keyPrefix: config.redis.keyPrefix || 'nova-verify:events:',
       retryDelayOnFailover: 100,
       maxRetriesPerRequest: 3,
       lazyConnect: true
@@ -50,7 +50,7 @@ export class EventBus {
       port: config.redis.port,
       password: config.redis.password,
       db: config.redis.db || 0,
-      keyPrefix: config.redis.keyPrefix || 'verinode:events:',
+      keyPrefix: config.redis.keyPrefix || 'nova-verify:events:',
       retryDelayOnFailover: 100,
       maxRetriesPerRequest: 3,
       lazyConnect: true
@@ -61,7 +61,7 @@ export class EventBus {
       port: config.redis.port,
       password: config.redis.password,
       db: config.redis.db || 0,
-      keyPrefix: config.redis.keyPrefix || 'verinode:events:',
+      keyPrefix: config.redis.keyPrefix || 'nova-verify:events:',
       retryDelayOnFailover: 100,
       maxRetriesPerRequest: 3,
       lazyConnect: true

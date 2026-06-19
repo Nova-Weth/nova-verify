@@ -1,6 +1,6 @@
 # REST to GraphQL Migration Guide
 
-This guide helps you migrate from the REST API to the new GraphQL API in Verinode.
+This guide helps you migrate from the REST API to the new GraphQL API in Nova Verify.
 
 ## Overview
 
@@ -332,4 +332,4 @@ const response = await fetch('/graphql', {
 4. Optimize queries to request only needed data
 5. Add error handling for GraphQL-specific errors
 
-This migration will provide a more efficient and flexible API experience for your Verinode application.
+This migration will provide a more efficient and flexible API experience for your Nova Verify application.

@@ -4,25 +4,25 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket = "verinode-terraform-state"
+    bucket = "nova-verify-terraform-state"
     key    = "state/terraform.tfstate"
     region = "us-east-1"
   }
 }
 
-resource "aws_vpc" "verinode_vpc" {
+resource "aws_vpc" "nova-verify_vpc" {
   cidr_block = "10.0.0.0/16"
   
   tags = {
-    Name = "verinode-vpc"
+    Name = "nova-verify-vpc"
     Environment = var.environment
   }
 }
 
 resource "aws_security_group" "web_sg" {
-  name        = "verinode-web-sg"
+  name        = "nova-verify-web-sg"
   description = "Allow inbound traffic"
-  vpc_id      = aws_vpc.verinode_vpc.id
+  vpc_id      = aws_vpc.nova-verify_vpc.id
 
   ingress {
     from_port   = 80

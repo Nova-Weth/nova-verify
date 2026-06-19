@@ -10,7 +10,7 @@ use async_trait::async_trait;
 use serde::{Deserialize, Serialize};
 use std::sync::Arc;
 
-/// Service for managing verifications in the Verinode system
+/// Service for managing verifications in the Nova Verify system
 pub struct VerificationService {
     http_client: Arc<dyn HttpClient>,
 }

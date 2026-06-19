@@ -1,18 +1,18 @@
-//! Basic example demonstrating Verinode Rust SDK usage.
+//! Basic example demonstrating Nova Verify Rust SDK usage.
 
-use verinode_sdk::{Client, Config, NetworkType};
-use verinode_sdk::types::*;
+use nova-verify_sdk::{Client, Config, NetworkType};
+use nova-verify_sdk::types::*;
 use std::collections::HashMap;
 use std::time::Duration;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    println!("🚀 Starting Verinode Rust SDK Example");
+    println!("🚀 Starting Nova Verify Rust SDK Example");
     println!("{}", "=".repeat(50));
 
     // Initialize SDK with configuration
     let config = Config::builder()
-        .api_endpoint("https://api.verinode.com")
+        .api_endpoint("https://api.nova-verify.com")
         .network(NetworkType::Testnet)
         .timeout(Duration::from_secs(10))
         .max_retries(3)

@@ -34,7 +34,7 @@ export function useTheme(options: UseThemeOptions = {}): UseThemeReturn {
   const {
     enableSystemTheme = true,
     followSystemTheme = false,
-    storageKey = 'verinode-theme-settings',
+    storageKey = 'nova-verify-theme-settings',
   } = options;
 
   const {

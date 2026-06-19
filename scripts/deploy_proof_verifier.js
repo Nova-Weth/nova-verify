@@ -88,7 +88,7 @@ class ProofVerifierDeployer {
         try {
             // This would typically be done with cargo build --release --target wasm32-unknown-unknown
             // For now, we'll assume the .wasm file exists
-            const wasmPath = join(__dirname, '..', 'target', 'wasm32-unknown-unknown', 'release', 'verinode_contracts.wasm');
+            const wasmPath = join(__dirname, '..', 'target', 'wasm32-unknown-unknown', 'release', 'nova-verify_contracts.wasm');
             
             try {
                 const wasmBuffer = readFileSync(wasmPath);

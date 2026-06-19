@@ -1,9 +1,9 @@
-# Alertmanager Configuration for Verinode
+# Alertmanager Configuration for Nova Verify
 global:
   resolve_timeout: 5m
   smtp_smarthost: 'smtp.gmail.com:587'
-  smtp_from: 'alerts@verinode.com'
-  smtp_auth_username: 'alerts@verinode.com'
+  smtp_from: 'alerts@nova-verify.com'
+  smtp_auth_username: 'alerts@nova-verify.com'
   smtp_auth_password: 'your-app-password'
   smtp_require_tls: true
 
@@ -70,15 +70,15 @@ receivers:
   # Default receiver
   - name: 'default-receiver'
     email_configs:
-      - to: 'devops@verinode.com'
+      - to: 'devops@nova-verify.com'
         send_resolved: true
         
   # Critical alerts - multiple channels
   - name: 'critical-alerts'
     email_configs:
-      - to: 'devops@verinode.com'
+      - to: 'devops@nova-verify.com'
         send_resolved: true
-      - to: 'management@verinode.com'
+      - to: 'management@nova-verify.com'
         send_resolved: true
     webhook_configs:
       - url: 'https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK'
@@ -90,7 +90,7 @@ receivers:
   # High severity alerts
   - name: 'high-alerts'
     email_configs:
-      - to: 'devops@verinode.com'
+      - to: 'devops@nova-verify.com'
         send_resolved: true
     webhook_configs:
       - url: 'https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK'
@@ -99,13 +99,13 @@ receivers:
   # Medium severity alerts
   - name: 'medium-alerts'
     email_configs:
-      - to: 'devops@verinode.com'
+      - to: 'devops@nova-verify.com'
         send_resolved: true
         
   # Low severity alerts
   - name: 'low-alerts'
     email_configs:
-      - to: 'devops@verinode.com'
+      - to: 'devops@nova-verify.com'
         send_resolved: true
 
 # Templates for alert formatting

@@ -1,5 +1,5 @@
 """
-Services module for Verinode SDK.
+Services module for Nova Verify SDK.
 """
 
 from .proof import ProofService

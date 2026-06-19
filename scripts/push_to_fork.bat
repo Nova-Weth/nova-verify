@@ -3,14 +3,14 @@ echo Pushing Gas Optimization Suite v2 to forked repository...
 echo.
 
 echo === Initializing Git Repository ===
-cd /d "C:\Users\Hp\CascadeProjects\Verinode\contracts"
+cd /d "C:\Users\Hp\CascadeProjects\Nova Verify\contracts"
 
 echo === Configuring Git ===
 git config --global user.name "Gas Optimization Bot"
-git config --global user.email "gas-optimization@verinode.io"
+git config --global user.email "gas-optimization@nova-verify.io"
 
 echo === Adding Fork as Remote ===
-git remote add fork https://github.com/olaleyeolajide81-sketch/Verinode.git
+git remote add fork https://github.com/olaleyeolajide81-sketch/Nova Verify.git
 
 echo === Staging Changes ===
 git add .
@@ -36,7 +36,7 @@ echo.
 echo === Push Status ===
 if %ERRORLEVEL% EQU 0 (
     echo ✅ Successfully pushed to forked repository!
-    echo 📁 Repository: https://github.com/olaleyeolajide81-sketch/Verinode/tree/Gas-Optimization-Suite-v2
+    echo 📁 Repository: https://github.com/olaleyeolajide81-sketch/Nova Verify/tree/Gas-Optimization-Suite-v2
     echo 🌿 Branch: Gas-Optimization-Suite-v2
 ) else (
     echo ❌ Failed to push to forked repository

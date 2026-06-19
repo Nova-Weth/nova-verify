@@ -1,4 +1,4 @@
-package verinode
+package nova-verify
 
 import (
 	"fmt"
@@ -15,7 +15,7 @@ const (
 	NetworkTestnet NetworkType = "testnet"
 )
 
-// Config holds the configuration for the Verinode client
+// Config holds the configuration for the Nova Verify client
 type Config struct {
 	// API configuration
 	APIEndpoint string `json:"api_endpoint" yaml:"api_endpoint"`
@@ -40,7 +40,7 @@ type Config struct {
 // DefaultConfig returns a default configuration
 func DefaultConfig() *Config {
 	return &Config{
-		APIEndpoint:       "https://api.verinode.com",
+		APIEndpoint:       "https://api.nova-verify.com",
 		Network:          NetworkMainnet,
 		Timeout:          10 * time.Second,
 		MaxRetries:       3,
@@ -57,55 +57,55 @@ func DefaultConfig() *Config {
 func ConfigFromEnv() *Config {
 	config := DefaultConfig()
 	
-	if endpoint := os.Getenv("VERINODE_API_ENDPOINT"); endpoint != "" {
+	if endpoint := os.Getenv("NOVA_VERIFY_API_ENDPOINT"); endpoint != "" {
 		config.APIEndpoint = endpoint
 	}
 	
-	if network := os.Getenv("VERINODE_NETWORK"); network != "" {
+	if network := os.Getenv("NOVA_VERIFY_NETWORK"); network != "" {
 		config.Network = NetworkType(network)
 	}
 	
-	if apiKey := os.Getenv("VERINODE_API_KEY"); apiKey != "" {
+	if apiKey := os.Getenv("NOVA_VERIFY_API_KEY"); apiKey != "" {
 		config.APIKey = apiKey
 	}
 	
-	if timeout := os.Getenv("VERINODE_TIMEOUT"); timeout != "" {
+	if timeout := os.Getenv("NOVA_VERIFY_TIMEOUT"); timeout != "" {
 		if ms, err := strconv.Atoi(timeout); err == nil {
 			config.Timeout = time.Duration(ms) * time.Millisecond
 		}
 	}
 	
-	if maxRetries := os.Getenv("VERINODE_MAX_RETRIES"); maxRetries != "" {
+	if maxRetries := os.Getenv("NOVA_VERIFY_MAX_RETRIES"); maxRetries != "" {
 		if retries, err := strconv.Atoi(maxRetries); err == nil {
 			config.MaxRetries = retries
 		}
 	}
 	
-	if retryDelay := os.Getenv("VERINODE_RETRY_DELAY"); retryDelay != "" {
+	if retryDelay := os.Getenv("NOVA_VERIFY_RETRY_DELAY"); retryDelay != "" {
 		if ms, err := strconv.Atoi(retryDelay); err == nil {
 			config.RetryDelay = time.Duration(ms) * time.Millisecond
 		}
 	}
 	
-	if backoff := os.Getenv("VERINODE_BACKOFF_MULTIPLIER"); backoff != "" {
+	if backoff := os.Getenv("NOVA_VERIFY_BACKOFF_MULTIPLIER"); backoff != "" {
 		if mult, err := strconv.ParseFloat(backoff, 64); err == nil {
 			config.BackoffMultiplier = mult
 		}
 	}
 	
-	if autoConnect := os.Getenv("VERINODE_WALLET_AUTO_CONNECT"); autoConnect != "" {
+	if autoConnect := os.Getenv("NOVA_VERIFY_WALLET_AUTO_CONNECT"); autoConnect != "" {
 		if enabled, err := strconv.ParseBool(autoConnect); err == nil {
 			config.WalletAutoConnect = enabled
 		}
 	}
 	
-	if logging := os.Getenv("VERINODE_LOGGING_ENABLED"); logging != "" {
+	if logging := os.Getenv("NOVA_VERIFY_LOGGING_ENABLED"); logging != "" {
 		if enabled, err := strconv.ParseBool(logging); err == nil {
 			config.LoggingEnabled = enabled
 		}
 	}
 	
-	if logLevel := os.Getenv("VERINODE_LOG_LEVEL"); logLevel != "" {
+	if logLevel := os.Getenv("NOVA_VERIFY_LOG_LEVEL"); logLevel != "" {
 		config.LogLevel = logLevel
 	}
 	

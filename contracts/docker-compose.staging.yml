@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   api:
-    image: ${DOCKERHUB_USERNAME}/verinode:staging
+    image: ${DOCKERHUB_USERNAME}/nova-verify:staging
     restart: always
     ports:
       - "4000:4000"

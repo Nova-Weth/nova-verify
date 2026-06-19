@@ -41,7 +41,7 @@ export class QueryRouter extends EventEmitter {
   ) {
     super();
     this.replicaManager = replicaManagerInstance || new ReplicaManager();
-    this.connectionPool = connectionPoolInstance || new ConnectionPool(process.env.MONGODB_URI || 'mongodb://localhost:27017/verinode');
+    this.connectionPool = connectionPoolInstance || new ConnectionPool(process.env.MONGODB_URI || 'mongodb://localhost:27017/nova-verify');
     
     this.initializeStrategies();
   }

@@ -9,18 +9,18 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/Great-2025/verinode-go/pkg/verinode"
-	"github.com/Great-2025/verinode-go/pkg/verinode/types"
+	"github.com/Great-2025/nova-verify-go/pkg/nova-verify"
+	"github.com/Great-2025/nova-verify-go/pkg/nova-verify/types"
 )
 
 func main() {
-	fmt.Println("🚀 Starting Verinode Go SDK Example")
+	fmt.Println("🚀 Starting Nova Verify Go SDK Example")
 	fmt.Println("=" + string(make([]byte, 49)))
 
 	// Initialize SDK with configuration
-	config := &verinode.Config{
-		APIEndpoint:       "https://api.verinode.com",
-		Network:          verinode.NetworkTestnet,
+	config := &nova-verify.Config{
+		APIEndpoint:       "https://api.nova-verify.com",
+		Network:          nova-verify.NetworkTestnet,
 		Timeout:          10 * time.Second,
 		MaxRetries:       3,
 		RetryDelay:       1 * time.Second,
@@ -29,7 +29,7 @@ func main() {
 		LogLevel:         "INFO",
 	}
 
-	client := verinode.NewClient(config)
+	client := nova-verify.NewClient(config)
 	defer client.Close()
 
 	ctx := context.Background()
@@ -96,7 +96,7 @@ func main() {
 	fmt.Println("\n🎉 Example completed successfully!")
 }
 
-func authenticateExample(ctx context.Context, client *verinode.Client) error {
+func authenticateExample(ctx context.Context, client *nova-verify.Client) error {
 	err := client.Authenticate(ctx, "demo@example.com", "demo-password")
 	if err != nil {
 		return err
@@ -108,7 +108,7 @@ func authenticateExample(ctx context.Context, client *verinode.Client) error {
 	return nil
 }
 
-func createProofExample(ctx context.Context, client *verinode.Client) (string, error) {
+func createProofExample(ctx context.Context, client *nova-verify.Client) (string, error) {
 	proofRequest := &types.ProofCreateRequest{
 		Title:       "Example Document Verification",
 		Description: stringPtr("This is an example proof created with the Go SDK"),
@@ -131,7 +131,7 @@ func createProofExample(ctx context.Context, client *verinode.Client) (string, e
 	return proof.ID, nil
 }
 
-func listProofsExample(ctx context.Context, client *verinode.Client) error {
+func listProofsExample(ctx context.Context, client *nova-verify.Client) error {
 	proofs, err := client.Proof.List(ctx, &types.ProofStatusPending, nil, nil, &types.QueryOptions{
 		Page:     1,
 		PageSize: 5,
@@ -150,7 +150,7 @@ func listProofsExample(ctx context.Context, client *verinode.Client) error {
 	return nil
 }
 
-func searchProofsExample(ctx context.Context, client *verinode.Client) error {
+func searchProofsExample(ctx context.Context, client *nova-verify.Client) error {
 	results, err := client.Proof.Search(ctx, "example", &types.QueryOptions{
 		Page:     1,
 		PageSize: 10,
@@ -163,7 +163,7 @@ func searchProofsExample(ctx context.Context, client *verinode.Client) error {
 	return nil
 }
 
-func walletExample(ctx context.Context, client *verinode.Client) error {
+func walletExample(ctx context.Context, client *nova-verify.Client) error {
 	// Connect a demo wallet
 	walletRequest := &types.WalletConnectRequest{
 		WalletType: types.WalletTypeStellar,
@@ -190,7 +190,7 @@ func walletExample(ctx context.Context, client *verinode.Client) error {
 	return nil
 }
 
-func verificationExample(ctx context.Context, client *verinode.Client, proofID string) error {
+func verificationExample(ctx context.Context, client *nova-verify.Client, proofID string) error {
 	if proofID == "demo-proof-id" {
 		fmt.Println("⚠️  Skipping verification - no valid proof ID")
 		return nil
@@ -224,7 +224,7 @@ func verificationExample(ctx context.Context, client *verinode.Client, proofID s
 	return nil
 }
 
-func subscriptionExample(ctx context.Context, client *verinode.Client) error {
+func subscriptionExample(ctx context.Context, client *nova-verify.Client) error {
 	// Subscribe to updates
 	subscription, err := client.SubscribeToUpdates(ctx, map[string]interface{}{
 		"event_types": []string{"proof_updated", "verification_created"},

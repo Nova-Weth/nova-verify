@@ -254,7 +254,7 @@ export class SearchEngine {
 
     const esQuery = this.buildElasticsearchQuery(query);
     const response = await this.client.search<SearchIndexResponse>({
-      index: 'verinode_search',
+      index: 'nova-verify_search',
       body: esQuery
     });
 
@@ -570,7 +570,7 @@ export class SearchEngine {
     if (!this.client) return;
 
     await this.client.index({
-      index: 'verinode_search',
+      index: 'nova-verify_search',
       id: document.id,
       body: document
     });

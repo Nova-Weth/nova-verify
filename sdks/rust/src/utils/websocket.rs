@@ -1,4 +1,4 @@
-//! WebSocket client utilities for the Verinode SDK.
+//! WebSocket client utilities for the Nova Verify SDK.
 
 use crate::config::Config;
 use crate::error::{Error, Result};

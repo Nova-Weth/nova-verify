@@ -1,5 +1,5 @@
 """
-Type definitions for Verinode SDK.
+Type definitions for Nova Verify SDK.
 """
 
 from typing import Optional, Dict, Any, List, Union

@@ -29,7 +29,7 @@ export async function sendEmail(options: {
 }): Promise<boolean> {
   try {
     const mailOptions = {
-      from: process.env.EMAIL_FROM || 'noreply@verinode.io',
+      from: process.env.EMAIL_FROM || 'noreply@nova-verify.io',
       to: options.to,
       subject: options.subject,
       text: options.body,
@@ -90,7 +90,7 @@ Request Details:
 Please review and approve this request at your earliest convenience.
 
 Best regards,
-Verinode Team
+Nova Verify Team
   `;
 
   if (options.recipientEmail) {
@@ -133,7 +133,7 @@ Recovery Details:
 If you did not initiate this recovery, please contact support immediately.
 
 Best regards,
-Verinode Team
+Nova Verify Team
   `;
 
   if (options.recipientEmail) {
@@ -181,7 +181,7 @@ Time: ${new Date().toLocaleString()}
 Please review this activity and take appropriate action if necessary.
 
 Best regards,
-Verinode Security Team
+Nova Verify Security Team
   `;
 
   if (options.recipientEmail) {

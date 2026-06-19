@@ -1,4 +1,4 @@
-package verinode
+package nova-verify
 
 import (
 	"fmt"
@@ -18,7 +18,7 @@ const (
 	ErrCodeSubscriptionError ErrorCode = "SUBSCRIPTION_ERROR"
 )
 
-// Error is the base error type for all Verinode SDK errors
+// Error is the base error type for all Nova Verify SDK errors
 type Error struct {
 	Code      ErrorCode     `json:"code"`
 	Message   string        `json:"message"`

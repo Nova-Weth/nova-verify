@@ -7,7 +7,7 @@ export interface PluginMetadata {
   permissions: PluginPermission[];
   dependencies?: string[];
   entryPoint: string;
-  verinodeVersion?: string;
+  novaVerifyVersion?: string;
 }
 
 export interface PluginPermission {
@@ -85,7 +85,7 @@ export interface PluginManifest {
   main: string;
   permissions: PluginPermission[];
   dependencies?: string[];
-  verinodeVersion?: string;
+  novaVerifyVersion?: string;
 }
 
 export class PluginError extends Error {

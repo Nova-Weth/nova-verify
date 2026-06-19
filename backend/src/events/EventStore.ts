@@ -19,13 +19,13 @@ export class EventStore {
       port: redisConfig.port,
       password: redisConfig.password,
       db: redisConfig.db || 0,
-      keyPrefix: redisConfig.keyPrefix || 'verinode:event_store:',
+      keyPrefix: redisConfig.keyPrefix || 'nova-verify:event_store:',
       retryDelayOnFailover: 100,
       maxRetriesPerRequest: 3,
       lazyConnect: true
     });
     
-    this.keyPrefix = redisConfig.keyPrefix || 'verinode:event_store:';
+    this.keyPrefix = redisConfig.keyPrefix || 'nova-verify:event_store:';
     this.logger = new WinstonLogger();
     
     this.setupErrorHandling();
@@ -454,5 +454,5 @@ export const eventStore = new EventStore({
   port: parseInt(process.env.REDIS_PORT || '6379'),
   password: process.env.REDIS_PASSWORD,
   db: parseInt(process.env.REDIS_DB || '1'),
-  keyPrefix: 'verinode:event_store:'
+  keyPrefix: 'nova-verify:event_store:'
 });

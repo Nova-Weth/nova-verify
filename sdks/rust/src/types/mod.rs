@@ -1,4 +1,4 @@
-//! Type definitions for the Verinode SDK.
+//! Type definitions for the Nova Verify SDK.
 
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};

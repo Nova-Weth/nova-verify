@@ -7,13 +7,13 @@ from typing import Optional, List, Dict, Any, Callable
 from ..types import (
     Wallet, WalletType, NetworkType, WalletConnectRequest
 )
-from ..exceptions import VerinodeWalletError, VerinodeError
+from ..exceptions import NovaVerifyWalletError, NovaVerifyError
 from ..utils import HTTPClient, WebSocketClient
 
 
 class WalletService:
     """
-    Service for managing blockchain wallets in the Verinode system.
+    Service for managing blockchain wallets in the Nova Verify system.
     
     Provides methods to connect, manage, and interact with various wallet providers.
     """
@@ -45,7 +45,7 @@ class WalletService:
             Connected wallet object
             
         Raises:
-            VerinodeWalletError: If wallet connection fails
+            NovaVerifyWalletError: If wallet connection fails
         """
         try:
             response = await self.http_client.post(
@@ -60,16 +60,16 @@ class WalletService:
                 self.logger.info(f"Connected wallet: {wallet.id} ({wallet.wallet_type})")
                 return wallet
             else:
-                raise VerinodeWalletError(
+                raise NovaVerifyWalletError(
                     response.get("error", "Failed to connect wallet"),
                     wallet_type=request.wallet_type.value,
                     error_code="WALLET_CONNECT_FAILED"
                 )
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeWalletError(
+            raise NovaVerifyWalletError(
                 f"Failed to connect wallet: {str(e)}",
                 wallet_type=request.wallet_type.value
             )
@@ -85,7 +85,7 @@ class WalletService:
             True if disconnected successfully
             
         Raises:
-            VerinodeWalletError: If wallet disconnection fails
+            NovaVerifyWalletError: If wallet disconnection fails
         """
         try:
             response = await self.http_client.post(f"/wallets/{wallet_id}/disconnect")
@@ -96,15 +96,15 @@ class WalletService:
                 self.logger.info(f"Disconnected wallet: {wallet_id}")
                 return True
             else:
-                raise VerinodeWalletError(
+                raise NovaVerifyWalletError(
                     response.get("error", "Failed to disconnect wallet"),
                     error_code="WALLET_DISCONNECT_FAILED"
                 )
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeWalletError(f"Failed to disconnect wallet {wallet_id}: {str(e)}")
+            raise NovaVerifyWalletError(f"Failed to disconnect wallet {wallet_id}: {str(e)}")
     
     async def get(self, wallet_id: str) -> Wallet:
         """
@@ -117,7 +117,7 @@ class WalletService:
             Wallet object
             
         Raises:
-            VerinodeWalletError: If wallet not found
+            NovaVerifyWalletError: If wallet not found
         """
         try:
             response = await self.http_client.get(f"/wallets/{wallet_id}")
@@ -127,15 +127,15 @@ class WalletService:
                 wallet = Wallet(**wallet_data)
                 return wallet
             else:
-                raise VerinodeWalletError(
+                raise NovaVerifyWalletError(
                     response.get("error", "Wallet not found"),
                     error_code="WALLET_NOT_FOUND"
                 )
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeWalletError(f"Failed to get wallet {wallet_id}: {str(e)}")
+            raise NovaVerifyWalletError(f"Failed to get wallet {wallet_id}: {str(e)}")
     
     async def list(self, user_id: Optional[str] = None) -> List[Wallet]:
         """
@@ -158,15 +158,15 @@ class WalletService:
                 wallets = [Wallet(**w) for w in response["data"]]
                 return wallets
             else:
-                raise VerinodeWalletError(
+                raise NovaVerifyWalletError(
                     response.get("error", "Failed to list wallets"),
                     error_code="WALLET_LIST_FAILED"
                 )
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeWalletError(f"Failed to list wallets: {str(e)}")
+            raise NovaVerifyWalletError(f"Failed to list wallets: {str(e)}")
     
     async def get_balance(self, wallet_id: str) -> str:
         """
@@ -179,7 +179,7 @@ class WalletService:
             Balance as string
             
         Raises:
-            VerinodeWalletError: If balance retrieval fails
+            NovaVerifyWalletError: If balance retrieval fails
         """
         try:
             response = await self.http_client.get(f"/wallets/{wallet_id}/balance")
@@ -187,15 +187,15 @@ class WalletService:
             if response.get("success"):
                 return response["data"]["balance"]
             else:
-                raise VerinodeWalletError(
+                raise NovaVerifyWalletError(
                     response.get("error", "Failed to get wallet balance"),
                     error_code="WALLET_BALANCE_FAILED"
                 )
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeWalletError(f"Failed to get balance for wallet {wallet_id}: {str(e)}")
+            raise NovaVerifyWalletError(f"Failed to get balance for wallet {wallet_id}: {str(e)}")
     
     async def send_transaction(
         self,
@@ -217,7 +217,7 @@ class WalletService:
             Transaction information
             
         Raises:
-            VerinodeWalletError: If transaction fails
+            NovaVerifyWalletError: If transaction fails
         """
         try:
             response = await self.http_client.post(
@@ -233,15 +233,15 @@ class WalletService:
                 self.logger.info(f"Transaction sent from wallet {wallet_id}")
                 return response["data"]
             else:
-                raise VerinodeWalletError(
+                raise NovaVerifyWalletError(
                     response.get("error", "Failed to send transaction"),
                     error_code="WALLET_TRANSACTION_FAILED"
                 )
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeWalletError(f"Failed to send transaction from wallet {wallet_id}: {str(e)}")
+            raise NovaVerifyWalletError(f"Failed to send transaction from wallet {wallet_id}: {str(e)}")
     
     async def sign_message(
         self,
@@ -259,7 +259,7 @@ class WalletService:
             Signature
             
         Raises:
-            VerinodeWalletError: If signing fails
+            NovaVerifyWalletError: If signing fails
         """
         try:
             response = await self.http_client.post(
@@ -270,15 +270,15 @@ class WalletService:
             if response.get("success"):
                 return response["data"]["signature"]
             else:
-                raise VerinodeWalletError(
+                raise NovaVerifyWalletError(
                     response.get("error", "Failed to sign message"),
                     error_code="WALLET_SIGN_FAILED"
                 )
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeWalletError(f"Failed to sign message with wallet {wallet_id}: {str(e)}")
+            raise NovaVerifyWalletError(f"Failed to sign message with wallet {wallet_id}: {str(e)}")
     
     async def verify_message(
         self,
@@ -310,15 +310,15 @@ class WalletService:
             if response.get("success"):
                 return response["data"]["valid"]
             else:
-                raise VerinodeWalletError(
+                raise NovaVerifyWalletError(
                     response.get("error", "Failed to verify message"),
                     error_code="WALLET_VERIFY_FAILED"
                 )
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeWalletError(f"Failed to verify message: {str(e)}")
+            raise NovaVerifyWalletError(f"Failed to verify message: {str(e)}")
     
     def add_listener(self, event_type: str, callback: Callable):
         """
@@ -354,7 +354,7 @@ class WalletService:
             wallet_id: Wallet ID to subscribe to
         """
         if not self.ws_client:
-            raise VerinodeWalletError(
+            raise NovaVerifyWalletError(
                 "WebSocket client not available",
                 error_code="WS_CLIENT_UNAVAILABLE"
             )
@@ -408,15 +408,15 @@ class WalletService:
                 self.logger.info(f"Switched wallet {wallet_id} to {network.value}")
                 return wallet
             else:
-                raise VerinodeWalletError(
+                raise NovaVerifyWalletError(
                     response.get("error", "Failed to switch network"),
                     error_code="WALLET_NETWORK_SWITCH_FAILED"
                 )
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeWalletError(f"Failed to switch network for wallet {wallet_id}: {str(e)}")
+            raise NovaVerifyWalletError(f"Failed to switch network for wallet {wallet_id}: {str(e)}")
     
     async def get_transaction_history(
         self,
@@ -442,12 +442,12 @@ class WalletService:
             if response.get("success"):
                 return response["data"]
             else:
-                raise VerinodeWalletError(
+                raise NovaVerifyWalletError(
                     response.get("error", "Failed to get transaction history"),
                     error_code="WALLET_TRANSACTIONS_FAILED"
                 )
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeWalletError(f"Failed to get transaction history for wallet {wallet_id}: {str(e)}")
+            raise NovaVerifyWalletError(f"Failed to get transaction history for wallet {wallet_id}: {str(e)}")

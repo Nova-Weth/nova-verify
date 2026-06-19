@@ -1,7 +1,7 @@
 # Pull Request: Backend Issues Implementation
 
 ## Description
-This PR implements four critical backend issues for the Verinode project:
+This PR implements four critical backend issues for the Nova Verify project:
 
 1. **#232** - Advanced Logging and Tracing with Correlation
 2. **#215** - Stellar Network Integration Optimization  
@@ -68,6 +68,6 @@ None - All implementations are additive and maintain backward compatibility.
 @jobbykingz @DanielCharis1
 
 ## Related Links
-- **Forked Repository:** https://github.com/DanielCharis1/Verinode
-- **Original Repository:** https://github.com/jobbykingz/Verinode
+- **Forked Repository:** https://github.com/DanielCharis1/Nova Verify
+- **Original Repository:** https://github.com/jobbykingz/Nova Verify
 - **Issues Document:** `BACKEND_ISSUES.md`

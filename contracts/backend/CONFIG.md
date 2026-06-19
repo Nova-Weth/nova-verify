@@ -1,4 +1,4 @@
-# Verinode Backend — Configuration Guide
+# Nova Verify Backend — Configuration Guide
 
 ## Overview
 
@@ -60,7 +60,7 @@ cp .env.example .env
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `MONGODB_URI` | `mongodb://localhost:27017/verinode` | MongoDB connection string |
+| `MONGODB_URI` | `mongodb://localhost:27017/nova-verify` | MongoDB connection string |
 | `DB_MAX_POOL_SIZE` | `10` | Connection pool size |
 | `DB_CONNECT_TIMEOUT_MS` | `30000` | Connection timeout |
 | `DB_SOCKET_TIMEOUT_MS` | `45000` | Socket idle timeout |
@@ -71,8 +71,8 @@ cp .env.example .env
 |----------|---------|-------------|
 | `JWT_SECRET` | _(empty)_ | **≥ 32 chars. Required in production.** |
 | `JWT_EXPIRES_IN` | `24h` | Token lifetime (ms or zeit/ms format) |
-| `JWT_ISSUER` | `verinode` | JWT `iss` claim |
-| `JWT_AUDIENCE` | `verinode-users` | JWT `aud` claim |
+| `JWT_ISSUER` | `nova-verify` | JWT `iss` claim |
+| `JWT_AUDIENCE` | `nova-verify-users` | JWT `aud` claim |
 | `BCRYPT_ROUNDS` | `12` | bcrypt cost factor |
 | `SESSION_SECRET` | _(empty)_ | **Required in production.** |
 
@@ -114,7 +114,7 @@ Enable at least one for production resilience.
 | `PINATA_API_KEY` / `PINATA_SECRET_API_KEY` | Pinata credentials — service auto-enables when both are set |
 | `INFURA_PROJECT_ID` / `INFURA_PROJECT_SECRET` | Infura IPFS credentials |
 | `FILEBASE_ACCESS_KEY` / `FILEBASE_SECRET_KEY` | Filebase S3-compatible credentials |
-| `FILEBASE_BUCKET` | Filebase bucket name (default: `verinode-backup`) |
+| `FILEBASE_BUCKET` | Filebase bucket name (default: `nova-verify-backup`) |
 
 ### Frontend / CORS
 
@@ -219,7 +219,7 @@ fails, so you can run with minimal configuration.
 ```env
 NODE_ENV=development
 PORT=3001
-MONGODB_URI=mongodb://localhost:27017/verinode-dev
+MONGODB_URI=mongodb://localhost:27017/nova-verify-dev
 JWT_SECRET=dev-only-secret-at-least-32-characters-long
 STELLAR_NETWORK=testnet
 FEATURE_CONFIG_ENDPOINT=true
@@ -231,7 +231,7 @@ FEATURE_VERBOSE_LOGGING=true
 ```env
 NODE_ENV=test
 PORT=3002
-MONGODB_URI=mongodb://localhost:27017/verinode-test
+MONGODB_URI=mongodb://localhost:27017/nova-verify-test
 JWT_SECRET=test-only-secret-at-least-32-characters-long
 STELLAR_NETWORK=testnet
 FEATURE_RATE_LIMITING=false
@@ -243,14 +243,14 @@ FEATURE_RESPONSE_CACHE=false
 ```env
 NODE_ENV=production
 PORT=3001
-MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/verinode
+MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/nova-verify
 JWT_SECRET=<generated-256-bit-secret>
 SESSION_SECRET=<generated-256-bit-secret>
 STELLAR_NETWORK=mainnet
 STELLAR_SECRET_KEY=<production-stellar-key>
 REDIS_HOST=redis.internal
 REDIS_PASSWORD=<strong-password>
-ALLOWED_ORIGINS=https://verinode.app,https://www.verinode.app
+ALLOWED_ORIGINS=https://nova-verify.app,https://www.nova-verify.app
 LOG_LEVEL=warn
 LOG_TO_FILE=true
 FEATURE_CONFIG_ENDPOINT=false

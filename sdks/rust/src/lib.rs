@@ -1,18 +1,18 @@
-//! # Verinode Rust SDK
+//! # Nova Verify Rust SDK
 //!
-//! Official Rust SDK for Verinode - Web3 infrastructure for cryptographic proofs on Stellar.
+//! Official Rust SDK for Nova Verify - Web3 infrastructure for cryptographic proofs on Stellar.
 //!
 //! ## Quick Start
 //!
 //! ```rust,no_run
-//! use verinode_sdk::{Client, Config};
-//! use verinode_sdk::types::{ProofCreateRequest, ProofStatus};
+//! use nova-verify_sdk::{Client, Config};
+//! use nova-verify_sdk::types::{ProofCreateRequest, ProofStatus};
 //!
 //! #[tokio::main]
 //! async fn main() -> Result<(), Box<dyn std::error::Error>> {
 //!     // Initialize the SDK
 //!     let config = Config::builder()
-//!         .api_endpoint("https://api.verinode.com")
+//!         .api_endpoint("https://api.nova-verify.com")
 //!         .network(NetworkType::Testnet)
 //!         .build()?;
 //!

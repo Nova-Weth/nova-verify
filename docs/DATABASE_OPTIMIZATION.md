@@ -2,7 +2,7 @@
 
 ## Overview
 
-This implementation addresses issue #12 by providing comprehensive database performance optimization for the Verinode project. The solution includes query optimization, intelligent indexing, connection pooling, caching, and real-time performance monitoring.
+This implementation addresses issue #12 by providing comprehensive database performance optimization for the Nova Verify project. The solution includes query optimization, intelligent indexing, connection pooling, caching, and real-time performance monitoring.
 
 ## Features Implemented
 
@@ -131,7 +131,7 @@ This implementation addresses issue #12 by providing comprehensive database perf
 ### Environment Variables
 ```bash
 # Database Connection
-MONGODB_URI=mongodb://localhost:27017/verinode
+MONGODB_URI=mongodb://localhost:27017/nova-verify
 DB_MAX_POOL_SIZE=50
 DB_MIN_POOL_SIZE=5
 DB_MAX_IDLE_TIME=30000
@@ -233,10 +233,10 @@ cp .env.example .env
 3. **Run Migrations**:
 ```bash
 # Apply indexes
-mongo verinode < migrations/add_indexes.sql
+mongo nova-verify < migrations/add_indexes.sql
 
 # Apply partitioning (if using MongoDB cluster)
-mongo verinode < migrations/partition_tables.sql
+mongo nova-verify < migrations/partition_tables.sql
 ```
 
 4. **Start Application**:

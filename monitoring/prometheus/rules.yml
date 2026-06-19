@@ -1,4 +1,4 @@
-# Prometheus Alerting Rules for Verinode
+# Prometheus Alerting Rules for Nova Verify
 
 groups:
   # System Health Alerts

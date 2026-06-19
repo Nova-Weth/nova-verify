@@ -785,7 +785,7 @@ export class DeviceIntegrationService extends EventEmitter {
     try {
       await this.pushNotificationService.sendNotification({
         to: device.deviceId,
-        title: 'Welcome to Verinode!',
+        title: 'Welcome to Nova Verify!',
         body: `Your ${device.platform} device has been successfully registered.`,
         data: {
           type: 'welcome',

@@ -1,4 +1,4 @@
-//! Configuration management for the Verinode SDK.
+//! Configuration management for the Nova Verify SDK.
 
 use serde::{Deserialize, Serialize};
 use std::time::Duration;
@@ -57,7 +57,7 @@ pub struct Config {
 impl Default for Config {
     fn default() -> Self {
         Self {
-            api_endpoint: "https://api.verinode.com".to_string(),
+            api_endpoint: "https://api.nova-verify.com".to_string(),
             network: NetworkType::Mainnet,
             api_key: None,
             timeout: Duration::from_secs(10),
@@ -133,11 +133,11 @@ impl Config {
     pub fn from_env() -> Result<Self, ConfigError> {
         let mut config = Config::default();
         
-        if let Ok(endpoint) = std::env::var("VERINODE_API_ENDPOINT") {
+        if let Ok(endpoint) = std::env::var("NOVA_VERIFY_API_ENDPOINT") {
             config.api_endpoint = endpoint;
         }
         
-        if let Ok(network) = std::env::var("VERINODE_NETWORK") {
+        if let Ok(network) = std::env::var("NOVA_VERIFY_NETWORK") {
             config.network = match network.as_str() {
                 "mainnet" => NetworkType::Mainnet,
                 "testnet" => NetworkType::Testnet,
@@ -145,43 +145,43 @@ impl Config {
             };
         }
         
-        if let Ok(api_key) = std::env::var("VERINODE_API_KEY") {
+        if let Ok(api_key) = std::env::var("NOVA_VERIFY_API_KEY") {
             config.api_key = Some(api_key);
         }
         
-        if let Ok(timeout) = std::env::var("VERINODE_TIMEOUT") {
+        if let Ok(timeout) = std::env::var("NOVA_VERIFY_TIMEOUT") {
             if let Ok(secs) = timeout.parse::<u64>() {
                 config.timeout = Duration::from_millis(secs);
             }
         }
         
-        if let Ok(max_retries) = std::env::var("VERINODE_MAX_RETRIES") {
+        if let Ok(max_retries) = std::env::var("NOVA_VERIFY_MAX_RETRIES") {
             if let Ok(retries) = max_retries.parse::<u32>() {
                 config.max_retries = retries;
             }
         }
         
-        if let Ok(retry_delay) = std::env::var("VERINODE_RETRY_DELAY") {
+        if let Ok(retry_delay) = std::env::var("NOVA_VERIFY_RETRY_DELAY") {
             if let Ok(millis) = retry_delay.parse::<u64>() {
                 config.retry_delay = Duration::from_millis(millis);
             }
         }
         
-        if let Ok(backoff) = std::env::var("VERINODE_BACKOFF_MULTIPLIER") {
+        if let Ok(backoff) = std::env::var("NOVA_VERIFY_BACKOFF_MULTIPLIER") {
             if let Ok(mult) = backoff.parse::<f64>() {
                 config.backoff_multiplier = mult;
             }
         }
         
-        if let Ok(auto_connect) = std::env::var("VERINODE_WALLET_AUTO_CONNECT") {
+        if let Ok(auto_connect) = std::env::var("NOVA_VERIFY_WALLET_AUTO_CONNECT") {
             config.wallet_auto_connect = auto_connect.parse().unwrap_or(false);
         }
         
-        if let Ok(logging) = std::env::var("VERINODE_LOGGING_ENABLED") {
+        if let Ok(logging) = std::env::var("NOVA_VERIFY_LOGGING_ENABLED") {
             config.logging_enabled = logging.parse().unwrap_or(false);
         }
         
-        if let Ok(log_level) = std::env::var("VERINODE_LOG_LEVEL") {
+        if let Ok(log_level) = std::env::var("NOVA_VERIFY_LOG_LEVEL") {
             config.log_level = log_level;
         }
         

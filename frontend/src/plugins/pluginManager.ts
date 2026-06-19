@@ -34,7 +34,7 @@ export class PluginManager {
       }
 
       if (!await this.versionManager.checkCompatibility(metadata)) {
-        throw new PluginError('Plugin is not compatible with current Verinode version', 'INCOMPATIBLE_VERSION');
+        throw new PluginError('Plugin is not compatible with current Nova Verify version', 'INCOMPATIBLE_VERSION');
       }
 
       const plugin = await this.loadPlugin(pluginData);

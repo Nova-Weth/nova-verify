@@ -1,11 +1,11 @@
-# Verinode CLI
+# Nova Verify CLI
 
-A comprehensive command-line interface for managing proofs, deploying contracts, and interacting with the Verinode platform programmatically.
+A comprehensive command-line interface for managing proofs, deploying contracts, and interacting with the Nova Verify platform programmatically.
 
 ## Installation
 
 ```bash
-npm install -g verinode-cli
+npm install -g nova-verify-cli
 ```
 
 ## Configuration
@@ -14,10 +14,10 @@ Before using the CLI, configure your environment:
 
 ```bash
 # Set API endpoint
-verinode config set apiUrl https://api.verinode.com
+nova-verify config set apiUrl https://api.nova-verify.com
 
 # Login to authenticate
-verinode auth login
+nova-verify auth login
 ```
 
 ## Commands
@@ -26,70 +26,70 @@ verinode auth login
 
 ```bash
 # Login
-verinode auth login
+nova-verify auth login
 
 # Logout
-verinode auth logout
+nova-verify auth logout
 
 # Check auth status
-verinode auth status
+nova-verify auth status
 ```
 
 ### Proof Management
 
 ```bash
 # List all proofs
-verinode proof list
+nova-verify proof list
 
 # Create a new proof
-verinode proof create
-verinode proof create -f proof-data.json
+nova-verify proof create
+nova-verify proof create -f proof-data.json
 
 # Get proof details
-verinode proof get <proof-id>
+nova-verify proof get <proof-id>
 
 # Delete a proof
-verinode proof delete <proof-id>
+nova-verify proof delete <proof-id>
 
 # Batch operations
-verinode proof batch operations.json
+nova-verify proof batch operations.json
 ```
 
 ### Contract Deployment
 
 ```bash
 # List deployed contracts
-verinode deploy list
+nova-verify deploy list
 
 # Deploy a new contract
-verinode deploy contract -n mainnet
-verinode deploy contract -f contract-config.json
+nova-verify deploy contract -n mainnet
+nova-verify deploy contract -f contract-config.json
 
 # Check deployment status
-verinode deploy status <contract-id>
+nova-verify deploy status <contract-id>
 
 # Upgrade a contract
-verinode deploy upgrade <contract-id> -f new-source.json
+nova-verify deploy upgrade <contract-id> -f new-source.json
 ```
 
 ### Proof Verification
 
 ```bash
 # Verify a specific proof
-verinode verify proof <proof-id>
-verinode verify proof <proof-id> -d  # detailed
+nova-verify verify proof <proof-id>
+nova-verify verify proof <proof-id> -d  # detailed
 
 # Batch verification
-verinode verify batch proofs.json
+nova-verify verify batch proofs.json
 
 # Check verification status
-verinode verify status <verification-id>
+nova-verify verify status <verification-id>
 
 # View verification history
-verinode verify history <proof-id>
+nova-verify verify history <proof-id>
 
 # Interactive verification
-verinode verify interactive
+nova-verify verify interactive
 ```
 
 ## Configuration File Format

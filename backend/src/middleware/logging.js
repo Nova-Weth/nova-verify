@@ -7,7 +7,7 @@ const logger = winston.createLogger({
     winston.format.timestamp(),
     winston.format.json()
   ),
-  defaultMeta: { service: 'verinode-backend' },
+  defaultMeta: { service: 'nova-verify-backend' },
   transports: [
     new winston.transports.Console(),
     new winston.transports.File({ filename: 'logs/error.log', level: 'error' }),

@@ -10,7 +10,7 @@ fi
 echo "Rolling back $ENV..."
 
 # Restore backup tag
-docker tag ${DOCKERHUB_USERNAME}/verinode:$ENV-backup ${DOCKERHUB_USERNAME}/verinode:$ENV
+docker tag ${DOCKERHUB_USERNAME}/nova-verify:$ENV-backup ${DOCKERHUB_USERNAME}/nova-verify:$ENV
 
 # Redeploy previous version
 docker-compose -f docker-compose.$ENV.yml up -d

@@ -1,6 +1,6 @@
-# PWA Implementation for Verinode
+# PWA Implementation for Nova Verify
 
-This document outlines the Progressive Web App (PWA) implementation for Verinode, enabling offline functionality, mobile app-like experience, and improved performance.
+This document outlines the Progressive Web App (PWA) implementation for Nova Verify, enabling offline functionality, mobile app-like experience, and improved performance.
 
 ## Features Implemented
 
@@ -231,7 +231,7 @@ const cacheConfig = {
 
 ```typescript
 const swConfig = {
-  cacheName: 'verinode-v1',
+  cacheName: 'nova-verify-v1',
   networkTimeout: 3000,
   maxRetries: 3,
   backgroundSync: true

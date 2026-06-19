@@ -26,7 +26,7 @@ class IPFSSetup {
   }
 
   async run() {
-    console.log('🚀 Starting IPFS setup for Verinode...\n');
+    console.log('🚀 Starting IPFS setup for Nova Verify...\n');
     
     try {
       for (const step of this.setupSteps) {
@@ -154,7 +154,7 @@ class IPFSSetup {
       cluster: {
         listen_multiaddress: '/ip4/0.0.0.0/tcp/9094',
         secret: clusterSecret,
-        peername: 'verinode-cluster',
+        peername: 'nova-verify-cluster',
         bootstrap: [],
         leave_on_shutdown: false,
         enable_relay_hop: false,
@@ -166,7 +166,7 @@ class IPFSSetup {
       },
       consensus: {
         crdt: {
-          cluster_name: 'verinode',
+          cluster_name: 'nova-verify',
           trusted_peers: []
         }
       },
@@ -290,7 +290,7 @@ class IPFSSetup {
 
 set -e
 
-echo "🚀 Initializing IPFS for Verinode..."
+echo "🚀 Initializing IPFS for Nova Verify..."
 
 # Wait for IPFS to be ready
 echo "⏳ Waiting for IPFS to start..."
@@ -423,7 +423,7 @@ if (require.main === module) {
   
   if (command === 'help' || command === '--help' || command === '-h') {
     console.log(`
-IPFS Setup Script for Verinode
+IPFS Setup Script for Nova Verify
 
 Usage: node ipfsSetup.js [command]
 

@@ -1,10 +1,10 @@
 # Backend Issues Implementation
 
-This document outlines the four backend issues that need to be implemented for the Verinode project.
+This document outlines the four backend issues that need to be implemented for the Nova Verify project.
 
 ## Issue #232 - Advanced Logging and Tracing with Correlation
 
-**Repository:** jobbykingz/Verinode  
+**Repository:** jobbykingz/Nova Verify  
 **Description:** Enhance logging system with distributed tracing, correlation IDs, and intelligent log analysis.
 
 ### Key Features:
@@ -24,7 +24,7 @@ This document outlines the four backend issues that need to be implemented for t
 
 ## Issue #215 - Stellar Network Integration Optimization
 
-**Repository:** jobbykingz/Verinode  
+**Repository:** jobbykingz/Nova Verify  
 **Description:** Optimize Stellar network interactions with connection pooling, transaction batching, and intelligent retry mechanisms.
 
 ### Key Features:
@@ -44,7 +44,7 @@ This document outlines the four backend issues that need to be implemented for t
 
 ## Issue #233 - Advanced API Versioning and Deprecation Management
 
-**Repository:** jobbykingz/Verinode  
+**Repository:** jobbykingz/Nova Verify  
 **Description:** Implement comprehensive API versioning with deprecation workflows, migration assistance, and backward compatibility.
 
 ### Key Features:
@@ -64,7 +64,7 @@ This document outlines the four backend issues that need to be implemented for t
 
 ## Issue #220 - Advanced API Documentation with Interactive Testing
 
-**Repository:** jobbykingz/Verinode  
+**Repository:** jobbykingz/Nova Verify  
 **Description:** Create comprehensive API documentation with interactive testing capabilities, code examples, and version management.
 
 ### Key Features:
@@ -130,6 +130,6 @@ This document outlines the four backend issues that need to be implemented for t
 
 ## Related Links
 
-- **Forked Repository:** https://github.com/DanielCharis1/Verinode
-- **Original Repository:** https://github.com/jobbykingz/Verinode
+- **Forked Repository:** https://github.com/DanielCharis1/Nova Verify
+- **Original Repository:** https://github.com/jobbykingz/Nova Verify
 - **Branch:** `backend-issues-implementation`

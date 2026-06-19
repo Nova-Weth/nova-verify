@@ -1,17 +1,17 @@
 {
-  "name": "verinode-cli",
+  "name": "nova-verify-cli",
   "version": "1.0.0",
-  "description": "Command-line interface for Verinode platform",
+  "description": "Command-line interface for Nova Verify platform",
   "main": "dist/index.js",
   "bin": {
-    "verinode": "./bin/verinode"
+    "nova-verify": "./bin/nova-verify"
   },
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js"
   },
-  "keywords": ["verinode", "cli", "proof", "blockchain"],
-  "author": "Verinode Team",
+  "keywords": ["nova-verify", "cli", "proof", "blockchain"],
+  "author": "Nova Verify Team",
   "license": "MIT",
   "dependencies": {
     "commander": "^10.0.0",

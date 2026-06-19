@@ -1,7 +1,7 @@
 {
-  "name": "@verinode/sdk",
+  "name": "@nova-verify/sdk",
   "version": "1.0.0",
-  "description": "Official JavaScript/TypeScript SDK for Verinode - Web3 infrastructure for cryptographic proofs",
+  "description": "Official JavaScript/TypeScript SDK for Nova Verify - Web3 infrastructure for cryptographic proofs",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -22,7 +22,7 @@
     "prepublishOnly": "npm run build && npm run test"
   },
   "keywords": [
-    "verinode",
+    "nova-verify",
     "web3",
     "blockchain",
     "cryptographic-proofs",
@@ -31,16 +31,16 @@
     "verification",
     "authentication"
   ],
-  "author": "Verinode Team",
+  "author": "Nova Verify Team",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jobbykingz/Verinode.git"
+    "url": "https://github.com/jobbykingz/Nova Verify.git"
   },
   "bugs": {
-    "url": "https://github.com/jobbykingz/Verinode/issues"
+    "url": "https://github.com/jobbykingz/Nova Verify/issues"
   },
-  "homepage": "https://github.com/jobbykingz/Verinode#readme",
+  "homepage": "https://github.com/jobbykingz/Nova Verify#readme",
   "dependencies": {
     "@stellar/stellar-sdk": "^11.0.0",
     "axios": "^1.6.0",

@@ -1,4 +1,4 @@
-//! Main client for the Verinode SDK.
+//! Main client for the Nova Verify SDK.
 
 use crate::config::Config;
 use crate::error::{Error, Result};
@@ -12,7 +12,7 @@ use async_trait::async_trait;
 use serde::{Deserialize, Serialize};
 use std::sync::Arc;
 
-/// Main Verinode SDK client
+/// Main Nova Verify SDK client
 #[derive(Clone)]
 pub struct Client {
     config: Arc<Config>,
@@ -261,9 +261,9 @@ mod tests {
     fn test_client_from_env() {
         // This test would require setting environment variables
         // For now, just test that it doesn't panic with default config
-        std::env::set_var("VERINODE_API_ENDPOINT", "https://api.example.com");
+        std::env::set_var("NOVA_VERIFY_API_ENDPOINT", "https://api.example.com");
         let client = Client::from_env();
         assert!(client.is_ok());
-        std::env::remove_var("VERINODE_API_ENDPOINT");
+        std::env::remove_var("NOVA_VERIFY_API_ENDPOINT");
     }
 }

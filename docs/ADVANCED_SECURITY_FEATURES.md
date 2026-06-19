@@ -1,6 +1,6 @@
 # Advanced Security Features Implementation
 
-This document outlines the comprehensive advanced security features implemented for the Verinode project as part of issue #142.
+This document outlines the comprehensive advanced security features implemented for the Nova Verify project as part of issue #142.
 
 ## Overview
 
@@ -318,6 +318,6 @@ End-to-end testing of:
 
 The advanced security features implementation provides a comprehensive, multi-layered security framework that addresses the most critical security requirements for modern blockchain applications. The modular design allows for easy extension and customization while maintaining high performance and reliability.
 
-The implementation follows industry best practices and security standards, ensuring that the Verinode platform meets the highest security requirements for enterprise deployment.
+The implementation follows industry best practices and security standards, ensuring that the Nova Verify platform meets the highest security requirements for enterprise deployment.
 
 For more detailed information about specific components, please refer to the individual contract documentation and API references.

@@ -1,6 +1,6 @@
-# Verinode Rust SDK
+# Nova Verify Rust SDK
 
-Official Rust SDK for Verinode - Web3 infrastructure for cryptographic proofs on Stellar.
+Official Rust SDK for Nova Verify - Web3 infrastructure for cryptographic proofs on Stellar.
 
 ## Installation
 
@@ -8,21 +8,21 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-verinode-sdk = "1.0.0"
+nova-verify-sdk = "1.0.0"
 tokio = { version = "1.0", features = ["full"] }
 ```
 
 ## Quick Start
 
 ```rust
-use verinode_sdk::{Client, Config};
-use verinode_sdk::types::{ProofCreateRequest, ProofStatus};
+use nova-verify_sdk::{Client, Config};
+use nova-verify_sdk::types::{ProofCreateRequest, ProofStatus};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Initialize the SDK
     let config = Config::builder()
-        .api_endpoint("https://api.verinode.com")
+        .api_endpoint("https://api.nova-verify.com")
         .network(NetworkType::Testnet)
         .build()?;
 
@@ -55,20 +55,20 @@ The SDK can be configured using environment variables or configuration builder:
 ### Environment Variables
 
 ```bash
-export VERINODE_API_ENDPOINT="https://api.verinode.com"
-export VERINODE_NETWORK="mainnet"
-export VERINODE_API_KEY="your-api-key"
-export VERINODE_TIMEOUT="10000"
+export NOVA_VERIFY_API_ENDPOINT="https://api.nova-verify.com"
+export NOVA_VERIFY_NETWORK="mainnet"
+export NOVA_VERIFY_API_KEY="your-api-key"
+export NOVA_VERIFY_TIMEOUT="10000"
 ```
 
 ### Configuration Builder
 
 ```rust
-use verinode_sdk::{Config, NetworkType};
+use nova-verify_sdk::{Config, NetworkType};
 use std::time::Duration;
 
 let config = Config::builder()
-    .api_endpoint("https://api.verinode.com")
+    .api_endpoint("https://api.nova-verify.com")
     .network(NetworkType::Mainnet)
     .api_key("your-api-key")
     .timeout(Duration::from_secs(15))
@@ -101,7 +101,7 @@ client.logout().await?;
 ### Proof Management
 
 ```rust
-use verinode_sdk::types::*;
+use nova-verify_sdk::types::*;
 
 // Create proof
 let proof = client.proof().create(&ProofCreateRequest::new("Document Verification")
@@ -254,7 +254,7 @@ let wallet_sub = client.wallet().subscribe_to_wallet_events(&wallet.id).await?;
 The SDK provides comprehensive error handling:
 
 ```rust
-use verinode_sdk::Error;
+use nova-verify_sdk::Error;
 
 match client.proof().get("invalid-id").await {
     Ok(proof) => println!("Found proof: {}", proof.id),
@@ -287,7 +287,7 @@ match client.proof().get("invalid-id").await {
 The SDK uses a trait-based HTTP client, allowing for custom implementations:
 
 ```rust
-use verinode_sdk::utils::HttpClient;
+use nova-verify_sdk::utils::HttpClient;
 
 struct CustomHttpClient {
     // Your custom implementation
@@ -341,8 +341,8 @@ tokio::spawn(async move {
 
 ```bash
 # Clone repository
-git clone https://github.com/Great-2025/Verinode.git
-cd Verinode/sdks/rust
+git clone https://github.com/Great-2025/Nova Verify.git
+cd Nova Verify/sdks/rust
 
 # Install dependencies
 cargo build
@@ -392,7 +392,7 @@ Disable default features:
 
 ```toml
 [dependencies]
-verinode-sdk = { version = "1.0.0", default-features = false }
+nova-verify-sdk = { version = "1.0.0", default-features = false }
 ```
 
 ## License
@@ -401,6 +401,6 @@ This project is licensed under the MIT License - see the [LICENSE](../../LICENSE
 
 ## Support
 
-- Documentation: [Verinode Documentation](https://docs.verinode.com)
-- Issues: [GitHub Issues](https://github.com/Great-2025/Verinode/issues)
-- Community: [Discord](https://discord.gg/verinode)
+- Documentation: [Nova Verify Documentation](https://docs.nova-verify.com)
+- Issues: [GitHub Issues](https://github.com/Great-2025/Nova Verify/issues)
+- Community: [Discord](https://discord.gg/nova-verify)

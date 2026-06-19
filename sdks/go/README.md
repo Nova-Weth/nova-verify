@@ -1,11 +1,11 @@
-# Verinode Go SDK
+# Nova Verify Go SDK
 
-Official Go SDK for Verinode - Web3 infrastructure for cryptographic proofs on Stellar.
+Official Go SDK for Nova Verify - Web3 infrastructure for cryptographic proofs on Stellar.
 
 ## Installation
 
 ```bash
-go get github.com/Great-2025/verinode-go
+go get github.com/Great-2025/nova-verify-go
 ```
 
 ## Quick Start
@@ -18,15 +18,15 @@ import (
     "fmt"
     "log"
 
-    "github.com/Great-2025/verinode-go/pkg/verinode"
-    "github.com/Great-2025/verinode-go/pkg/verinode/types"
+    "github.com/Great-2025/nova-verify-go/pkg/nova-verify"
+    "github.com/Great-2025/nova-verify-go/pkg/nova-verify/types"
 )
 
 func main() {
     // Initialize the SDK
-    client := verinode.NewClient(&verinode.Config{
-        APIEndpoint: "https://api.verinode.com",
-        Network:     verinode.NetworkTestnet,
+    client := nova-verify.NewClient(&nova-verify.Config{
+        APIEndpoint: "https://api.nova-verify.com",
+        Network:     nova-verify.NetworkTestnet,
         LoggingEnabled: true,
     })
 
@@ -81,18 +81,18 @@ The SDK can be configured using environment variables or configuration struct:
 ### Environment Variables
 
 ```bash
-export VERINODE_API_ENDPOINT="https://api.verinode.com"
-export VERINODE_NETWORK="mainnet"
-export VERINODE_API_KEY="your-api-key"
-export VERINODE_TIMEOUT="10000"
+export NOVA_VERIFY_API_ENDPOINT="https://api.nova-verify.com"
+export NOVA_VERIFY_NETWORK="mainnet"
+export NOVA_VERIFY_API_KEY="your-api-key"
+export NOVA_VERIFY_TIMEOUT="10000"
 ```
 
 ### Configuration Struct
 
 ```go
-config := &verinode.Config{
-    APIEndpoint:       "https://api.verinode.com",
-    Network:          verinode.NetworkMainnet,
+config := &nova-verify.Config{
+    APIEndpoint:       "https://api.nova-verify.com",
+    Network:          nova-verify.NetworkMainnet,
     APIKey:          "your-api-key",
     Timeout:          15 * time.Second,
     MaxRetries:       5,
@@ -102,7 +102,7 @@ config := &verinode.Config{
     LogLevel:         "INFO",
 }
 
-client := verinode.NewClient(config)
+client := nova-verify.NewClient(config)
 ```
 
 ## Features
@@ -266,20 +266,20 @@ walletSub, err := client.Wallet.SubscribeToWalletEvents(ctx, wallet.ID)
 The SDK provides comprehensive error handling:
 
 ```go
-import "github.com/Great-2025/verinode-go/pkg/verinode"
+import "github.com/Great-2025/nova-verify-go/pkg/nova-verify"
 
 proof, err := client.Proof.Get(ctx, "invalid-id")
 if err != nil {
     switch {
-    case verinode.IsAuthError(err):
+    case nova-verify.IsAuthError(err):
         fmt.Printf("Authentication failed: %v\n", err)
-    case verinode.IsAPIError(err):
-        if verr, ok := err.(*verinode.Error); ok {
+    case nova-verify.IsAPIError(err):
+        if verr, ok := err.(*nova-verify.Error); ok {
             fmt.Printf("API error: %v (Status: %d)\n", verr.Message, verr.StatusCode)
         }
-    case verinode.IsValidationError(err):
+    case nova-verify.IsValidationError(err):
         fmt.Printf("Validation error: %v\n", err)
-    case verinode.IsNetworkError(err):
+    case nova-verify.IsNetworkError(err):
         fmt.Printf("Network error: %v\n", err)
     default:
         fmt.Printf("SDK error: %v\n", err)
@@ -294,12 +294,12 @@ if err != nil {
 ```go
 // The SDK uses internal HTTP client implementation
 // You can configure it through the Config struct
-config := &verinode.Config{
+config := &nova-verify.Config{
     Timeout:     30 * time.Second,
     MaxRetries:  10,
     RetryDelay:  2 * time.Second,
 }
-client := verinode.NewClient(config)
+client := nova-verify.NewClient(config)
 ```
 
 ### Context Usage
@@ -342,8 +342,8 @@ defer cancel()
 
 ```bash
 # Clone repository
-git clone https://github.com/Great-2025/Verinode.git
-cd Verinode/sdks/go
+git clone https://github.com/Great-2025/Nova Verify.git
+cd Nova Verify/sdks/go
 
 # Install dependencies
 go mod tidy
@@ -364,7 +364,7 @@ go build ./...
 ### Project Structure
 
 ```
-pkg/verinode/
+pkg/nova-verify/
 ├── client.go              # Main client class
 ├── config.go              # Configuration management
 ├── errors.go              # Exception classes
@@ -387,6 +387,6 @@ This project is licensed under the MIT License - see the [LICENSE](../../LICENSE
 
 ## Support
 
-- Documentation: [Verinode Documentation](https://docs.verinode.com)
-- Issues: [GitHub Issues](https://github.com/Great-2025/Verinode/issues)
-- Community: [Discord](https://discord.gg/verinode)
+- Documentation: [Nova Verify Documentation](https://docs.nova-verify.com)
+- Issues: [GitHub Issues](https://github.com/Great-2025/Nova Verify/issues)
+- Community: [Discord](https://discord.gg/nova-verify)

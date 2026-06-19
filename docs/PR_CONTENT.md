@@ -4,7 +4,7 @@
 
 ### Summary
 
-This PR implements a comprehensive, accessible, and customizable theme system for the Verinode frontend application. The system provides multiple built-in themes, custom theme creation, dynamic switching, brand customization, and enterprise-level features.
+This PR implements a comprehensive, accessible, and customizable theme system for the Nova Verify frontend application. The system provides multiple built-in themes, custom theme creation, dynamic switching, brand customization, and enterprise-level features.
 
 ### ✅ Features Implemented
 
@@ -254,4 +254,4 @@ For questions or issues regarding this theme system implementation:
 
 ---
 
-**This implementation provides a production-ready, accessible, and highly customizable theme system that significantly enhances the user experience and developer productivity for the Verinode platform.**
+**This implementation provides a production-ready, accessible, and highly customizable theme system that significantly enhances the user experience and developer productivity for the Nova Verify platform.**

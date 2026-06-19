@@ -2,7 +2,7 @@
 
 ## Summary
 
-This PR implements a comprehensive event-driven architecture for the Verinode backend to decouple services, improve scalability, and enable better audit trails and reactive programming patterns.
+This PR implements a comprehensive event-driven architecture for the Nova Verify backend to decouple services, improve scalability, and enable better audit trails and reactive programming patterns.
 
 ## Changes Made
 

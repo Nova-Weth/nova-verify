@@ -271,7 +271,7 @@ node scripts/deploy_grant_treasury.js
 ### Running Tests
 ```bash
 cd contracts
-cargo test --package verinode-contracts --lib grantTreasury
+cargo test --package nova-verify-contracts --lib grantTreasury
 ```
 
 ### Test Scenarios

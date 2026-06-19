@@ -288,7 +288,7 @@ export const defaultCacheConfig: CacheConfig = {
       enabled: true,
       ttl: 3600, // 1 hour
       maxMemory: '512mb',
-      keyPrefix: 'verinode:',
+      keyPrefix: 'nova-verify:',
       evictionPolicy: 'allkeys-lru',
     },
   },

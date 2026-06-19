@@ -137,7 +137,7 @@ const VisualizationDashboard: React.FC = () => {
       <div className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="text-center text-sm text-gray-500 dark:text-gray-400">
-            <p>© 2024 Verinode Data Visualization Suite. All rights reserved.</p>
+            <p>© 2024 Nova Verify Data Visualization Suite. All rights reserved.</p>
             <p className="mt-2">
               Built with React, Chart.js, D3.js, and Tailwind CSS
             </p>

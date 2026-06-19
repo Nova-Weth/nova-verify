@@ -1,6 +1,6 @@
 # GitHub Authentication Guide
 
-This guide explains the different types of authentication you'll encounter when working with the Verinode project.
+This guide explains the different types of authentication you'll encounter when working with the Nova Verify project.
 
 ## 📋 Types of Authentication
 
@@ -13,7 +13,7 @@ Used when you interact with your repository from the command line.
 # Settings → Developer settings → Personal access tokens → Tokens (classic)
 
 # Clone the repository
-git clone https://github.com/jobbykingz/Verinode.git
+git clone https://github.com/jobbykingz/Nova Verify.git
 
 # When prompted for credentials, use your token as the password
 Username: your-github-username
@@ -29,7 +29,7 @@ ssh-keygen -t ed25519 -C "your-email@example.com"
 # Settings → SSH and GPG keys → New SSH key
 
 # Clone using SSH
-git clone git@github.com:jobbykingz/Verinode.git
+git clone git@github.com:jobbykingz/Nova Verify.git
 ```
 
 ### 2. **GitHub Actions Authentication** (CI/CD)
@@ -84,14 +84,14 @@ git config --global user.name "Your Name"
 git config --global user.email "your-email@example.com"
 
 # Test authentication
-git ls-remote https://github.com/jobbykingz/Verinode.git
+git ls-remote https://github.com/jobbykingz/Nova Verify.git
 ```
 
 ### Step 3: Clone and Work
 ```bash
 # Clone the repository
-git clone https://github.com/jobbykingz/Verinode.git
-cd Verinode
+git clone https://github.com/jobbykingz/Nova Verify.git
+cd Nova Verify
 
 # Make changes
 git add .

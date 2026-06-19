@@ -1,36 +1,36 @@
 """
-Main client class for Verinode SDK.
+Main client class for Nova Verify SDK.
 """
 
 import asyncio
 import logging
 from typing import Optional, Dict, Any, Union
-from .config import VerinodeConfig
-from .exceptions import VerinodeError, VerinodeAuthError, VerinodeAPIError
+from .config import NovaVerifyConfig
+from .exceptions import NovaVerifyError, NovaVerifyAuthError, NovaVerifyAPIError
 from .services import ProofService, VerificationService, WalletService
 from .utils import HTTPClient, WebSocketClient
 from .types import User, AuthToken
 
 
-class Verinode:
+class Nova Verify:
     """
-    Main Verinode SDK client.
+    Main Nova Verify SDK client.
     
-    Provides access to all Verinode services including proofs, verifications,
+    Provides access to all Nova Verify services including proofs, verifications,
     and wallet management.
     """
     
-    def __init__(self, config: Optional[Union[VerinodeConfig, Dict[str, Any]]] = None):
+    def __init__(self, config: Optional[Union[NovaVerifyConfig, Dict[str, Any]]] = None):
         """
-        Initialize Verinode client.
+        Initialize Nova Verify client.
         
         Args:
             config: Configuration object or dictionary
         """
         if config is None:
-            self.config = VerinodeConfig()
+            self.config = NovaVerifyConfig()
         elif isinstance(config, dict):
-            self.config = VerinodeConfig(**config)
+            self.config = NovaVerifyConfig(**config)
         else:
             self.config = config
         
@@ -60,17 +60,17 @@ class Verinode:
             self.logger.addHandler(logging.NullHandler())
     
     @classmethod
-    def init(cls, **kwargs) -> "Verinode":
+    def init(cls, **kwargs) -> "Nova Verify":
         """
-        Initialize Verinode client with configuration.
+        Initialize Nova Verify client with configuration.
         
         Args:
             **kwargs: Configuration options
             
         Returns:
-            Verinode client instance
+            Nova Verify client instance
         """
-        config = VerinodeConfig(**kwargs)
+        config = NovaVerifyConfig(**kwargs)
         return cls(config)
     
     @property
@@ -101,7 +101,7 @@ class Verinode:
         except Exception:
             return False
     
-    def get_config(self) -> VerinodeConfig:
+    def get_config(self) -> NovaVerifyConfig:
         """
         Get current configuration.
         
@@ -138,7 +138,7 @@ class Verinode:
             Authentication token
             
         Raises:
-            VerinodeAuthError: If authentication fails
+            NovaVerifyAuthError: If authentication fails
         """
         try:
             response = await self._http_client.post(
@@ -159,12 +159,12 @@ class Verinode:
                 self.logger.info(f"Successfully authenticated user: {email}")
                 return self._auth_token
             else:
-                raise VerinodeAuthError(response.get("error", "Authentication failed"))
+                raise NovaVerifyAuthError(response.get("error", "Authentication failed"))
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeAuthError(f"Authentication failed: {str(e)}")
+            raise NovaVerifyAuthError(f"Authentication failed: {str(e)}")
     
     async def register(self, email: str, password: str, username: Optional[str] = None) -> AuthToken:
         """
@@ -179,7 +179,7 @@ class Verinode:
             Authentication token
             
         Raises:
-            VerinodeAuthError: If registration fails
+            NovaVerifyAuthError: If registration fails
         """
         try:
             response = await self._http_client.post(
@@ -204,12 +204,12 @@ class Verinode:
                 self.logger.info(f"Successfully registered user: {email}")
                 return self._auth_token
             else:
-                raise VerinodeAuthError(response.get("error", "Registration failed"))
+                raise NovaVerifyAuthError(response.get("error", "Registration failed"))
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeAuthError(f"Registration failed: {str(e)}")
+            raise NovaVerifyAuthError(f"Registration failed: {str(e)}")
     
     async def logout(self):
         """Logout current user."""
@@ -232,10 +232,10 @@ class Verinode:
             New authentication token
             
         Raises:
-            VerinodeAuthError: If refresh fails
+            NovaVerifyAuthError: If refresh fails
         """
         if not self._auth_token or not self._auth_token.refresh_token:
-            raise VerinodeAuthError("No refresh token available")
+            raise NovaVerifyAuthError("No refresh token available")
         
         try:
             response = await self._http_client.post(
@@ -251,12 +251,12 @@ class Verinode:
                 self.logger.info("Token refreshed successfully")
                 return self._auth_token
             else:
-                raise VerinodeAuthError(response.get("error", "Token refresh failed"))
+                raise NovaVerifyAuthError(response.get("error", "Token refresh failed"))
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeAuthError(f"Token refresh failed: {str(e)}")
+            raise NovaVerifyAuthError(f"Token refresh failed: {str(e)}")
     
     async def _get_current_user(self):
         """Get current user information."""
@@ -280,7 +280,7 @@ class Verinode:
             WebSocket connection for real-time updates
         """
         if not self.is_authenticated:
-            raise VerinodeAuthError("Must be authenticated to subscribe to updates")
+            raise NovaVerifyAuthError("Must be authenticated to subscribe to updates")
         
         return await self._ws_client.subscribe(filters)
     

@@ -1,9 +1,9 @@
 [package]
-name = "verinode-contracts"
+name = "nova-verify-contracts"
 version = "0.1.0"
 edition = "2021"
-description = "Verinode Soroban smart contracts for cryptographic proof verification"
-authors = ["Verinode Team"]
+description = "Nova Verify Soroban smart contracts for cryptographic proof verification"
+authors = ["Nova Verify Team"]
 license = "MIT"
 
 [lib]

@@ -1,8 +1,8 @@
-# Multi-Signature Wallet Integration for Verinode
+# Multi-Signature Wallet Integration for Nova Verify
 
 ## Overview
 
-This implementation provides a comprehensive multi-signature wallet system for the Verinode platform, enhancing security for sensitive operations like proof creation and contract interactions.
+This implementation provides a comprehensive multi-signature wallet system for the Nova Verify platform, enhancing security for sensitive operations like proof creation and contract interactions.
 
 ## Features
 
@@ -130,7 +130,7 @@ cargo build --release --target wasm32-unknown-unknown
 
 2. **Deploy to Stellar**
 ```bash
-soroban contract deploy --wasm target/wasm32-unknown-unknown/release/verinode_multisig.wasm
+soroban contract deploy --wasm target/wasm32-unknown-unknown/release/nova-verify_multisig.wasm
 ```
 
 ## API Documentation

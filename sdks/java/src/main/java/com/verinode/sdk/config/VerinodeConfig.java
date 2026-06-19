@@ -1,6 +1,6 @@
-package com.verinode.sdk.config;
+package com.nova-verify.sdk.config;
 
-import com.verinode.sdk.exception.VerinodeException;
+import com.nova-verify.sdk.exception.Nova VerifyException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,17 +9,17 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Configuration class for the Verinode SDK.
+ * Configuration class for the Nova Verify SDK.
  * 
  * <p>This class holds all configuration options for the SDK including
  * API endpoints, authentication settings, timeouts, and logging preferences.</p>
  */
-public class VerinodeConfig {
+public class NovaVerifyConfig {
     
-    private static final Logger logger = LoggerFactory.getLogger(VerinodeConfig.class);
+    private static final Logger logger = LoggerFactory.getLogger(NovaVerifyConfig.class);
     
     // API configuration
-    private String apiEndpoint = "https://api.verinode.com";
+    private String apiEndpoint = "https://api.nova-verify.com";
     private NetworkType network = NetworkType.MAINNET;
     private String apiKey;
     
@@ -41,7 +41,7 @@ public class VerinodeConfig {
     /**
      * Default constructor.
      */
-    public VerinodeConfig() {
+    public NovaVerifyConfig() {
     }
     
     /**
@@ -58,7 +58,7 @@ public class VerinodeConfig {
      * 
      * @return the default configuration
      */
-    public static VerinodeConfig defaultConfig() {
+    public static NovaVerifyConfig defaultConfig() {
         return new Builder().build();
     }
     
@@ -66,57 +66,57 @@ public class VerinodeConfig {
      * Creates configuration from environment variables.
      * 
      * @return the configuration
-     * @throws VerinodeException if configuration is invalid
+     * @throws Nova VerifyException if configuration is invalid
      */
-    public static VerinodeConfig fromEnv() throws VerinodeException {
+    public static NovaVerifyConfig fromEnv() throws Nova VerifyException {
         Builder builder = new Builder();
         
-        String endpoint = System.getenv("VERINODE_API_ENDPOINT");
+        String endpoint = System.getenv("NOVA_VERIFY_API_ENDPOINT");
         if (endpoint != null) {
             builder.apiEndpoint(endpoint);
         }
         
-        String network = System.getenv("VERINODE_NETWORK");
+        String network = System.getenv("NOVA_VERIFY_NETWORK");
         if (network != null) {
             builder.network(NetworkType.valueOf(network.toUpperCase()));
         }
         
-        String apiKey = System.getenv("VERINODE_API_KEY");
+        String apiKey = System.getenv("NOVA_VERIFY_API_KEY");
         if (apiKey != null) {
             builder.apiKey(apiKey);
         }
         
-        String timeout = System.getenv("VERINODE_TIMEOUT");
+        String timeout = System.getenv("NOVA_VERIFY_TIMEOUT");
         if (timeout != null) {
             builder.timeout(Duration.ofMillis(Long.parseLong(timeout)));
         }
         
-        String maxRetries = System.getenv("VERINODE_MAX_RETRIES");
+        String maxRetries = System.getenv("NOVA_VERIFY_MAX_RETRIES");
         if (maxRetries != null) {
             builder.maxRetries(Integer.parseInt(maxRetries));
         }
         
-        String retryDelay = System.getenv("VERINODE_RETRY_DELAY");
+        String retryDelay = System.getenv("NOVA_VERIFY_RETRY_DELAY");
         if (retryDelay != null) {
             builder.retryDelay(Duration.ofMillis(Long.parseLong(retryDelay)));
         }
         
-        String backoff = System.getenv("VERINODE_BACKOFF_MULTIPLIER");
+        String backoff = System.getenv("NOVA_VERIFY_BACKOFF_MULTIPLIER");
         if (backoff != null) {
             builder.backoffMultiplier(Double.parseDouble(backoff));
         }
         
-        String autoConnect = System.getenv("VERINODE_WALLET_AUTO_CONNECT");
+        String autoConnect = System.getenv("NOVA_VERIFY_WALLET_AUTO_CONNECT");
         if (autoConnect != null) {
             builder.walletAutoConnect(Boolean.parseBoolean(autoConnect));
         }
         
-        String logging = System.getenv("VERINODE_LOGGING_ENABLED");
+        String logging = System.getenv("NOVA_VERIFY_LOGGING_ENABLED");
         if (logging != null) {
             builder.loggingEnabled(Boolean.parseBoolean(logging));
         }
         
-        String logLevel = System.getenv("VERINODE_LOG_LEVEL");
+        String logLevel = System.getenv("NOVA_VERIFY_LOG_LEVEL");
         if (logLevel != null) {
             builder.logLevel(logLevel);
         }
@@ -133,7 +133,7 @@ public class VerinodeConfig {
         try {
             validate();
             return true;
-        } catch (VerinodeException e) {
+        } catch (Nova VerifyException e) {
             return false;
         }
     }
@@ -141,31 +141,31 @@ public class VerinodeConfig {
     /**
      * Validates the configuration and throws an exception if invalid.
      * 
-     * @throws VerinodeException if configuration is invalid
+     * @throws Nova VerifyException if configuration is invalid
      */
-    public void validate() throws VerinodeException {
+    public void validate() throws Nova VerifyException {
         if (apiEndpoint == null || apiEndpoint.trim().isEmpty()) {
-            throw new VerinodeException("API endpoint cannot be empty");
+            throw new Nova VerifyException("API endpoint cannot be empty");
         }
         
         if (!apiEndpoint.startsWith("http://") && !apiEndpoint.startsWith("https://")) {
-            throw new VerinodeException("API endpoint must start with http:// or https://");
+            throw new Nova VerifyException("API endpoint must start with http:// or https://");
         }
         
         if (timeout.isZero() || timeout.isNegative()) {
-            throw new VerinodeException("Timeout must be positive");
+            throw new Nova VerifyException("Timeout must be positive");
         }
         
         if (maxRetries < 0 || maxRetries > 10) {
-            throw new VerinodeException("Max retries must be between 0 and 10");
+            throw new Nova VerifyException("Max retries must be between 0 and 10");
         }
         
         if (retryDelay.isZero() || retryDelay.isNegative()) {
-            throw new VerinodeException("Retry delay must be positive");
+            throw new Nova VerifyException("Retry delay must be positive");
         }
         
         if (backoffMultiplier <= 1.0) {
-            throw new VerinodeException("Backoff multiplier must be greater than 1.0");
+            throw new Nova VerifyException("Backoff multiplier must be greater than 1.0");
         }
     }
     
@@ -268,10 +268,10 @@ public class VerinodeConfig {
     }
     
     /**
-     * Builder class for VerinodeConfig.
+     * Builder class for NovaVerifyConfig.
      */
     public static class Builder {
-        private final VerinodeConfig config = new VerinodeConfig();
+        private final NovaVerifyConfig config = new NovaVerifyConfig();
         
         public Builder apiEndpoint(String apiEndpoint) {
             config.setApiEndpoint(apiEndpoint);
@@ -333,7 +333,7 @@ public class VerinodeConfig {
             return this;
         }
         
-        public VerinodeConfig build() throws VerinodeException {
+        public NovaVerifyConfig build() throws Nova VerifyException {
             config.validate();
             return config;
         }

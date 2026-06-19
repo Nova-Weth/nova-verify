@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes the comprehensive security enhancements implemented for the Verinode API to protect against common web vulnerabilities and attacks.
+This document describes the comprehensive security enhancements implemented for the Nova Verify API to protect against common web vulnerabilities and attacks.
 
 ## Security Features Implemented
 

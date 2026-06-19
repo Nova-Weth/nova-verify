@@ -33,7 +33,7 @@ export class EventService {
         port: parseInt(process.env.REDIS_PORT || '6379'),
         password: process.env.REDIS_PASSWORD,
         db: parseInt(process.env.REDIS_DB || '0'),
-        keyPrefix: 'verinode:events:'
+        keyPrefix: 'nova-verify:events:'
       },
       deadLetterQueue: {
         maxSize: 10000,
@@ -286,7 +286,7 @@ export class EventService {
       type,
       timestamp: new Date(),
       version: '1.0.0',
-      source: options?.source || 'verinode-backend',
+      source: options?.source || 'nova-verify-backend',
       correlationId: options?.correlationId,
       causationId: options?.causationId,
       metadata: options?.metadata,

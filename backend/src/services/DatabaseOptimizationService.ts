@@ -54,7 +54,7 @@ export class DatabaseOptimizationService extends EventEmitter {
 
     this.replicaManager = new ReplicaManager();
     this.connectionPool = new ConnectionPool(
-      process.env.MONGODB_URI || 'mongodb://localhost:27017/verinode'
+      process.env.MONGODB_URI || 'mongodb://localhost:27017/nova-verify'
     );
     this.queryRouter = new QueryRouter(this.replicaManager, this.connectionPool);
   }

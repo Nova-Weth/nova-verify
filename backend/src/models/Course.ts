@@ -1,5 +1,5 @@
 /**
- * Course Model for Verinode Education Platform
+ * Course Model for Nova Verify Education Platform
  * Defines the structure and interfaces for course data
  */
 

@@ -25,8 +25,8 @@ jobs:
         file: docker/production.dockerfile
         push: true
         tags: |
-          ${{ secrets.DOCKERHUB_USERNAME }}/verinode:${{ github.sha }}
-          ${{ secrets.DOCKERHUB_USERNAME }}/verinode:latest
+          ${{ secrets.DOCKERHUB_USERNAME }}/nova-verify:${{ github.sha }}
+          ${{ secrets.DOCKERHUB_USERNAME }}/nova-verify:latest
 
   deploy-dev:
     needs: build-and-push
@@ -43,7 +43,7 @@ jobs:
         key: ${{ secrets.DEV_SSH_KEY }}
         script: |
           export DOCKER_TAG=${{ github.sha }}
-          cd /app/verinode
+          cd /app/nova-verify
           git pull
           chmod +x scripts/*.sh
           ./scripts/deploy.sh dev
@@ -63,7 +63,7 @@ jobs:
         key: ${{ secrets.STAGING_SSH_KEY }}
         script: |
           export DOCKER_TAG=${{ github.sha }}
-          cd /app/verinode
+          cd /app/nova-verify
           git pull
           chmod +x scripts/*.sh
           ./scripts/deploy.sh staging
@@ -83,7 +83,7 @@ jobs:
         key: ${{ secrets.PROD_SSH_KEY }}
         script: |
           export DOCKER_TAG=${{ github.sha }}
-          cd /app/verinode
+          cd /app/nova-verify
           git pull
           chmod +x scripts/*.sh
           ./scripts/deploy.sh prod

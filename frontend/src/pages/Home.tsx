@@ -17,7 +17,7 @@ const Home = () => {
       {/* Hero Section */}
       <section className="text-center py-12">
         <h1 className="text-5xl font-bold text-gray-900 mb-4">
-          Verinode
+          Nova Verify
         </h1>
         <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
           Web3 infrastructure for issuing and verifying cryptographic proofs of real-world events on the Stellar blockchain

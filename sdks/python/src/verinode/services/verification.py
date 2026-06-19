@@ -8,13 +8,13 @@ from ..types import (
     Verification, VerificationCreateRequest, VerificationStatus,
     QueryOptions, PaginatedResponse
 )
-from ..exceptions import VerinodeError, VerinodeAPIError
+from ..exceptions import NovaVerifyError, NovaVerifyAPIError
 from ..utils import HTTPClient
 
 
 class VerificationService:
     """
-    Service for managing verifications in the Verinode system.
+    Service for managing verifications in the Nova Verify system.
     
     Provides methods to create, read, update, and query verifications.
     """
@@ -42,7 +42,7 @@ class VerificationService:
             Created verification
             
         Raises:
-            VerinodeError: If verification creation fails
+            NovaVerifyError: If verification creation fails
         """
         try:
             response = await self.http_client.post(
@@ -56,15 +56,15 @@ class VerificationService:
                 self.logger.info(f"Created verification: {verification.id}")
                 return verification
             else:
-                raise VerinodeError(
+                raise NovaVerifyError(
                     response.get("error", "Failed to create verification"),
                     error_code="VERIFICATION_CREATE_FAILED"
                 )
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeError(f"Failed to create verification: {str(e)}")
+            raise NovaVerifyError(f"Failed to create verification: {str(e)}")
     
     async def get(self, verification_id: str) -> Verification:
         """
@@ -77,7 +77,7 @@ class VerificationService:
             Verification object
             
         Raises:
-            VerinodeError: If verification not found or access denied
+            NovaVerifyError: If verification not found or access denied
         """
         try:
             response = await self.http_client.get(f"/verifications/{verification_id}")
@@ -88,15 +88,15 @@ class VerificationService:
                 return verification
             else:
                 error_msg = response.get("error", "Verification not found")
-                raise VerinodeError(
+                raise NovaVerifyError(
                     error_msg,
                     error_code="VERIFICATION_NOT_FOUND"
                 )
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeError(f"Failed to get verification {verification_id}: {str(e)}")
+            raise NovaVerifyError(f"Failed to get verification {verification_id}: {str(e)}")
     
     async def update(
         self,
@@ -118,7 +118,7 @@ class VerificationService:
             Updated verification
             
         Raises:
-            VerinodeError: If verification update fails
+            NovaVerifyError: If verification update fails
         """
         try:
             update_data = {}
@@ -140,15 +140,15 @@ class VerificationService:
                 self.logger.info(f"Updated verification: {verification.id}")
                 return verification
             else:
-                raise VerinodeError(
+                raise NovaVerifyError(
                     response.get("error", "Failed to update verification"),
                     error_code="VERIFICATION_UPDATE_FAILED"
                 )
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeError(f"Failed to update verification {verification_id}: {str(e)}")
+            raise NovaVerifyError(f"Failed to update verification {verification_id}: {str(e)}")
     
     async def delete(self, verification_id: str) -> bool:
         """
@@ -161,7 +161,7 @@ class VerificationService:
             True if deleted successfully
             
         Raises:
-            VerinodeError: If verification deletion fails
+            NovaVerifyError: If verification deletion fails
         """
         try:
             response = await self.http_client.delete(f"/verifications/{verification_id}")
@@ -170,15 +170,15 @@ class VerificationService:
                 self.logger.info(f"Deleted verification: {verification_id}")
                 return True
             else:
-                raise VerinodeError(
+                raise NovaVerifyError(
                     response.get("error", "Failed to delete verification"),
                     error_code="VERIFICATION_DELETE_FAILED"
                 )
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeError(f"Failed to delete verification {verification_id}: {str(e)}")
+            raise NovaVerifyError(f"Failed to delete verification {verification_id}: {str(e)}")
     
     async def list(
         self,
@@ -242,15 +242,15 @@ class VerificationService:
                     has_prev=data.get("has_prev", False)
                 )
             else:
-                raise VerinodeError(
+                raise NovaVerifyError(
                     response.get("error", "Failed to list verifications"),
                     error_code="VERIFICATION_LIST_FAILED"
                 )
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeError(f"Failed to list verifications: {str(e)}")
+            raise NovaVerifyError(f"Failed to list verifications: {str(e)}")
     
     async def approve(
         self,
@@ -327,15 +327,15 @@ class VerificationService:
             if response.get("success"):
                 return response["data"]
             else:
-                raise VerinodeError(
+                raise NovaVerifyError(
                     response.get("error", "Failed to get verification statistics"),
                     error_code="VERIFICATION_STATS_FAILED"
                 )
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeError(f"Failed to get verification statistics: {str(e)}")
+            raise NovaVerifyError(f"Failed to get verification statistics: {str(e)}")
     
     async def bulk_approve(
         self,
@@ -366,15 +366,15 @@ class VerificationService:
                 self.logger.info(f"Bulk approved {len(verifications)} verifications")
                 return verifications
             else:
-                raise VerinodeError(
+                raise NovaVerifyError(
                     response.get("error", "Failed to bulk approve verifications"),
                     error_code="VERIFICATION_BULK_APPROVE_FAILED"
                 )
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeError(f"Failed to bulk approve verifications: {str(e)}")
+            raise NovaVerifyError(f"Failed to bulk approve verifications: {str(e)}")
     
     async def bulk_reject(
         self,
@@ -405,12 +405,12 @@ class VerificationService:
                 self.logger.info(f"Bulk rejected {len(verifications)} verifications")
                 return verifications
             else:
-                raise VerinodeError(
+                raise NovaVerifyError(
                     response.get("error", "Failed to bulk reject verifications"),
                     error_code="VERIFICATION_BULK_REJECT_FAILED"
                 )
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeError(f"Failed to bulk reject verifications: {str(e)}")
+            raise NovaVerifyError(f"Failed to bulk reject verifications: {str(e)}")

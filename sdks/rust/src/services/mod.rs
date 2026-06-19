@@ -1,4 +1,4 @@
-//! Service modules for the Verinode SDK.
+//! Service modules for the Nova Verify SDK.
 
 pub mod proof;
 pub mod verification;

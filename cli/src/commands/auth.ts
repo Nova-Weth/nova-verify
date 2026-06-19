@@ -9,7 +9,7 @@ export const authCommand = new Command('auth')
   .description('Authentication commands')
   .addCommand(
     new Command('login')
-      .description('Login to Verinode')
+      .description('Login to Nova Verify')
       .action(async () => {
         try {
           const answers = await inquirer.prompt([
@@ -52,7 +52,7 @@ export const authCommand = new Command('auth')
   )
   .addCommand(
     new Command('logout')
-      .description('Logout from Verinode')
+      .description('Logout from Nova Verify')
       .action(() => {
         apiClient.clearAuthToken();
         logSuccess('Logged out successfully');

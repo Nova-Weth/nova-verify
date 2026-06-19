@@ -1,5 +1,5 @@
 """
-Helper utilities for Verinode SDK.
+Helper utilities for Nova Verify SDK.
 """
 
 import asyncio
@@ -7,7 +7,7 @@ import time
 import re
 from typing import Callable, Any, Optional, Union
 from functools import wraps
-from ..exceptions import VerinodeError
+from ..exceptions import NovaVerifyError
 
 
 def retry(max_attempts: int = 3, delay: float = 1.0, backoff: float = 2.0):
@@ -177,7 +177,7 @@ def parse_timestamp(timestamp: str) -> float:
         dt = datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
         return dt.timestamp()
     except ValueError:
-        raise VerinodeError(f"Invalid timestamp format: {timestamp}")
+        raise NovaVerifyError(f"Invalid timestamp format: {timestamp}")
 
 
 def chunk_list(items: list, chunk_size: int) -> list:

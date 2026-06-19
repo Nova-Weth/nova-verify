@@ -1,8 +1,8 @@
-# Verinode Privacy and Encryption Features
+# Nova Verify Privacy and Encryption Features
 
 ## Overview
 
-Verinode now includes comprehensive privacy and encryption capabilities to protect sensitive proof data while maintaining verifiability on the Stellar blockchain.
+Nova Verify now includes comprehensive privacy and encryption capabilities to protect sensitive proof data while maintaining verifiability on the Stellar blockchain.
 
 ## Features Implemented
 
@@ -312,8 +312,8 @@ npm run test:e2e:privacy
 For issues or questions regarding privacy features:
 - Check the [documentation](./docs)
 - Review [security guidelines](./SECURITY.md)
-- Contact the security team via [security@verinode.com](mailto:security@verinode.com)
-- File issues in the [GitHub repository](https://github.com/jobbykingz/Verinode/issues)
+- Contact the security team via [security@nova-verify.com](mailto:security@nova-verify.com)
+- File issues in the [GitHub repository](https://github.com/jobbykingz/Nova Verify/issues)
 
 ---
 

@@ -12,7 +12,7 @@ interface SyncQueueItem {
 class BackgroundSyncManager {
   private static instance: BackgroundSyncManager;
   private syncQueue: SyncQueueItem[] = [];
-  private dbName = 'verinode-background-sync';
+  private dbName = 'nova-verify-background-sync';
   private storeName = 'sync-queue';
   private db: IDBDatabase | null = null;
 

@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 
-// Configure Jest for Verinode testing
+// Configure Jest for Nova Verify testing
 const config = {
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],

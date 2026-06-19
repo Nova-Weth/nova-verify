@@ -159,7 +159,7 @@ npm test
 
 ## 🎉 Summary
 
-This implementation provides a production-ready, comprehensive REST API for proof management that fully satisfies all requirements from issue #3. The API is secure, well-tested, and thoroughly documented, providing a solid foundation for the Verinode proof management system.
+This implementation provides a production-ready, comprehensive REST API for proof management that fully satisfies all requirements from issue #3. The API is secure, well-tested, and thoroughly documented, providing a solid foundation for the Nova Verify proof management system.
 
 ### Key Metrics
 - **12 new files** created

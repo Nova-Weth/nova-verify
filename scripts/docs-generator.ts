@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 /**
- * General purpose documentation generator for Verinode
+ * General purpose documentation generator for Nova Verify
  * Indexing markdown files from docs/* and creating a manifest for the portal
  */
 

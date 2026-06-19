@@ -1,7 +1,7 @@
 # 🚀 Push Gas Optimization Suite v2 to Repository
 
 ## Target Repository
-**URL**: https://github.com/olaleyeolajide81-sketch/Verinode/tree/Contracts-Gas-Optimization-Suite-v2
+**URL**: https://github.com/olaleyeolajide81-sketch/Nova Verify/tree/Contracts-Gas-Optimization-Suite-v2
 
 ## ⚠️ Important Note
 I (Cascade AI) cannot directly push to external repositories or create PRs. You must execute these commands with your GitHub credentials.
@@ -12,7 +12,7 @@ I (Cascade AI) cannot directly push to external repositories or create PRs. You 
 ```bash
 # Open Command Prompt as Administrator or terminal
 # Navigate to the project directory
-cd C:\Users\Hp\CascadeProjects\Verinode
+cd C:\Users\Hp\CascadeProjects\Nova Verify
 ```
 
 ### Step 2: Configure Git (if not already done)
@@ -93,7 +93,7 @@ Co-authored-by: Cascade AI <cascade@example.com>"
 ### Step 6: Add Remote Repository
 ```bash
 # Add the forked repository as remote
-git remote add fork https://github.com/olaleyeolajide81-sketch/Verinode.git
+git remote add fork https://github.com/olaleyeolajide81-sketch/Nova Verify.git
 
 # Verify remote was added
 git remote -v
@@ -121,7 +121,7 @@ git push fork gas-optimization-suite-v2
 ### Step 9: Create Pull Request
 
 #### Option A: Using GitHub Web UI (Recommended)
-1. **Open your browser** and go to: https://github.com/olaleyeolajide81-sketch/Verinode
+1. **Open your browser** and go to: https://github.com/olaleyeolajide81-sketch/Nova Verify
 2. **Click "Compare & pull request"** button
 3. **Select base branch**: `Contracts-Gas-Optimization-Suite-v2`
 4. **Select compare branch**: `gas-optimization-suite-v2`
@@ -212,7 +212,7 @@ git push fork main:Contracts-Gas-Optimization-Suite-v2
 Before executing:
 - [ ] You have GitHub account with forked repository access
 - [ ] Git is installed and configured
-- [ ] You're in the correct directory: `C:\Users\Hp\CascadeProjects\Verinode`
+- [ ] You're in the correct directory: `C:\Users\Hp\CascadeProjects\Nova Verify`
 - [ ] All files are present and ready
 
 After pushing:

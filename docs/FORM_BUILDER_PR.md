@@ -2,7 +2,7 @@
 
 ## Summary
 
-This PR implements a comprehensive Advanced Form Builder that allows users to create dynamic custom proof templates with various field types, validation rules, and conditional logic. This feature significantly enhances Verinode's capabilities by enabling users to design sophisticated forms for proof collection and verification.
+This PR implements a comprehensive Advanced Form Builder that allows users to create dynamic custom proof templates with various field types, validation rules, and conditional logic. This feature significantly enhances Nova Verify's capabilities by enabling users to design sophisticated forms for proof collection and verification.
 
 ## 🎯 Acceptance Criteria Met
 
@@ -246,7 +246,7 @@ import { FormPreview } from './components/FormBuilder/FormPreview';
 
 ## 📈 Impact
 
-This Advanced Form Builder significantly enhances Verinode's capabilities by:
+This Advanced Form Builder significantly enhances Nova Verify's capabilities by:
 
 1. **Empowering Users**: Enables custom proof template creation without coding
 2. **Improving UX**: Intuitive drag-and-drop interface for form building

@@ -1,7 +1,7 @@
 {
-  "name": "verinode-backend",
+  "name": "nova-verify-backend",
   "version": "1.0.0",
-  "description": "Verinode backend API for cryptographic proof verification",
+  "description": "Nova Verify backend API for cryptographic proof verification",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
@@ -57,7 +57,7 @@
     "ipfs",
     "decentralized-storage"
   ],
-  "author": "Verinode Team",
+  "author": "Nova Verify Team",
   "license": "MIT",
   "jest": {
     "testEnvironment": "node",

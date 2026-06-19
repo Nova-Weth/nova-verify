@@ -12,7 +12,7 @@ interface BrandCustomizationProps {
 
 const defaultBrandSettings: BrandSettings = {
   logo: '',
-  brandName: 'Verinode',
+  brandName: 'Nova Verify',
   brandColors: {},
   favicon: '',
   customCSS: '',

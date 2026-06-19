@@ -81,7 +81,7 @@ export class GamificationService {
       await userPoints.save();
 
       // Award welcome bonus
-      await this.awardPoints(userId, 'COMPLETE_PROFILE', 100, 'Welcome bonus for joining Verinode!');
+      await this.awardPoints(userId, 'COMPLETE_PROFILE', 100, 'Welcome bonus for joining Nova Verify!');
 
       return userPoints;
     } catch (error) {

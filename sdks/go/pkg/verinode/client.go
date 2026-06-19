@@ -1,4 +1,4 @@
-package verinode
+package nova-verify
 
 import (
 	"context"
@@ -6,11 +6,11 @@ import (
 	"log"
 	"time"
 
-	"github.com/Great-2025/verinode-go/pkg/verinode/services"
-	"github.com/Great-2025/verinode-go/pkg/verinode/types"
+	"github.com/Great-2025/nova-verify-go/pkg/nova-verify/services"
+	"github.com/Great-2025/nova-verify-go/pkg/nova-verify/types"
 )
 
-// Client is the main Verinode SDK client
+// Client is the main Nova Verify SDK client
 type Client struct {
 	config      *Config
 	httpClient  *HTTPClient
@@ -26,7 +26,7 @@ type Client struct {
 	currentUser   *types.User
 }
 
-// NewClient creates a new Verinode client
+// NewClient creates a new Nova Verify client
 func NewClient(config *Config) *Client {
 	if config == nil {
 		config = DefaultConfig()

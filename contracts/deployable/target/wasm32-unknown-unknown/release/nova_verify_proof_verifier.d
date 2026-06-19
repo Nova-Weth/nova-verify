@@ -1,0 +1,1 @@
+/workspaces/nova-verify/contracts/deployable/target/wasm32-unknown-unknown/release/nova_verify_proof_verifier.wasm: /workspaces/nova-verify/contracts/deployable/src/lib.rs /workspaces/nova-verify/contracts/deployable/src/proof_verifier.rs

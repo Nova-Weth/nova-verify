@@ -24,7 +24,7 @@ class PushManager {
   private static instance: PushManager;
   private subscription: PushSubscription | null = null;
   private vapidPublicKey: string = '';
-  private dbName = 'verinode-push-notifications';
+  private dbName = 'nova-verify-push-notifications';
   private storeName = 'notifications';
   private db: IDBDatabase | null = null;
 

@@ -1,4 +1,4 @@
-//! HTTP client utilities for the Verinode SDK.
+//! HTTP client utilities for the Nova Verify SDK.
 
 use crate::config::Config;
 use crate::error::{Error, Result};
@@ -65,7 +65,7 @@ impl ReqwestHttpClient {
         let timeout = config.timeout;
         let mut client_builder = Client::builder()
             .timeout(timeout)
-            .user_agent("verinode-sdk-rust/1.0.0");
+            .user_agent("nova-verify-sdk-rust/1.0.0");
         
         // Configure TLS if needed
         client_builder = client_builder.use_rustls_tls();
@@ -73,7 +73,7 @@ impl ReqwestHttpClient {
         let client = client_builder.build().unwrap_or_else(|_| {
             Client::builder()
                 .timeout(timeout)
-                .user_agent("verinode-sdk-rust/1.0.0")
+                .user_agent("nova-verify-sdk-rust/1.0.0")
                 .build()
                 .expect("Failed to create HTTP client")
         });

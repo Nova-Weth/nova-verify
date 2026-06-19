@@ -2,7 +2,7 @@
 
 ## Overview
 
-This implementation adds four major feature suites to Verinode:
+This implementation adds four major feature suites to Nova Verify:
 
 1. **Compliance Features** - GDPR, CCPA, KYC/AML, Data Residency
 2. **Decentralized Identity** - DID, Verifiable Credentials, ZK Proofs

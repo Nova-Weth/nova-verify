@@ -7,14 +7,14 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
     requirements = [line.strip() for line in fh if line.strip() and not line.startswith("#")]
 
 setup(
-    name="verinode-sdk",
+    name="nova-verify-sdk",
     version="1.0.0",
-    author="Verinode Team",
-    author_email="team@verinode.com",
-    description="Official Python SDK for Verinode - Web3 infrastructure for cryptographic proofs",
+    author="Nova Verify Team",
+    author_email="team@nova-verify.com",
+    description="Official Python SDK for Nova Verify - Web3 infrastructure for cryptographic proofs",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/Great-2025/Verinode",
+    url="https://github.com/Great-2025/Nova Verify",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     classifiers=[
@@ -47,7 +47,7 @@ setup(
     },
     entry_points={
         "console_scripts": [
-            "verinode=verinode.cli:main",
+            "nova-verify=nova-verify.cli:main",
         ],
     },
     include_package_data=True,

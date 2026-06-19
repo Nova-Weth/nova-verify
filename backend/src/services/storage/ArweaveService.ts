@@ -148,7 +148,7 @@ export class ArweaveService extends EventEmitter {
         data_size: buffer.length.toString(),
         content_type: contentType,
         tags: [
-          { name: 'App-Name', value: 'Verinode' },
+          { name: 'App-Name', value: 'Nova Verify' },
           { name: 'App-Version', value: '1.0.0' },
           { name: 'Content-Type', value: contentType },
           { name: 'Data-Hash', value: dataHash },

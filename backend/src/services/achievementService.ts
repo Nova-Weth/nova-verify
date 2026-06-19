@@ -218,7 +218,7 @@ export class AchievementService {
     {
       achievementId: 'referrer',
       name: 'Referrer',
-      description: 'Refer 3 friends to Verinode',
+      description: 'Refer 3 friends to Nova Verify',
       category: 'INTERMEDIATE',
       tier: 'SILVER',
       icon: '🤝',
@@ -652,7 +652,7 @@ export class AchievementService {
       );
 
       // Generate share URL (mock)
-      const shareUrl = `https://verinode.io/achievement/${achievementId}?user=${userId}`;
+      const shareUrl = `https://nova-verify.io/achievement/${achievementId}?user=${userId}`;
 
       // Award bonus points for sharing
       await gamificationService.awardPoints(

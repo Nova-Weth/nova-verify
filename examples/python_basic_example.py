@@ -1,5 +1,5 @@
 """
-Basic example demonstrating Verinode Python SDK usage.
+Basic example demonstrating Nova Verify Python SDK usage.
 """
 
 import asyncio
@@ -9,24 +9,24 @@ import os
 # Add the SDK to the path for development
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'sdks', 'python', 'src'))
 
-from verinode import Verinode, VerinodeConfig
+from nova-verify import Nova Verify, Nova VerifyConfig
 
 
 async def basic_example():
-    """Basic example of using the Verinode SDK."""
+    """Basic example of using the Nova Verify SDK."""
     
     # Initialize SDK with configuration
-    config = VerinodeConfig(
-        api_endpoint="https://api.verinode.com",
+    config = Nova VerifyConfig(
+        api_endpoint="https://api.nova-verify.com",
         network="testnet",
         logging_enabled=True,
         log_level="INFO"
     )
     
-    client = Verinode(config)
+    client = Nova Verify(config)
     
     try:
-        print("🚀 Starting Verinode Python SDK Example")
+        print("🚀 Starting Nova Verify Python SDK Example")
         print("=" * 50)
         
         # Check if SDK is ready
@@ -170,7 +170,7 @@ async def basic_example():
 
 
 if __name__ == "__main__":
-    print("Verinode Python SDK - Basic Example")
+    print("Nova Verify Python SDK - Basic Example")
     print("====================================")
     
     # Run the example

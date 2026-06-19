@@ -609,7 +609,7 @@ export class APIComposer {
       timeout: endpoint.timeout || this.config.timeout,
       headers: {
         'Content-Type': 'application/json',
-        'User-Agent': 'Verinode-Composer/1.0',
+        'User-Agent': 'Nova Verify-Composer/1.0',
         ...endpoint.headers,
       },
     };

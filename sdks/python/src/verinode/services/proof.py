@@ -8,13 +8,13 @@ from ..types import (
     Proof, ProofCreateRequest, ProofUpdateRequest, 
     QueryOptions, PaginatedResponse, ProofStatus
 )
-from ..exceptions import VerinodeProofError, VerinodeAPIError
+from ..exceptions import NovaVerifyProofError, NovaVerifyAPIError
 from ..utils import HTTPClient
 
 
 class ProofService:
     """
-    Service for managing proofs in the Verinode system.
+    Service for managing proofs in the Nova Verify system.
     
     Provides methods to create, read, update, delete, and query proofs.
     """
@@ -42,7 +42,7 @@ class ProofService:
             Created proof
             
         Raises:
-            VerinodeProofError: If proof creation fails
+            NovaVerifyProofError: If proof creation fails
         """
         try:
             response = await self.http_client.post(
@@ -56,15 +56,15 @@ class ProofService:
                 self.logger.info(f"Created proof: {proof.id}")
                 return proof
             else:
-                raise VerinodeProofError(
+                raise NovaVerifyProofError(
                     response.get("error", "Failed to create proof"),
                     error_code="PROOF_CREATE_FAILED"
                 )
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeProofError(f"Failed to create proof: {str(e)}")
+            raise NovaVerifyProofError(f"Failed to create proof: {str(e)}")
     
     async def get(self, proof_id: str) -> Proof:
         """
@@ -77,7 +77,7 @@ class ProofService:
             Proof object
             
         Raises:
-            VerinodeProofError: If proof not found or access denied
+            NovaVerifyProofError: If proof not found or access denied
         """
         try:
             response = await self.http_client.get(f"/proofs/{proof_id}")
@@ -88,16 +88,16 @@ class ProofService:
                 return proof
             else:
                 error_msg = response.get("error", "Proof not found")
-                raise VerinodeProofError(
+                raise NovaVerifyProofError(
                     error_msg,
                     proof_id=proof_id,
                     error_code="PROOF_NOT_FOUND"
                 )
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeProofError(
+            raise NovaVerifyProofError(
                 f"Failed to get proof {proof_id}: {str(e)}",
                 proof_id=proof_id
             )
@@ -114,7 +114,7 @@ class ProofService:
             Updated proof
             
         Raises:
-            VerinodeProofError: If proof update fails
+            NovaVerifyProofError: If proof update fails
         """
         try:
             response = await self.http_client.patch(
@@ -128,16 +128,16 @@ class ProofService:
                 self.logger.info(f"Updated proof: {proof.id}")
                 return proof
             else:
-                raise VerinodeProofError(
+                raise NovaVerifyProofError(
                     response.get("error", "Failed to update proof"),
                     proof_id=proof_id,
                     error_code="PROOF_UPDATE_FAILED"
                 )
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeProofError(
+            raise NovaVerifyProofError(
                 f"Failed to update proof {proof_id}: {str(e)}",
                 proof_id=proof_id
             )
@@ -153,7 +153,7 @@ class ProofService:
             True if deleted successfully
             
         Raises:
-            VerinodeProofError: If proof deletion fails
+            NovaVerifyProofError: If proof deletion fails
         """
         try:
             response = await self.http_client.delete(f"/proofs/{proof_id}")
@@ -162,16 +162,16 @@ class ProofService:
                 self.logger.info(f"Deleted proof: {proof_id}")
                 return True
             else:
-                raise VerinodeProofError(
+                raise NovaVerifyProofError(
                     response.get("error", "Failed to delete proof"),
                     proof_id=proof_id,
                     error_code="PROOF_DELETE_FAILED"
                 )
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeProofError(
+            raise NovaVerifyProofError(
                 f"Failed to delete proof {proof_id}: {str(e)}",
                 proof_id=proof_id
             )
@@ -238,15 +238,15 @@ class ProofService:
                     has_prev=data.get("has_prev", False)
                 )
             else:
-                raise VerinodeProofError(
+                raise NovaVerifyProofError(
                     response.get("error", "Failed to list proofs"),
                     error_code="PROOF_LIST_FAILED"
                 )
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeProofError(f"Failed to list proofs: {str(e)}")
+            raise NovaVerifyProofError(f"Failed to list proofs: {str(e)}")
     
     async def search(
         self,
@@ -289,15 +289,15 @@ class ProofService:
                     has_prev=data.get("has_prev", False)
                 )
             else:
-                raise VerinodeProofError(
+                raise NovaVerifyProofError(
                     response.get("error", "Failed to search proofs"),
                     error_code="PROOF_SEARCH_FAILED"
                 )
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeProofError(f"Failed to search proofs: {str(e)}")
+            raise NovaVerifyProofError(f"Failed to search proofs: {str(e)}")
     
     async def verify(self, proof_id: str, evidence: Optional[Dict[str, Any]] = None) -> bool:
         """
@@ -311,7 +311,7 @@ class ProofService:
             True if verification initiated successfully
             
         Raises:
-            VerinodeProofError: If verification fails
+            NovaVerifyProofError: If verification fails
         """
         try:
             response = await self.http_client.post(
@@ -323,16 +323,16 @@ class ProofService:
                 self.logger.info(f"Verification initiated for proof: {proof_id}")
                 return True
             else:
-                raise VerinodeProofError(
+                raise NovaVerifyProofError(
                     response.get("error", "Failed to verify proof"),
                     proof_id=proof_id,
                     error_code="PROOF_VERIFY_FAILED"
                 )
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeProofError(
+            raise NovaVerifyProofError(
                 f"Failed to verify proof {proof_id}: {str(e)}",
                 proof_id=proof_id
             )
@@ -355,16 +355,16 @@ class ProofService:
                 verifications = [Verification(**v) for v in response["data"]]
                 return verifications
             else:
-                raise VerinodeProofError(
+                raise NovaVerifyProofError(
                     response.get("error", "Failed to get verifications"),
                     proof_id=proof_id,
                     error_code="PROOF_VERIFICATIONS_FAILED"
                 )
                 
         except Exception as e:
-            if isinstance(e, VerinodeError):
+            if isinstance(e, NovaVerifyError):
                 raise
-            raise VerinodeProofError(
+            raise NovaVerifyProofError(
                 f"Failed to get verifications for proof {proof_id}: {str(e)}",
                 proof_id=proof_id
             )

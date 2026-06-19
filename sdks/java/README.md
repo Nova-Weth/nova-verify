@@ -1,6 +1,6 @@
-# Verinode Java SDK
+# Nova Verify Java SDK
 
-Official Java SDK for Verinode - Web3 infrastructure for cryptographic proofs on Stellar.
+Official Java SDK for Nova Verify - Web3 infrastructure for cryptographic proofs on Stellar.
 
 ## Installation
 
@@ -8,8 +8,8 @@ Add this dependency to your `pom.xml`:
 
 ```xml
 <dependency>
-    <groupId>com.verinode</groupId>
-    <artifactId>verinode-sdk</artifactId>
+    <groupId>com.nova-verify</groupId>
+    <artifactId>nova-verify-sdk</artifactId>
     <version>1.0.0</version>
 </dependency>
 ```
@@ -17,27 +17,27 @@ Add this dependency to your `pom.xml`:
 Or if you're using Gradle:
 
 ```gradle
-implementation 'com.verinode:verinode-sdk:1.0.0'
+implementation 'com.nova-verify:nova-verify-sdk:1.0.0'
 ```
 
 ## Quick Start
 
 ```java
-import com.verinode.sdk.Verinode;
-import com.verinode.sdk.config.VerinodeConfig;
-import com.verinode.sdk.config.NetworkType;
-import com.verinode.sdk.types.*;
+import com.nova-verify.sdk.Nova Verify;
+import com.nova-verify.sdk.config.NovaVerifyConfig;
+import com.nova-verify.sdk.config.NetworkType;
+import com.nova-verify.sdk.types.*;
 
 public class Example {
     public static void main(String[] args) {
         try {
             // Initialize the SDK
-            VerinodeConfig config = VerinodeConfig.builder()
-                .apiEndpoint("https://api.verinode.com")
+            NovaVerifyConfig config = NovaVerifyConfig.builder()
+                .apiEndpoint("https://api.nova-verify.com")
                 .network(NetworkType.TESTNET)
                 .build();
             
-            Verinode client = new Verinode(config);
+            Nova Verify client = new Nova Verify(config);
             
             // Authenticate
             client.authenticate("user@example.com", "password");
@@ -53,7 +53,7 @@ public class Example {
             System.out.println("Title: " + proof.getTitle());
             System.out.println("Status: " + proof.getStatus());
             
-        } catch (VerinodeException e) {
+        } catch (Nova VerifyException e) {
             System.err.println("Error: " + e.getMessage());
         }
     }
@@ -67,17 +67,17 @@ The SDK can be configured using environment variables or configuration builder:
 ### Environment Variables
 
 ```bash
-export VERINODE_API_ENDPOINT="https://api.verinode.com"
-export VERINODE_NETWORK="mainnet"
-export VERINODE_API_KEY="your-api-key"
-export VERINODE_TIMEOUT="10000"
+export NOVA_VERIFY_API_ENDPOINT="https://api.nova-verify.com"
+export NOVA_VERIFY_NETWORK="mainnet"
+export NOVA_VERIFY_API_KEY="your-api-key"
+export NOVA_VERIFY_TIMEOUT="10000"
 ```
 
 ### Configuration Builder
 
 ```java
-VerinodeConfig config = VerinodeConfig.builder()
-    .apiEndpoint("https://api.verinode.com")
+NovaVerifyConfig config = NovaVerifyConfig.builder()
+    .apiEndpoint("https://api.nova-verify.com")
     .network(NetworkType.MAINNET)
     .apiKey("your-api-key")
     .timeout(Duration.ofSeconds(15))
@@ -235,7 +235,7 @@ The SDK provides comprehensive error handling:
 ```java
 try {
     Proof proof = client.proof().get("invalid-id");
-} catch (VerinodeException e) {
+} catch (Nova VerifyException e) {
     switch (e.getCode()) {
         case AUTH_ERROR:
             System.err.println("Authentication failed: " + e.getMessage());
@@ -268,7 +268,7 @@ public class CustomHttpClient implements HttpClient {
 }
 
 // Use custom client
-VerinodeConfig config = VerinodeConfig.builder()
+NovaVerifyConfig config = NovaVerifyConfig.builder()
     .httpClient(new CustomHttpClient())
     .build();
 ```
@@ -293,7 +293,7 @@ future.thenAccept(proof -> {
 Always close the client when done:
 
 ```java
-try (Verinode client = new Verinode(config)) {
+try (Nova Verify client = new Nova Verify(config)) {
     // Use client
 } // Automatically closed
 ```
@@ -301,7 +301,7 @@ try (Verinode client = new Verinode(config)) {
 Or manually:
 
 ```java
-Verinode client = new Verinode(config);
+Nova Verify client = new Nova Verify(config);
 try {
     // Use client
 } finally {
@@ -315,8 +315,8 @@ try {
 
 ```bash
 # Clone repository
-git clone https://github.com/Great-2025/Verinode.git
-cd Verinode/sdks/java
+git clone https://github.com/Great-2025/Nova Verify.git
+cd Nova Verify/sdks/java
 
 # Build the project
 mvn clean compile
@@ -337,13 +337,13 @@ mvn install
 ### Project Structure
 
 ```
-src/main/java/com/verinode/sdk/
-├── Verinode.java              # Main client class
+src/main/java/com/nova-verify/sdk/
+├── Nova Verify.java              # Main client class
 ├── config/                    # Configuration
-│   ├── VerinodeConfig.java
+│   ├── NovaVerifyConfig.java
 │   └── NetworkType.java
 ├── exception/                 # Exception handling
-│   ├── VerinodeException.java
+│   ├── Nova VerifyException.java
 │   └── ErrorCode.java
 ├── services/                  # Service modules
 │   ├── ProofService.java
@@ -377,6 +377,6 @@ This project is licensed under the MIT License - see the [LICENSE](../../LICENSE
 
 ## Support
 
-- Documentation: [Verinode Documentation](https://docs.verinode.com)
-- Issues: [GitHub Issues](https://github.com/Great-2025/Verinode/issues)
-- Community: [Discord](https://discord.gg/verinode)
+- Documentation: [Nova Verify Documentation](https://docs.nova-verify.com)
+- Issues: [GitHub Issues](https://github.com/Great-2025/Nova Verify/issues)
+- Community: [Discord](https://discord.gg/nova-verify)

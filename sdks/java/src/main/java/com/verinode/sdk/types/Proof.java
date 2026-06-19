@@ -1,4 +1,4 @@
-package com.verinode.sdk.types;
+package com.nova-verify.sdk.types;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Represents a cryptographic proof in the Verinode system.
+ * Represents a cryptographic proof in the Nova Verify system.
  */
 public class Proof {
     

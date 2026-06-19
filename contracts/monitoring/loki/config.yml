@@ -1,4 +1,4 @@
-# Loki Configuration for Verinode Log Aggregation
+# Loki Configuration for Nova Verify Log Aggregation
 auth_enabled: false
 
 server:

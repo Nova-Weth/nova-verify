@@ -1,5 +1,5 @@
 """
-Configuration management for Verinode SDK.
+Configuration management for Nova Verify SDK.
 """
 
 from typing import Optional, Dict, Any, Union
@@ -7,11 +7,11 @@ from pydantic import BaseSettings, Field
 import os
 
 
-class VerinodeConfig(BaseSettings):
-    """Configuration class for Verinode SDK."""
+class NovaVerifyConfig(BaseSettings):
+    """Configuration class for Nova Verify SDK."""
     
     api_endpoint: str = Field(
-        default="https://api.verinode.com",
+        default="https://api.nova-verify.com",
         description="API endpoint URL"
     )
     
@@ -66,7 +66,7 @@ class VerinodeConfig(BaseSettings):
     )
     
     class Config:
-        env_prefix = "VERINODE_"
+        env_prefix = "NOVA_VERIFY_"
         case_sensitive = False
         
     def __init__(self, **kwargs):
@@ -102,6 +102,6 @@ class VerinodeConfig(BaseSettings):
         self._validate_config()
     
     @classmethod
-    def from_env(cls) -> "VerinodeConfig":
+    def from_env(cls) -> "NovaVerifyConfig":
         """Create configuration from environment variables."""
         return cls()

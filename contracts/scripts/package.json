@@ -1,7 +1,7 @@
 {
-  "name": "verinode-deployment-scripts",
+  "name": "nova-verify-deployment-scripts",
   "version": "1.0.0",
-  "description": "Deployment scripts for Verinode Soroban smart contracts",
+  "description": "Deployment scripts for Nova Verify Soroban smart contracts",
   "main": "deploy_proof_verifier.js",
   "scripts": {
     "deploy:testnet": "node deploy_proof_verifier.js testnet",
@@ -22,7 +22,7 @@
     "smart-contracts",
     "deployment"
   ],
-  "author": "Verinode Team",
+  "author": "Nova Verify Team",
   "license": "MIT",
   "engines": {
     "node": ">=16.0.0"

@@ -1,19 +1,19 @@
-# Verinode Multi-Language SDK Documentation
+# Nova Verify Multi-Language SDK Documentation
 
-Welcome to the comprehensive documentation for Verinode's multi-language SDK suite. This document provides an overview of all available SDKs, their features, and how to get started with each one.
+Welcome to the comprehensive documentation for Nova Verify's multi-language SDK suite. This document provides an overview of all available SDKs, their features, and how to get started with each one.
 
 ## Overview
 
-Verinode provides official SDKs for multiple programming languages to simplify integration and expand the developer ecosystem. Each SDK maintains a consistent API design while following language-specific best practices.
+Nova Verify provides official SDKs for multiple programming languages to simplify integration and expand the developer ecosystem. Each SDK maintains a consistent API design while following language-specific best practices.
 
 ## Available SDKs
 
 | Language | Package | Version | Status |
 |----------|---------|---------|--------|
-| **Python** | `verinode-sdk` | 1.0.0 | ✅ Complete |
-| **Go** | `github.com/Great-2025/verinode-go` | 1.0.0 | ✅ Complete |
-| **Rust** | `verinode-sdk` | 1.0.0 | ✅ Complete |
-| **Java** | `com.verinode:verinode-sdk` | 1.0.0 | ✅ Complete |
+| **Python** | `nova-verify-sdk` | 1.0.0 | ✅ Complete |
+| **Go** | `github.com/Great-2025/nova-verify-go` | 1.0.0 | ✅ Complete |
+| **Rust** | `nova-verify-sdk` | 1.0.0 | ✅ Complete |
+| **Java** | `com.nova-verify:nova-verify-sdk` | 1.0.0 | ✅ Complete |
 
 ## Quick Links
 
@@ -22,7 +22,7 @@ Verinode provides official SDKs for multiple programming languages to simplify i
 - [Rust SDK Documentation](./rust.md)
 - [Java SDK Documentation](./java.md)
 - [Examples](../examples/)
-- [API Reference](https://docs.verinode.com/api)
+- [API Reference](https://docs.nova-verify.com/api)
 
 ## Core Features Across All SDKs
 
@@ -66,25 +66,25 @@ Verinode provides official SDKs for multiple programming languages to simplify i
 
 ### Python
 ```bash
-pip install verinode-sdk
+pip install nova-verify-sdk
 ```
 
 ### Go
 ```bash
-go get github.com/Great-2025/verinode-go
+go get github.com/Great-2025/nova-verify-go
 ```
 
 ### Rust
 ```toml
 [dependencies]
-verinode-sdk = "1.0.0"
+nova-verify-sdk = "1.0.0"
 ```
 
 ### Java (Maven)
 ```xml
 <dependency>
-    <groupId>com.verinode</groupId>
-    <artifactId>verinode-sdk</artifactId>
+    <groupId>com.nova-verify</groupId>
+    <artifactId>nova-verify-sdk</artifactId>
     <version>1.0.0</version>
 </dependency>
 ```
@@ -93,7 +93,7 @@ verinode-sdk = "1.0.0"
 
 All SDKs support configuration through:
 
-1. **Environment Variables**: `VERINODE_API_ENDPOINT`, `VERINODE_NETWORK`, etc.
+1. **Environment Variables**: `NOVA_VERIFY_API_ENDPOINT`, `NOVA_VERIFY_NETWORK`, etc.
 2. **Configuration Objects**: Language-specific configuration builders
 3. **Configuration Files**: JSON/YAML/Properties files (where applicable)
 
@@ -101,7 +101,7 @@ All SDKs support configuration through:
 
 | Option | Description | Default |
 |--------|-------------|---------|
-| `api_endpoint` | API server URL | `https://api.verinode.com` |
+| `api_endpoint` | API server URL | `https://api.nova-verify.com` |
 | `network` | Network type (mainnet/testnet) | `mainnet` |
 | `timeout` | Request timeout | 10 seconds |
 | `max_retries` | Maximum retry attempts | 3 |
@@ -258,10 +258,10 @@ Each SDK includes comprehensive test suites:
 ## Community and Support
 
 ### Getting Help
-- [Documentation](https://docs.verinode.com)
-- [GitHub Issues](https://github.com/Great-2025/Verinode/issues)
-- [Discord Community](https://discord.gg/verinode)
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/verinode)
+- [Documentation](https://docs.nova-verify.com)
+- [GitHub Issues](https://github.com/Great-2025/Nova Verify/issues)
+- [Discord Community](https://discord.gg/nova-verify)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/nova-verify)
 
 ### Contributing
 - [Contributing Guidelines](../../CONTRIBUTING.md)

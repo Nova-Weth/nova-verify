@@ -1,7 +1,7 @@
-package com.verinode.sdk.config;
+package com.nova-verify.sdk.config;
 
 /**
- * Represents the network type for the Verinode SDK.
+ * Represents the network type for the Nova Verify SDK.
  */
 public enum NetworkType {
     /**

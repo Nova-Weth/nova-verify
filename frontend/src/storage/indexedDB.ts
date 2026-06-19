@@ -1,4 +1,4 @@
-const DB_NAME = 'VerinodeOfflineDB';
+const DB_NAME = 'Nova VerifyOfflineDB';
 const DB_VERSION = 1;
 
 export const initDB = (): Promise<IDBDatabase> => {

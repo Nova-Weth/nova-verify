@@ -4,12 +4,12 @@ This document provides comprehensive documentation for the REST API endpoints fo
 
 ## Overview
 
-The Verinode Proof Management API provides a complete set of endpoints for managing cryptographic proofs with proper error handling, security, and rate limiting.
+The Nova Verify Proof Management API provides a complete set of endpoints for managing cryptographic proofs with proper error handling, security, and rate limiting.
 
 ## Base URL
 
 ```
-https://api.verinode.com/api/proofs
+https://api.nova-verify.com/api/proofs
 ```
 
 ## Authentication
@@ -672,10 +672,10 @@ npm run test:performance
 
 ### JavaScript/TypeScript
 ```typescript
-import { VerinodeAPI } from '@verinode/sdk';
+import { NovaVerifyAPI } from '@nova-verify/sdk';
 
-const api = new VerinodeAPI({
-  baseURL: 'https://api.verinode.com',
+const api = new NovaVerifyAPI({
+  baseURL: 'https://api.nova-verify.com',
   apiKey: 'your-api-key'
 });
 
@@ -694,10 +694,10 @@ const verification = await api.proofs.verify(proof.id, {
 
 ### Python
 ```python
-from verinode_sdk import VerinodeAPI
+from nova-verify_sdk import NovaVerifyAPI
 
-api = VerinodeAPI(
-    base_url='https://api.verinode.com',
+api = NovaVerifyAPI(
+    base_url='https://api.nova-verify.com',
     api_key='your-api-key'
 )
 
@@ -726,6 +726,6 @@ verification = api.proofs.verify(proof['id'], {
 ## Support
 
 For API support and questions:
-- Documentation: https://docs.verinode.com
-- Support: support@verinode.com
-- Status: https://status.verinode.com
+- Documentation: https://docs.nova-verify.com
+- Support: support@nova-verify.com
+- Status: https://status.nova-verify.com

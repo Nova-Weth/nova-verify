@@ -8,7 +8,7 @@ export interface Config {
   environment: 'development' | 'staging' | 'production';
 }
 
-const CONFIG_DIR = path.join(homedir(), '.verinode');
+const CONFIG_DIR = path.join(homedir(), '.nova-verify');
 const CONFIG_FILE = path.join(CONFIG_DIR, 'config.json');
 
 export class ConfigManager {

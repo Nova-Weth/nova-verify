@@ -1,6 +1,6 @@
-# Verinode SDK Examples
+# Nova Verify SDK Examples
 
-This directory contains practical examples demonstrating how to use the Verinode SDKs across different programming languages.
+This directory contains practical examples demonstrating how to use the Nova Verify SDKs across different programming languages.
 
 ## Available Examples
 
@@ -31,7 +31,7 @@ This directory contains practical examples demonstrating how to use the Verinode
 1. **Install the SDK** for your preferred language
 2. **Set up environment variables**:
    ```bash
-   export VERINODE_API_ENDPOINT="https://api.verinode.com"
+   export VERINODE_API_ENDPOINT="https://api.nova-verify.com"
    export VERINODE_NETWORK="testnet"
    export VERINODE_API_KEY="your-api-key"  # Optional
    ```
@@ -40,7 +40,7 @@ This directory contains practical examples demonstrating how to use the Verinode
 
 ```bash
 # Install dependencies
-pip install verinode-sdk
+pip install nova-verify-sdk
 
 # Run basic example
 python python_basic_example.py
@@ -152,7 +152,7 @@ Shows proper cleanup:
 ### Environment-based Configuration
 ```bash
 # Set environment variables
-export VERINODE_API_ENDPOINT="https://api.verinode.com"
+export VERINODE_API_ENDPOINT="https://api.nova-verify.com"
 export VERINODE_NETWORK="testnet"
 export VERINODE_LOGGING_ENABLED="true"
 ```
@@ -169,7 +169,7 @@ Examples use demo credentials that will fail authentication. This is expected be
 Some examples include mock mode for testing without API access:
 ```python
 # Python
-client = Verinode(config, mock_mode=True)
+client = Nova Verify(config, mock_mode=True)
 ```
 
 ### Local Testing
@@ -263,8 +263,8 @@ After running the examples:
 
 If you encounter issues with the examples:
 - Check the [troubleshooting guide](../docs/troubleshooting.md)
-- Search [GitHub Issues](https://github.com/Great-2025/Verinode/issues)
-- Join our [Discord community](https://discord.gg/verinode)
+- Search [GitHub Issues](https://github.com/Great-2025/Nova Verify/issues)
+- Join our [Discord community](https://discord.gg/nova-verify)
 - Create a new issue with details about your problem
 
 ---

@@ -1,6 +1,6 @@
 # Cross-Chain Proof Verification Implementation
 
-This document describes the implementation of cross-chain proof verification functionality in the Verinode project, enabling secure proof verification across multiple blockchains (Ethereum, Polygon, BSC).
+This document describes the implementation of cross-chain proof verification functionality in the Nova Verify project, enabling secure proof verification across multiple blockchains (Ethereum, Polygon, BSC).
 
 ## Overview
 

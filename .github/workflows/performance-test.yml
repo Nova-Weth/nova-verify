@@ -6,7 +6,7 @@ on:
       target_url:
         description: 'Target URL for load testing'
         required: true
-        default: 'https://staging.verinode.io'
+        default: 'https://staging.nova-verify.io'
   release:
     types: [created]
 
@@ -21,5 +21,5 @@ jobs:
 
     - name: Run Performance Tests
       env:
-        TARGET_URL: ${{ inputs.target_url || 'https://staging.verinode.io' }}
+        TARGET_URL: ${{ inputs.target_url || 'https://staging.nova-verify.io' }}
       run: ./scripts/performance-test.sh $TARGET_URL

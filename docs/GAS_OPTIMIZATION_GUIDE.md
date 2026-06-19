@@ -1,8 +1,8 @@
-# Gas Optimization Suite for Verinode
+# Gas Optimization Suite for Nova Verify
 
 ## Overview
 
-The Verinode Gas Optimization Suite is a comprehensive set of tools and techniques designed to reduce transaction costs and improve contract efficiency on the Stellar network. This suite provides automated analysis, optimization suggestions, and benchmarking capabilities to achieve at least 20% gas cost reduction.
+The Nova Verify Gas Optimization Suite is a comprehensive set of tools and techniques designed to reduce transaction costs and improve contract efficiency on the Stellar network. This suite provides automated analysis, optimization suggestions, and benchmarking capabilities to achieve at least 20% gas cost reduction.
 
 ## Architecture
 
@@ -402,6 +402,6 @@ cargo run --bin gas_profiler -- compare baseline.json current.json
 
 ## Conclusion
 
-The Verinode Gas Optimization Suite provides a comprehensive approach to reducing transaction costs and improving contract efficiency. By following the techniques and best practices outlined in this guide, developers can achieve significant gas savings while maintaining functionality and security.
+The Nova Verify Gas Optimization Suite provides a comprehensive approach to reducing transaction costs and improving contract efficiency. By following the techniques and best practices outlined in this guide, developers can achieve significant gas savings while maintaining functionality and security.
 
 The suite's modular design allows for easy integration with existing contracts, and the automated tools ensure consistent optimization across the entire codebase. Regular use of the profiler and suggestion tools will help maintain optimal gas efficiency as the codebase evolves.

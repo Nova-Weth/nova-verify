@@ -2,7 +2,7 @@
 
 ## Summary
 
-This PR implements comprehensive security enhancements for the Verinode backend, including advanced security headers, Content Security Policy (CSP) management, security scanning integration, and a unified security service. This implementation significantly improves the application's security posture by providing multiple layers of protection against common web vulnerabilities.
+This PR implements comprehensive security enhancements for the Nova Verify backend, including advanced security headers, Content Security Policy (CSP) management, security scanning integration, and a unified security service. This implementation significantly improves the application's security posture by providing multiple layers of protection against common web vulnerabilities.
 
 ## Key Features
 
@@ -309,7 +309,7 @@ setInterval(async () => {
 
 ## Conclusion
 
-This PR significantly enhances the security posture of the Verinode backend by implementing multiple layers of protection, comprehensive monitoring, and automated threat detection. The implementation follows security best practices and provides a solid foundation for maintaining a secure and resilient application.
+This PR significantly enhances the security posture of the Nova Verify backend by implementing multiple layers of protection, comprehensive monitoring, and automated threat detection. The implementation follows security best practices and provides a solid foundation for maintaining a secure and resilient application.
 
 The security service is designed to be configurable, performant, and extensible, allowing for future enhancements while maintaining backward compatibility with existing functionality.
 

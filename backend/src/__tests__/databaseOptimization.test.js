@@ -22,7 +22,7 @@ describe('Database Performance Optimization Tests', () => {
 
   beforeAll(async () => {
     // Initialize test database connection
-    await mongoose.connect(process.env.MONGODB_TEST_URI || 'mongodb://localhost:27017/verinode_test');
+    await mongoose.connect(process.env.MONGODB_TEST_URI || 'mongodb://localhost:27017/nova-verify_test');
     testDb = mongoose.connection.db;
     
     // Initialize optimization services
@@ -290,7 +290,7 @@ describe('Database Performance Optimization Tests', () => {
         queryHash: 'test123',
         queryText: '{ contentType: "proof" }',
         executionTime: 150,
-        databaseName: 'verinode_test',
+        databaseName: 'nova-verify_test',
         collectionName: 'ipfscontents',
         documentsScanned: 10,
         documentsReturned: 5,
@@ -309,7 +309,7 @@ describe('Database Performance Optimization Tests', () => {
         queryHash: 'slow1',
         queryText: '{ slow: true }',
         executionTime: 1500,
-        databaseName: 'verinode_test',
+        databaseName: 'nova-verify_test',
         collectionName: 'ipfscontents',
         slowQuery: true
       });
@@ -318,7 +318,7 @@ describe('Database Performance Optimization Tests', () => {
         queryHash: 'fast1',
         queryText: '{ fast: true }',
         executionTime: 100,
-        databaseName: 'verinode_test',
+        databaseName: 'nova-verify_test',
         collectionName: 'ipfscontents',
         slowQuery: false
       });
@@ -335,7 +335,7 @@ describe('Database Performance Optimization Tests', () => {
       await PerformanceMetrics.create({
         queryHash: 'test1',
         executionTime: 100,
-        databaseName: 'verinode_test',
+        databaseName: 'nova-verify_test',
         collectionName: 'ipfscontents',
         cacheHit: true
       });
@@ -343,7 +343,7 @@ describe('Database Performance Optimization Tests', () => {
       await PerformanceMetrics.create({
         queryHash: 'test2',
         executionTime: 200,
-        databaseName: 'verinode_test',
+        databaseName: 'nova-verify_test',
         collectionName: 'customtemplates',
         cacheHit: false
       });

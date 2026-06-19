@@ -1,12 +1,12 @@
 {
   "dashboard": {
     "id": null,
-    "title": "Verinode - Database Monitoring",
+    "title": "Nova Verify - Database Monitoring",
     "timezone": "browser",
     "schemaVersion": 39,
     "version": 1,
     "refresh": "30s",
-    "tags": ["database", "mongodb", "performance", "verinode"],
+    "tags": ["database", "mongodb", "performance", "nova-verify"],
     "panels": [
       {
         "type": "stat",

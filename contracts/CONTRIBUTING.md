@@ -1,6 +1,6 @@
-# Contributing to Verinode
+# Contributing to Nova Verify
 
-Thank you for your interest in contributing to Verinode! This document provides guidelines and information for contributors.
+Thank you for your interest in contributing to Nova Verify! This document provides guidelines and information for contributors.
 
 ## Getting Started
 
@@ -17,8 +17,8 @@ Thank you for your interest in contributing to Verinode! This document provides 
 1. **Fork the repository**
    ```bash
    # Fork the repository on GitHub, then clone your fork
-   git clone https://github.com/YOUR_USERNAME/Verinode.git
-   cd Verinode
+   git clone https://github.com/YOUR_USERNAME/Nova Verify.git
+   cd Nova Verify
    ```
 
 2. **Install dependencies**
@@ -110,7 +110,7 @@ Thank you for your interest in contributing to Verinode! This document provides 
 ### Project Structure
 
 ```
-Verinode/
+Nova Verify/
 ├── contracts/          # Soroban smart contracts (Rust)
 │   ├── src/           # Contract source code
 │   ├── tests/         # Contract tests
@@ -150,7 +150,7 @@ Verinode/
 
 ## Getting Help
 
-- **Discussions**: Use [GitHub Discussions](https://github.com/jobbykingz/Verinode/discussions) for questions
+- **Discussions**: Use [GitHub Discussions](https://github.com/jobbykingz/Nova Verify/discussions) for questions
 - **Discord**: Join our community server
 - **Issues**: Check existing issues before creating new ones
 

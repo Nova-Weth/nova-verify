@@ -1,5 +1,5 @@
 /**
- * Search Service for Verinode Education Platform
+ * Search Service for Nova Verify Education Platform
  * Handles course search, filtering, and search analytics
  * Enhanced with AI-powered search capabilities
  */

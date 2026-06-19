@@ -1,4 +1,4 @@
-# Verinode
+# Nova Verify
 
 A verification node system with both REST and GraphQL APIs for managing user proofs and verifications.
 
@@ -24,7 +24,7 @@ A verification node system with both REST and GraphQL APIs for managing user pro
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd Verinode
+cd Nova Verify
 
 # Install dependencies
 npm install

@@ -1,5 +1,5 @@
 """
-HTTP client for Verinode SDK.
+HTTP client for Nova Verify SDK.
 """
 
 import asyncio
@@ -7,16 +7,16 @@ import logging
 import time
 from typing import Optional, Dict, Any, Union
 import aiohttp
-from ..config import VerinodeConfig
-from ..exceptions import VerinodeAPIError, VerinodeNetworkError
+from ..config import NovaVerifyConfig
+from ..exceptions import NovaVerifyAPIError, NovaVerifyNetworkError
 
 
 class HTTPClient:
     """
-    HTTP client for making API requests to Verinode.
+    HTTP client for making API requests to Nova Verify.
     """
     
-    def __init__(self, config: VerinodeConfig):
+    def __init__(self, config: NovaVerifyConfig):
         """
         Initialize HTTP client.
         
@@ -32,7 +32,7 @@ class HTTPClient:
         self._timeout = aiohttp.ClientTimeout(total=config.timeout / 1000)
         self._headers = {
             "Content-Type": "application/json",
-            "User-Agent": f"verinode-sdk-python/1.0.0"
+            "User-Agent": f"nova-verify-sdk-python/1.0.0"
         }
     
     async def _get_session(self) -> aiohttp.ClientSession:
@@ -84,7 +84,7 @@ class HTTPClient:
             Response data
             
         Raises:
-            VerinodeAPIError: If request fails
+            NovaVerifyAPIError: If request fails
         """
         url = f"{self.config.api_endpoint}{endpoint}"
         session = await self._get_session()
@@ -117,9 +117,9 @@ class HTTPClient:
                     
             except Exception as e:
                 self.logger.error(f"Unexpected error during request: {str(e)}")
-                raise VerinodeNetworkError(f"Request failed: {str(e)}")
+                raise NovaVerifyNetworkError(f"Request failed: {str(e)}")
         
-        raise VerinodeNetworkError(
+        raise NovaVerifyNetworkError(
             f"Request failed after {self.config.max_retries + 1} attempts: {str(last_exception)}"
         )
     
@@ -134,7 +134,7 @@ class HTTPClient:
             Response data
             
         Raises:
-            VerinodeAPIError: If response indicates an error
+            NovaVerifyAPIError: If response indicates an error
         """
         try:
             response_data = await response.json()
@@ -144,7 +144,7 @@ class HTTPClient:
         
         if response.status >= 400:
             error_msg = response_data.get("error", f"HTTP {response.status}")
-            raise VerinodeAPIError(
+            raise NovaVerifyAPIError(
                 error_msg,
                 status_code=response.status,
                 response_data=response_data
@@ -286,9 +286,9 @@ class HTTPClient:
                     return await self._handle_response(response)
                     
         except FileNotFoundError:
-            raise VerinodeAPIError(f"File not found: {file_path}")
+            raise NovaVerifyAPIError(f"File not found: {file_path}")
         except Exception as e:
-            raise VerinodeAPIError(f"File upload failed: {str(e)}")
+            raise NovaVerifyAPIError(f"File upload failed: {str(e)}")
     
     def close(self):
         """Close HTTP session."""

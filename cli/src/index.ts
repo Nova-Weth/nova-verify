@@ -9,8 +9,8 @@ import { authCommand } from './commands/auth';
 const program = new Command();
 
 program
-  .name('verinode')
-  .description('CLI tool for Verinode platform')
+  .name('nova-verify')
+  .description('CLI tool for Nova Verify platform')
   .version('1.0.0');
 
 // Add commands

@@ -1,9 +1,9 @@
-package verinode
+package nova-verify
 
 import (
 	"context"
 
-	"github.com/Great-2025/verinode-go/pkg/verinode/types"
+	"github.com/Great-2025/nova-verify-go/pkg/nova-verify/types"
 )
 
 // HTTPClient interface for HTTP operations

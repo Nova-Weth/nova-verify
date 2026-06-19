@@ -1,4 +1,4 @@
-//! Utility modules for the Verinode SDK.
+//! Utility modules for the Nova Verify SDK.
 
 pub mod http;
 pub mod websocket;

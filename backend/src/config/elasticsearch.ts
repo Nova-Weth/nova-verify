@@ -360,12 +360,12 @@ export const defaultElasticsearchConfig: ElasticsearchConfig = {
   sniffInterval: process.env.ELASTICSEARCH_SNIFF_INTERVAL === 'true',
   compression: (process.env.ELASTICSEARCH_COMPRESSION as 'gzip' | 'none') || 'gzip',
   indices: {
-    main: process.env.ELASTICSEARCH_INDEX_MAIN || 'verinode_search',
-    proofs: process.env.ELASTICSEARCH_INDEX_PROOFS || 'verinode_proofs',
-    courses: process.env.ELASTICSEARCH_INDEX_COURSES || 'verinode_courses',
-    templates: process.env.ELASTICSEARCH_INDEX_TEMPLATES || 'verinode_templates',
-    users: process.env.ELASTICSEARCH_INDEX_USERS || 'verinode_users',
-    audit: process.env.ELASTICSEARCH_INDEX_AUDIT || 'verinode_audit'
+    main: process.env.ELASTICSEARCH_INDEX_MAIN || 'nova-verify_search',
+    proofs: process.env.ELASTICSEARCH_INDEX_PROOFS || 'nova-verify_proofs',
+    courses: process.env.ELASTICSEARCH_INDEX_COURSES || 'nova-verify_courses',
+    templates: process.env.ELASTICSEARCH_INDEX_TEMPLATES || 'nova-verify_templates',
+    users: process.env.ELASTICSEARCH_INDEX_USERS || 'nova-verify_users',
+    audit: process.env.ELASTICSEARCH_INDEX_AUDIT || 'nova-verify_audit'
   },
   settings: {
     numberOfShards: parseInt(process.env.ELASTICSEARCH_SHARDS || '1'),
