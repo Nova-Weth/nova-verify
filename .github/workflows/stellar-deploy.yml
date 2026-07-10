@@ -1,0 +1,88 @@
+name: Stellar Testnet Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  RUST_VERSION: '1.70'
+  NODE_VERSION: 18
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: ${{ env.RUST_VERSION }}
+          targets: wasm32-unknown-unknown
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Build Soroban contracts
+        run: |
+          cd contracts/deployable
+          cargo build --release --target wasm32-unknown-unknown
+
+      - name: Run contract tests
+        run: |
+          cd contracts/deployable
+          cargo test --release
+
+      - name: Run contract linting
+        run: |
+          cd contracts/deployable
+          cargo clippy -- -D warnings || true
+
+      - name: Upload WASM artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: contract-wasm
+          path: contracts/deployable/target/wasm32-unknown-unknown/release/*.wasm
+          retention-days: 7
+
+  deploy-testnet:
+    needs: build-and-test
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: testnet
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download WASM artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: contract-wasm
+          path: contracts/deployable/target/wasm32-unknown-unknown/release/
+
+      - name: Deploy to Stellar Testnet
+        run: node deploy-testnet.js
+
+      - name: Save deployment info
+        run: |
+          echo "## 🚀 Stellar Testnet Deployment" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Network:** Stellar Testnet" >> $GITHUB_STEP_SUMMARY
+          echo "**Contract:** nova-verify-proof-verifier" >> $GITHUB_STEP_SUMMARY
+          echo "**Branch:** ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
