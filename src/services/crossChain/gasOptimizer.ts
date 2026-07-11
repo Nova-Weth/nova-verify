@@ -137,7 +137,7 @@ export class GasOptimizer {
     }
 
     try {
-      const currentGasPrice = await this.getCurrentGasPrice(chainId).catch(() => BigInt(config.baseGasPrice));
+      const currentGasPrice: bigint = await this.getCurrentGasPrice(chainId).catch(() => BigInt(config.baseGasPrice));
       const predictedGasPrice = await this.predictGasPrice(chainId);
       
       const optimizedGasPrice = this.calculateOptimizedGasPrice(

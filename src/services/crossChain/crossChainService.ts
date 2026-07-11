@@ -246,7 +246,7 @@ export class CrossChainService {
     this.transfers.set(args.transferId, transfer);
 
     try {
-      await this.bridgeService.initiateTransfer({ ...transfer }, optimizedGas);
+      await this.bridgeService.initiateTransfer({ ...transfer } as any, optimizedGas);
     } catch {
       // Bridge may fail in test/offline environments
     }
@@ -338,7 +338,7 @@ export class CrossChainService {
       this.transfers.set(transferId, transfer);
 
       try {
-        await this.bridgeService.initiateTransfer({ ...transfer }, optimizedGas);
+        await this.bridgeService.initiateTransfer({ ...transfer } as any, optimizedGas);
       } catch {
         // Bridge may fail in test/offline environments; transfer is still recorded
       }

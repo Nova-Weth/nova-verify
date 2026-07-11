@@ -84,7 +84,7 @@ export const createApolloServer = () => {
       {
         requestDidStart() {
           return {
-            didResolveOperation(requestContext) {
+            didResolveOperation(requestContext: any) {
               // Log GraphQL operations for security monitoring
               const operationName = requestContext.request.operationName;
 
@@ -96,7 +96,7 @@ export const createApolloServer = () => {
               }
             },
 
-            didEncounterErrors(requestContext) {
+            didEncounterErrors(requestContext: any) {
               // Log GraphQL errors for security monitoring
               console.error('GraphQL Error:', {
                 errors: requestContext.errors,

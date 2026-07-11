@@ -26,7 +26,8 @@ export const createRateLimiter = (options: Partial<RateLimitOptions> = {}) => {
   const config = { ...defaultOptions, ...options };
 
   return (context: GraphQLContext) => {
-    const identifier = context.req.ip || context.req.headers['x-forwarded-for'] || 'unknown';
+    const forwardedFor = context.req.headers['x-forwarded-for'];
+    const identifier = context.req.ip || (Array.isArray(forwardedFor) ? forwardedFor[0] : forwardedFor) || 'unknown';
     const now = Date.now();
 
     // Clean up expired entries
