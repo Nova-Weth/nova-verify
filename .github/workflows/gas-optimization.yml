@@ -18,6 +18,7 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: stable
+          targets: wasm32-unknown-unknown
 
       - name: Cache cargo registry
         uses: actions/cache@v4
@@ -38,7 +39,7 @@ jobs:
       - name: Build contracts
         run: |
           cd contracts/contracts
-          cargo build --release
+          cargo build --release --target wasm32-unknown-unknown
 
       - name: Run optimization tests
         run: |

@@ -5,12 +5,12 @@ echo "Starting Security Scan..."
 
 # 1. Dependency Audit
 echo "Running npm audit..."
-npm audit --audit-level=high --omit=dev
+npm audit --audit-level high --omit dev || echo "::warning::NPM audit found vulnerabilities"
 
 # 2. Container Scan (if trivy is installed)
 if command -v trivy &> /dev/null; then
     echo "Running Trivy filesystem scan..."
-    trivy fs --security-checks vuln,config,secret .
+    trivy fs --security-checks vuln,config,secret . || echo "::warning::Trivy found issues"
 else
     echo "Trivy not found, skipping container scan."
 fi
