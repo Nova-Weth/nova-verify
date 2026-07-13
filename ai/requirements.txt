@@ -25,8 +25,6 @@ line-profiler>=3.3.0
 
 # Data Processing
 joblib>=1.1.0
-pickle5>=0.0.11; python_version < "3.8"
-pickle>=0.7.0; python_version >= "3.8"
 
 # Visualization
 jupyter>=1.0.0

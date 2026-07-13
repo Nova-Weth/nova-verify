@@ -603,9 +603,111 @@ class GasOptimizer:
         else:
             print(f"Model file {filepath} not found")
 
+def analyze_directory(directory_path: str):
+    """Analyze all Rust source files in a directory"""
+    import glob as glob_mod
+    
+    rs_files = glob_mod.glob(os.path.join(directory_path, "**", "*.rs"), recursive=True)
+    if not rs_files:
+        print(f"No Rust source files found in {directory_path}")
+        return
+    
+    print(f"Found {len(rs_files)} Rust source file(s) in {directory_path}")
+    
+    optimizer = GasOptimizer()
+    all_results = []
+    
+    for rs_file in rs_files:
+        print(f"\n--- Analyzing: {rs_file} ---")
+        with open(rs_file, 'r') as f:
+            code = f.read()
+        
+        if not code.strip():
+            print(f"  Skipping empty file: {rs_file}")
+            continue
+        
+        # Extract function signatures
+        import re as re_mod
+        func_sigs = re_mod.findall(r'\bfn\s+(\w+)', code)
+        if not func_sigs:
+            print(f"  No functions found in {rs_file}")
+            continue
+        
+        print(f"  Found {len(func_sigs)} function(s): {', '.join(func_sigs)}")
+        result = optimizer.analyze_contract(code, func_sigs)
+        all_results.append((rs_file, result))
+    
+    # Generate combined report
+    report_lines = ["# Gas Optimization Report (Multi-File Analysis)\n"]
+    report_lines.append(f"Analyzed {len(all_results)} file(s)\n\n")
+    
+    total_original = 0
+    total_optimized = 0
+    all_suggestions = []
+    
+    for filepath, result in all_results:
+        total_original += result.original_gas_cost
+        total_optimized += result.optimized_gas_cost
+        all_suggestions.extend(result.suggestions)
+        report_lines.append(f"## {filepath}\n")
+        report_lines.append(f"Original: {result.original_gas_cost:,} | Optimized: {result.optimized_gas_cost:,} | Savings: {result.savings_percentage:.1f}%\n\n")
+        for s in result.suggestions:
+            report_lines.append(f"- [{s.confidence_score:.0%}] {s.optimization_type.value}: {s.description}\n")
+        report_lines.append("\n")
+    
+    report_lines.append(f"## Summary\n")
+    report_lines.append(f"Total original gas cost: {total_original:,}\n")
+    report_lines.append(f"Total optimized gas cost: {total_optimized:,}\n")
+    report_lines.append(f"Total savings: {total_original - total_optimized:,}\n")
+    report_lines.append(f"Total suggestions: {len(all_suggestions)}\n")
+    
+    report = ''.join(report_lines)
+    print(report)
+    
+    report_path = 'gas_benchmark_report.json'
+    with open(report_path, 'w') as f:
+        import json as json_mod
+        data = {
+            'files_analyzed': len(all_results),
+            'total_original_gas': total_original,
+            'total_optimized_gas': total_optimized,
+            'total_suggestions': len(all_suggestions),
+            'suggestions': [
+                {
+                    'file': fp,
+                    'type': s.optimization_type.value,
+                    'description': s.description,
+                    'savings_pct': s.savings_percentage,
+                    'confidence': s.confidence_score
+                }
+                for fp, r in all_results for s in r.suggestions
+            ]
+        }
+        json_mod.dump(data, f, indent=2)
+    
+    print(f"\nGas benchmark report saved to {report_path}")
+
+
 def main():
     """Main function for testing the gas optimizer"""
-    # Sample contract code for testing
+    import sys
+    
+    # Check for --analyze <directory> flag
+    if '--analyze' in sys.argv:
+        idx = sys.argv.index('--analyze')
+        if idx + 1 < len(sys.argv):
+            target_dir = sys.argv[idx + 1]
+            if os.path.isdir(target_dir):
+                analyze_directory(target_dir)
+                return
+            else:
+                print(f"Directory not found: {target_dir}")
+                sys.exit(1)
+        else:
+            print("Usage: python gas_optimization.py --analyze <directory>")
+            sys.exit(1)
+    
+    # Default: run with sample data
     sample_contract = '''
     pub fn expensive_function(env: Env, data: Vec<Bytes>) -> Vec<Bytes> {
         let mut results = Vec::new(&env);

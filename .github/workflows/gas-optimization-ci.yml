@@ -57,6 +57,16 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y pkg-config libssl-dev
 
+      - name: Cache cargo registry
+        if: matrix.component == 'contracts/contracts' || matrix.component == 'contracts/deployable'
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            ${{ matrix.component }}/target
+          key: ${{ runner.os }}-cargo-${{ matrix.component }}-${{ hashFiles(format('{0}/Cargo.lock', matrix.component)) }}
+
       - name: Install Rust dependencies (contracts)
         if: matrix.component == 'contracts/contracts' || matrix.component == 'contracts/deployable'
         run: |
@@ -125,6 +135,15 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y pkg-config libssl-dev
           pip install -r ai/requirements.txt
+
+      - name: Cache cargo registry
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            contracts/contracts/target
+          key: ${{ runner.os }}-cargo-gas-analysis-${{ hashFiles('contracts/contracts/Cargo.lock') }}
 
       - name: Run comprehensive gas analysis
         run: |

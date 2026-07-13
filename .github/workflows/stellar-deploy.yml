@@ -30,6 +30,15 @@ jobs:
       - name: Install Node dependencies
         run: npm ci
 
+      - name: Cache cargo registry
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            contracts/deployable/target
+          key: ${{ runner.os }}-cargo-stellar-deploy-${{ hashFiles('contracts/deployable/Cargo.lock') }}
+
       - name: Build Soroban contracts
         run: |
           cd contracts/deployable

@@ -777,8 +777,84 @@ class AdvancedPatternRecognizer:
         
         return ''.join(report)
 
+def analyze_directory(directory_path: str):
+    """Analyze all Rust source files in a directory"""
+    import glob as glob_mod
+    
+    rs_files = glob_mod.glob(os.path.join(directory_path, "**", "*.rs"), recursive=True)
+    if not rs_files:
+        print(f"No Rust source files found in {directory_path}")
+        return {}
+    
+    print(f"Found {len(rs_files)} Rust source file(s) in {directory_path}")
+    
+    recognizer = AdvancedPatternRecognizer()
+    all_summaries = []
+    all_patterns = []
+    
+    for rs_file in rs_files:
+        print(f"\n--- Analyzing: {rs_file} ---")
+        with open(rs_file, 'r') as f:
+            code = f.read()
+        
+        if not code.strip():
+            print(f"  Skipping empty file: {rs_file}")
+            continue
+        
+        result = recognizer.analyze_contract(code)
+        summary = result.get('summary', {})
+        patterns_found = result.get('patterns', [])
+        
+        print(f"  Patterns found: {summary.get('total_patterns', 0)}")
+        print(f"  Potential savings: {summary.get('total_potential_savings', 0):,}")
+        
+        all_summaries.append((rs_file, summary))
+        all_patterns.extend(patterns_found)
+    
+    # Save combined results
+    report_path = 'pattern_analysis.json'
+    
+    combined = {
+        'files_analyzed': len(all_summaries),
+        'total_patterns': sum(s.get('total_patterns', 0) for _, s in all_summaries),
+        'total_potential_savings': sum(s.get('total_potential_savings', 0) for _, s in all_summaries),
+        'high_priority': sum(s.get('high_priority_patterns', 0) for _, s in all_summaries),
+        'file_results': [
+            {
+                'file': fp,
+                'patterns': s.get('total_patterns', 0),
+                'savings': s.get('total_potential_savings', 0),
+                'high_priority': s.get('high_priority_patterns', 0)
+            }
+            for fp, s in all_summaries
+        ]
+    }
+    
+    with open(report_path, 'w') as f:
+        json.dump(combined, f, indent=2)
+    
+    print(f"\nPattern analysis saved to {report_path}")
+    return combined
+
+
 def main():
     """Main function for testing pattern recognition"""
+    import sys
+    
+    # Check for --analyze <directory> flag
+    if '--analyze' in sys.argv:
+        idx = sys.argv.index('--analyze')
+        if idx + 1 < len(sys.argv):
+            target_dir = sys.argv[idx + 1]
+            if os.path.isdir(target_dir):
+                analyze_directory(target_dir)
+                return
+            else:
+                print(f"Directory not found: {target_dir}")
+                sys.exit(1)
+        else:
+            print("Usage: python pattern_recognition.py --analyze <directory>")
+            sys.exit(1)
     # Sample contract code
     sample_contract = '''
     pub fn complex_function(env: Env, data: Vec<Bytes>) -> Vec<Bytes> {
