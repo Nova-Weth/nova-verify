@@ -9,7 +9,7 @@ on:
     - cron: '0 2 * * *'
 
 env:
-  RUST_VERSION: stable
+  RUST_VERSION: '1.84.0'
   NODE_VERSION: 18
   PYTHON_VERSION: '3.11'
 
