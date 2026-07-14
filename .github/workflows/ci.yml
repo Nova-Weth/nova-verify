@@ -32,5 +32,15 @@ jobs:
       - name: Run tests
         run: npm test -- --forceExit
 
+      - name: Run tests with coverage
+        run: npm run test:coverage -- --forceExit
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage-report-${{ matrix.node-version }}
+          path: coverage/
+
       - name: Type check
         run: npx tsc --noEmit
