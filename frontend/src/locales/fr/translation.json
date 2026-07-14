@@ -1,0 +1,188 @@
+{
+  "common": {
+    "appName": "Nova Verify",
+    "tagline": "Vérification de Preuves Décentralisée",
+    "loading": "Chargement...",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "create": "Créer",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "export": "Exporter",
+    "import": "Importer",
+    "submit": "Soumettre",
+    "confirm": "Confirmer",
+    "back": "Retour",
+    "next": "Suivant",
+    "close": "Fermer",
+    "copy": "Copier",
+    "copied": "Copié !",
+    "retry": "Réessayer",
+    "dismiss": "Ignorer",
+    "learnMore": "En savoir plus",
+    "viewAll": "Voir tout",
+    "noResults": "Aucun résultat trouvé",
+    "somethingWentWrong": "Une erreur est survenue",
+    "tryAgain": "Veuillez réessayer",
+    "required": "Requis",
+    "optional": "Optionnel"
+  },
+  "nav": {
+    "home": "Accueil",
+    "dashboard": "Tableau de Bord",
+    "issueProof": "Émettre une Preuve",
+    "verifyProof": "Vérifier une Preuve",
+    "marketplace": "Marché",
+    "search": "Rechercher",
+    "wallet": "Portefeuille",
+    "visualization": "Visualisation",
+    "settings": "Paramètres",
+    "profile": "Profil",
+    "signIn": "Se Connecter",
+    "signOut": "Se Déconnecter",
+    "register": "S'inscrire",
+    "apiKeys": "Clés API",
+    "help": "Aide",
+    "documentation": "Documentation"
+  },
+  "home": {
+    "heroTitle": "Plateforme Décentralisée de Vérification de Preuves",
+    "heroSubtitle": "Émettez, vérifiez et gérez des preuves cryptographiques sur la blockchain Stellar. Sécurisé, transparent et infalsifiable.",
+    "getStarted": "Commencer",
+    "learnMore": "En Savoir Plus",
+    "features": {
+      "title": "Fonctionnalités Clés",
+      "instantVerification": {
+        "title": "Vérification Instantanée",
+        "description": "Vérifiez les preuves en temps réel avec une certitude cryptographique"
+      },
+      "blockchainSecurity": {
+        "title": "Sécurité Blockchain",
+        "description": "Construit sur la blockchain Stellar pour une sécurité et une transparence maximales"
+      },
+      "easyIntegration": {
+        "title": "Intégration Facile",
+        "description": "API et SDK simples pour une intégration transparente avec vos applications"
+      },
+      "multiChain": {
+        "title": "Support Multi-Chaîne",
+        "description": "Vérification inter-chaînes sur Stellar, Ethereum, Polygon et plus"
+      }
+    },
+    "howItWorks": {
+      "title": "Comment Ça Marche",
+      "step1": "Émettez une preuve cryptographique avec votre identité numérique",
+      "step2": "La preuve est stockée sur la blockchain avec un hash unique",
+      "step3": "Des tiers vérifient la preuve en temps réel",
+      "step4": "Surveillez et gérez toutes vos preuves depuis le tableau de bord"
+    }
+  },
+  "dashboard": {
+    "title": "Tableau de Bord",
+    "totalProofs": "Total des Preuves",
+    "verifiedProofs": "Preuves Vérifiées",
+    "pendingProofs": "Preuves en Attente",
+    "failedProofs": "Preuves Échouées",
+    "recentActivity": "Activité Récente",
+    "analytics": "Analytique",
+    "noProofs": "Pas encore de preuves. Créez votre première preuve pour commencer."
+  },
+  "proof": {
+    "issueNew": "Émettre une Nouvelle Preuve",
+    "verify": "Vérifier la Preuve",
+    "title": "Titre de la Preuve",
+    "description": "Description",
+    "type": "Type de Preuve",
+    "status": "Statut",
+    "created": "Créé",
+    "updated": "Mis à jour",
+    "verified": "Vérifié",
+    "hash": "Hash",
+    "issuer": "Émetteur",
+    "recipient": "Destinataire",
+    "tags": "Étiquettes",
+    "metadata": "Métadonnées",
+    "history": "Historique",
+    "share": "Partager",
+    "revoke": "Révoquer",
+    "export": "Exporter la Preuve",
+    "types": {
+      "identity": "Identité",
+      "education": "Éducation",
+      "employment": "Emploi",
+      "financial": "Financier",
+      "health": "Santé",
+      "legal": "Juridique",
+      "property": "Propriété",
+      "digital": "Actif Numérique",
+      "custom": "Personnalisé"
+    },
+    "statuses": {
+      "draft": "Brouillon",
+      "verified": "Vérifié",
+      "verification_failed": "Vérification Échouée",
+      "revoked": "Révoqué"
+    }
+  },
+  "auth": {
+    "email": "E-mail",
+    "password": "Mot de Passe",
+    "confirmPassword": "Confirmer le Mot de Passe",
+    "stellarAddress": "Adresse Stellar",
+    "signIn": "Se Connecter",
+    "register": "Créer un Compte",
+    "forgotPassword": "Mot de Passe Oublié ?",
+    "noAccount": "Vous n'avez pas de compte ?",
+    "hasAccount": "Vous avez déjà un compte ?",
+    "registerNow": "Inscrivez-vous maintenant",
+    "signInNow": "Connectez-vous",
+    "signOut": "Se Déconnecter",
+    "welcome": "Bon retour",
+    "welcomeNew": "Créez votre compte"
+  },
+  "wallet": {
+    "connect": "Connecter le Portefeuille",
+    "disconnect": "Déconnecter",
+    "balance": "Solde",
+    "address": "Adresse",
+    "network": "Réseau",
+    "freighter": "Portefeuille Freighter",
+    "albedo": "Albedo",
+    "ledger": "Ledger"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "general": "Général",
+    "security": "Sécurité",
+    "notifications": "Notifications",
+    "apiKeys": "Clés API",
+    "theme": "Thème",
+    "language": "Langue",
+    "light": "Clair",
+    "dark": "Sombre",
+    "system": "Système"
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "pt": "Português"
+  },
+  "errors": {
+    "networkError": "Erreur réseau. Vérifiez votre connexion.",
+    "serverError": "Erreur du serveur. Veuillez réessayer plus tard.",
+    "unauthorized": "Veuillez vous connecter pour continuer.",
+    "notFound": "La ressource demandée est introuvable.",
+    "validationError": "Veuillez vérifier votre saisie et réessayer.",
+    "rateLimited": "Trop de requêtes. Veuillez patienter et réessayer."
+  },
+  "footer": {
+    "about": "À Propos",
+    "privacy": "Politique de Confidentialité",
+    "terms": "Conditions d'Utilisation",
+    "contact": "Contact",
+    "allRightsReserved": "Tous droits réservés."
+  }
+}

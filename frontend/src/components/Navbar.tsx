@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, FileText, CheckCircle, BarChart3, ShoppingBag, Search } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { trackEvent } from '../analytics/ga';
 import { FreighterConnect } from '../components/Wallet';
+import LanguageSelector from './LanguageSelector';
 
 const Navbar = () => {
+  const { t } = useTranslation();
+
   const handleNavClick = (label: string) => {
     trackEvent({
       action: 'navigation_click',
@@ -29,7 +33,7 @@ const Navbar = () => {
               className="flex items-center space-x-1 text-gray-600 hover:text-blue-600 transition-colors"
             >
               <FileText className="h-4 w-4" />
-              <span>Home</span>
+              <span>{t('nav.home')}</span>
             </Link>
             <Link
               to="/issue"
@@ -37,7 +41,7 @@ const Navbar = () => {
               className="flex items-center space-x-1 text-gray-600 hover:text-blue-600 transition-colors"
             >
               <Shield className="h-4 w-4" />
-              <span>Issue Proof</span>
+              <span>{t('nav.issueProof')}</span>
             </Link>
             <Link
               to="/verify"
@@ -45,7 +49,7 @@ const Navbar = () => {
               className="flex items-center space-x-1 text-gray-600 hover:text-blue-600 transition-colors"
             >
               <CheckCircle className="h-4 w-4" />
-              <span>Verify</span>
+              <span>{t('nav.verifyProof')}</span>
             </Link>
             <Link
               to="/dashboard"
@@ -53,7 +57,7 @@ const Navbar = () => {
               className="flex items-center space-x-1 text-gray-600 hover:text-blue-600 transition-colors"
             >
               <BarChart3 className="h-4 w-4" />
-              <span>Dashboard</span>
+              <span>{t('nav.dashboard')}</span>
             </Link>
             <Link
               to="/marketplace"
@@ -61,7 +65,7 @@ const Navbar = () => {
               className="flex items-center space-x-1 text-gray-600 hover:text-blue-600 transition-colors"
             >
               <ShoppingBag className="h-4 w-4" />
-              <span>Marketplace</span>
+              <span>{t('nav.marketplace')}</span>
             </Link>
             <Link
               to="/search"
@@ -69,8 +73,13 @@ const Navbar = () => {
               className="flex items-center space-x-1 text-gray-600 hover:text-blue-600 transition-colors"
             >
               <Search className="h-4 w-4" />
-              <span>Search</span>
+              <span>{t('nav.search')}</span>
             </Link>
+
+            {/* Language Selector */}
+            <div className="border-l border-gray-200 pl-4">
+              <LanguageSelector variant="buttons" />
+            </div>
 
             {/* Freighter Wallet Connect Button */}
             <div className="border-l border-gray-200 pl-4">
