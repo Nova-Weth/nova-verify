@@ -79,7 +79,7 @@ const analyticsRoutes  = require("./routes/analytics");
 const ipfsRoutes       = require("./routes/ipfs");
 const performanceRoutes = require("./routes/performance");
 const cacheRoutes      = require("./routes/cache");
-const cacheRoutes = require("./routes/cache");
+const apiKeyRoutes     = require("./routes/apiKeys");
 const { redisService } = require("./services/redisService");
 
 const app  = express();
@@ -154,6 +154,7 @@ app.use("/api/analytics",   analyticsRoutes);
 app.use("/api/ipfs",        ipfsRoutes);
 app.use("/api/performance", performanceRoutes);
 app.use("/api/cache",       cacheRoutes);
+app.use("/api/keys",        apiKeyRoutes);
 
 // ── Developer: expose resolved config (non-secret) when flag is enabled ───────
 if (flags.configEndpoint) {
@@ -229,6 +230,7 @@ app.get("/security-status", (req, res) => {
       requestLogging:     "enabled",
       attackDetection:    "enabled",
       geoLocationTracking: "enabled",
+      apiKeyAuth:          "enabled",
     },
   });
 });
