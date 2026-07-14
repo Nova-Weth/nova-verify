@@ -1,0 +1,188 @@
+{
+  "common": {
+    "appName": "Nova Verify",
+    "tagline": "Verificación de Pruebas Descentralizada",
+    "loading": "Cargando...",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "create": "Crear",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "export": "Exportar",
+    "import": "Importar",
+    "submit": "Enviar",
+    "confirm": "Confirmar",
+    "back": "Volver",
+    "next": "Siguiente",
+    "close": "Cerrar",
+    "copy": "Copiar",
+    "copied": "¡Copiado!",
+    "retry": "Reintentar",
+    "dismiss": "Descartar",
+    "learnMore": "Más información",
+    "viewAll": "Ver todo",
+    "noResults": "No se encontraron resultados",
+    "somethingWentWrong": "Algo salió mal",
+    "tryAgain": "Por favor, inténtelo de nuevo",
+    "required": "Requerido",
+    "optional": "Opcional"
+  },
+  "nav": {
+    "home": "Inicio",
+    "dashboard": "Panel",
+    "issueProof": "Emitir Prueba",
+    "verifyProof": "Verificar Prueba",
+    "marketplace": "Mercado",
+    "search": "Buscar",
+    "wallet": "Billetera",
+    "visualization": "Visualización",
+    "settings": "Configuración",
+    "profile": "Perfil",
+    "signIn": "Iniciar Sesión",
+    "signOut": "Cerrar Sesión",
+    "register": "Registrarse",
+    "apiKeys": "Claves API",
+    "help": "Ayuda",
+    "documentation": "Documentación"
+  },
+  "home": {
+    "heroTitle": "Plataforma Descentralizada de Verificación de Pruebas",
+    "heroSubtitle": "Emita, verifique y administre pruebas criptográficas en la blockchain Stellar. Seguro, transparente e inmutable.",
+    "getStarted": "Comenzar",
+    "learnMore": "Más Información",
+    "features": {
+      "title": "Características Principales",
+      "instantVerification": {
+        "title": "Verificación Instantánea",
+        "description": "Verifique pruebas en tiempo real con certeza criptográfica"
+      },
+      "blockchainSecurity": {
+        "title": "Seguridad Blockchain",
+        "description": "Construido sobre la blockchain Stellar para máxima seguridad y transparencia"
+      },
+      "easyIntegration": {
+        "title": "Integración Fácil",
+        "description": "API y SDK simples para una integración perfecta con sus aplicaciones"
+      },
+      "multiChain": {
+        "title": "Soporte Multi-Cadena",
+        "description": "Verificación entre cadenas en Stellar, Ethereum, Polygon y más"
+      }
+    },
+    "howItWorks": {
+      "title": "Cómo Funciona",
+      "step1": "Emita una prueba criptográfica con su identidad digital",
+      "step2": "La prueba se almacena en la blockchain con un hash único",
+      "step3": "Terceros verifican la prueba en tiempo real",
+      "step4": "Monitoree y administre todas sus pruebas desde el panel"
+    }
+  },
+  "dashboard": {
+    "title": "Panel de Control",
+    "totalProofs": "Total de Pruebas",
+    "verifiedProofs": "Pruebas Verificadas",
+    "pendingProofs": "Pruebas Pendientes",
+    "failedProofs": "Pruebas Fallidas",
+    "recentActivity": "Actividad Reciente",
+    "analytics": "Análisis",
+    "noProofs": "Aún no hay pruebas. Cree su primera prueba para comenzar."
+  },
+  "proof": {
+    "issueNew": "Emitir Nueva Prueba",
+    "verify": "Verificar Prueba",
+    "title": "Título de la Prueba",
+    "description": "Descripción",
+    "type": "Tipo de Prueba",
+    "status": "Estado",
+    "created": "Creado",
+    "updated": "Actualizado",
+    "verified": "Verificado",
+    "hash": "Hash",
+    "issuer": "Emisor",
+    "recipient": "Destinatario",
+    "tags": "Etiquetas",
+    "metadata": "Metadatos",
+    "history": "Historial",
+    "share": "Compartir",
+    "revoke": "Revocar",
+    "export": "Exportar Prueba",
+    "types": {
+      "identity": "Identidad",
+      "education": "Educación",
+      "employment": "Empleo",
+      "financial": "Financiero",
+      "health": "Salud",
+      "legal": "Legal",
+      "property": "Propiedad",
+      "digital": "Activo Digital",
+      "custom": "Personalizado"
+    },
+    "statuses": {
+      "draft": "Borrador",
+      "verified": "Verificado",
+      "verification_failed": "Verificación Fallida",
+      "revoked": "Revocado"
+    }
+  },
+  "auth": {
+    "email": "Correo Electrónico",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar Contraseña",
+    "stellarAddress": "Dirección Stellar",
+    "signIn": "Iniciar Sesión",
+    "register": "Crear Cuenta",
+    "forgotPassword": "¿Olvidó su Contraseña?",
+    "noAccount": "¿No tiene una cuenta?",
+    "hasAccount": "¿Ya tiene una cuenta?",
+    "registerNow": "Regístrese ahora",
+    "signInNow": "Inicie sesión",
+    "signOut": "Cerrar Sesión",
+    "welcome": "Bienvenido de nuevo",
+    "welcomeNew": "Cree su cuenta"
+  },
+  "wallet": {
+    "connect": "Conectar Billetera",
+    "disconnect": "Desconectar",
+    "balance": "Saldo",
+    "address": "Dirección",
+    "network": "Red",
+    "freighter": "Billetera Freighter",
+    "albedo": "Albedo",
+    "ledger": "Ledger"
+  },
+  "settings": {
+    "title": "Configuración",
+    "general": "General",
+    "security": "Seguridad",
+    "notifications": "Notificaciones",
+    "apiKeys": "Claves API",
+    "theme": "Tema",
+    "language": "Idioma",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema"
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "pt": "Português"
+  },
+  "errors": {
+    "networkError": "Error de red. Verifique su conexión.",
+    "serverError": "Error del servidor. Inténtelo de nuevo más tarde.",
+    "unauthorized": "Inicie sesión para continuar.",
+    "notFound": "El recurso solicitado no fue encontrado.",
+    "validationError": "Verifique sus datos e inténtelo de nuevo.",
+    "rateLimited": "Demasiadas solicitudes. Espere e inténtelo de nuevo."
+  },
+  "footer": {
+    "about": "Acerca de",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio",
+    "contact": "Contacto",
+    "allRightsReserved": "Todos los derechos reservados."
+  }
+}

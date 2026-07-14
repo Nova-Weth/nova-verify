@@ -1,0 +1,188 @@
+{
+  "common": {
+    "appName": "Nova Verify",
+    "tagline": "Decentralized Proof Verification",
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "search": "Search",
+    "filter": "Filter",
+    "export": "Export",
+    "import": "Import",
+    "submit": "Submit",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "close": "Close",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "retry": "Retry",
+    "dismiss": "Dismiss",
+    "learnMore": "Learn more",
+    "viewAll": "View all",
+    "noResults": "No results found",
+    "somethingWentWrong": "Something went wrong",
+    "tryAgain": "Please try again",
+    "required": "Required",
+    "optional": "Optional"
+  },
+  "nav": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "issueProof": "Issue Proof",
+    "verifyProof": "Verify Proof",
+    "marketplace": "Marketplace",
+    "search": "Search",
+    "wallet": "Wallet",
+    "visualization": "Visualization",
+    "settings": "Settings",
+    "profile": "Profile",
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "register": "Register",
+    "apiKeys": "API Keys",
+    "help": "Help",
+    "documentation": "Documentation"
+  },
+  "home": {
+    "heroTitle": "Decentralized Proof Verification Platform",
+    "heroSubtitle": "Issue, verify, and manage cryptographic proofs on the Stellar blockchain. Secure, transparent, and tamper-proof.",
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "features": {
+      "title": "Key Features",
+      "instantVerification": {
+        "title": "Instant Verification",
+        "description": "Verify proofs in real-time with cryptographic certainty"
+      },
+      "blockchainSecurity": {
+        "title": "Blockchain Security",
+        "description": "Built on Stellar blockchain for maximum security and transparency"
+      },
+      "easyIntegration": {
+        "title": "Easy Integration",
+        "description": "Simple API and SDK for seamless integration with your applications"
+      },
+      "multiChain": {
+        "title": "Multi-Chain Support",
+        "description": "Cross-chain verification across Stellar, Ethereum, Polygon, and more"
+      }
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "step1": "Issue a cryptographic proof with your digital identity",
+      "step2": "The proof is stored on the blockchain with a unique hash",
+      "step3": "Third parties verify the proof in real-time",
+      "step4": "Monitor and manage all your proofs from the dashboard"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "totalProofs": "Total Proofs",
+    "verifiedProofs": "Verified Proofs",
+    "pendingProofs": "Pending Proofs",
+    "failedProofs": "Failed Proofs",
+    "recentActivity": "Recent Activity",
+    "analytics": "Analytics",
+    "noProofs": "No proofs yet. Create your first proof to get started."
+  },
+  "proof": {
+    "issueNew": "Issue New Proof",
+    "verify": "Verify Proof",
+    "title": "Proof Title",
+    "description": "Description",
+    "type": "Proof Type",
+    "status": "Status",
+    "created": "Created",
+    "updated": "Updated",
+    "verified": "Verified",
+    "hash": "Hash",
+    "issuer": "Issuer",
+    "recipient": "Recipient",
+    "tags": "Tags",
+    "metadata": "Metadata",
+    "history": "History",
+    "share": "Share",
+    "revoke": "Revoke",
+    "export": "Export Proof",
+    "types": {
+      "identity": "Identity",
+      "education": "Education",
+      "employment": "Employment",
+      "financial": "Financial",
+      "health": "Health",
+      "legal": "Legal",
+      "property": "Property",
+      "digital": "Digital Asset",
+      "custom": "Custom"
+    },
+    "statuses": {
+      "draft": "Draft",
+      "verified": "Verified",
+      "verification_failed": "Verification Failed",
+      "revoked": "Revoked"
+    }
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "stellarAddress": "Stellar Address",
+    "signIn": "Sign In",
+    "register": "Create Account",
+    "forgotPassword": "Forgot Password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "registerNow": "Register now",
+    "signInNow": "Sign in",
+    "signOut": "Sign Out",
+    "welcome": "Welcome back",
+    "welcomeNew": "Create your account"
+  },
+  "wallet": {
+    "connect": "Connect Wallet",
+    "disconnect": "Disconnect",
+    "balance": "Balance",
+    "address": "Address",
+    "network": "Network",
+    "freighter": "Freighter Wallet",
+    "albedo": "Albedo",
+    "ledger": "Ledger"
+  },
+  "settings": {
+    "title": "Settings",
+    "general": "General",
+    "security": "Security",
+    "notifications": "Notifications",
+    "apiKeys": "API Keys",
+    "theme": "Theme",
+    "language": "Language",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "pt": "Português"
+  },
+  "errors": {
+    "networkError": "Network error. Please check your connection.",
+    "serverError": "Server error. Please try again later.",
+    "unauthorized": "Please sign in to continue.",
+    "notFound": "The requested resource was not found.",
+    "validationError": "Please check your input and try again.",
+    "rateLimited": "Too many requests. Please wait and try again."
+  },
+  "footer": {
+    "about": "About",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "contact": "Contact",
+    "allRightsReserved": "All rights reserved."
+  }
+}
